@@ -79,16 +79,18 @@ def fib_iterative() {
 export default function Home() {
 	return (
 		<CodeBlock.AdapterProvider value={shikiAdapter}>
-			<CodeBlock.Root code={file.code} language={file.language}>
-				<CodeBlock.Header>
-					<CodeBlock.Title>{file.title}</CodeBlock.Title>
-				</CodeBlock.Header>
-				<CodeBlock.Content>
-					<CodeBlock.Code>
-						<CodeBlock.CodeText />
-					</CodeBlock.Code>
-				</CodeBlock.Content>
-			</CodeBlock.Root>
+			<Container>
+				<CodeBlock.Root code={file.code} language={file.language}>
+					<CodeBlock.Header>
+						<CodeBlock.Title>{file.title}</CodeBlock.Title>
+					</CodeBlock.Header>
+					<CodeBlock.Content>
+						<CodeBlock.Code>
+							<CodeBlock.CodeText />
+						</CodeBlock.Code>
+					</CodeBlock.Content>
+				</CodeBlock.Root>
+			</Container>
 		</CodeBlock.AdapterProvider>
 	);
 }
