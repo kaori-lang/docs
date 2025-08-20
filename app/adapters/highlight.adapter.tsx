@@ -1,17 +1,12 @@
-import { createHighlightJsAdapter } from "@chakra-ui/react";
-import hljs from "highlight.js/lib/core";
+import type { HighlighterGeneric } from "shiki";
+import { createShikiAdapter } from "@chakra-ui/react";
 
-const highlightJsAdapter = createHighlightJsAdapter<typeof hljs>({
+export const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
 	async load() {
-		const languages = {
-			kaori: () => import("../highlights/kaori"),
-		};
-		await Promise.all(
-			Object.entries(languages).map(async ([language, file]) => {
-				const { default: langModule } = await file();
-				hljs.registerLanguage(language, langModule);
-			})
-		);
-		return hljs;
+		const { createHighlighter } = await import("shiki");
+		return createHighlighter({
+			langs: ["tsx", "json"],
+			themes: ["github-dark", "github-light"],
+		});
 	},
 });
