@@ -1,3 +1,9 @@
+import { Container, Text } from "@chakra-ui/react";
+
 export default function Home() {
-	return <div></div>;
+	return (
+		<Container>
+			<Text fontSize="2xl">Hi</Text>
+		</Container>
+	);
 }
