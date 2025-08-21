@@ -30,7 +30,7 @@ export const IntroductionComponent: FunctionComponent<
 				<Text>
 					<Highlight
 						query={["simple", "expressive", "readable"]}
-						styles={{ bgColor: "gray.900" }}
+						styles={{ fontStyle: "italic" }}
 					>
 						Kaori is designed to be simple, expressive, and
 						readable. It's syntax combines familiar ideas from
@@ -42,23 +42,6 @@ export const IntroductionComponent: FunctionComponent<
 				<Text>Here is a quick look at some syntax:</Text>
 
 				<CodeBlockComponent code={introductionCode} />
-
-				<Text>
-					<Highlight
-						query={["recursive", "iterative"]}
-						styles={{
-							bg: "gray.900",
-							px: "1",
-							py: "0.5",
-							rounded: "md",
-						}}
-					>
-						Fibonnaci can be written with recursive functions, or
-						iterative, using for loops. This makes the language
-						approachable for beginners while powerful enough for
-						more advanced programs.
-					</Highlight>
-				</Text>
 			</Stack>
 		</SectionContainerComponent>
 	);

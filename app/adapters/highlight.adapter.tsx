@@ -1,7 +1,5 @@
 import type { HighlighterGeneric } from "shiki";
 import { createShikiAdapter } from "@chakra-ui/react";
-import { readFileSync } from "fs";
-
 import kaoriLang from "../adapters/kaori.syntax.json";
 
 export const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
