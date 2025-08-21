@@ -30,7 +30,7 @@ export const IntroductionComponent: FunctionComponent<
 				<Text>
 					<Highlight
 						query={["simple", "expressive", "readable"]}
-						styles={{ fontStyle: "italic" }}
+						styles={{ fontWeight: "bold" }}
 					>
 						Kaori is designed to be simple, expressive, and
 						readable. It's syntax combines familiar ideas from

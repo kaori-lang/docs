@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Text, Code, Stack, Highlight } from "@chakra-ui/react";
+import { Text, Code, Stack, Highlight, Alert } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 
@@ -7,9 +7,18 @@ interface VariablesComponentProps {}
 
 let variablesCode = `
 def main() {
-    a: number = 5;
-    b: String = "hello world";
-    c: bool = true;
+    foo: number = 5;
+    bar: String = "hello world";
+    foo_bar: bool = true;
+}
+`;
+
+let invalidVariableCode = `
+foo: number = 5;
+
+def main() {
+    bar: String = "hello world";
+    foo_bar: bool = true;
 }
 `;
 
@@ -27,12 +36,21 @@ export const VariablesComponent: FunctionComponent<
 				<Text>
 					<Highlight
 						query={["String", "number", "bool"]}
-						styles={{ bgColor: "gray.900" }}
+						styles={{ fontWeight: "bold" }}
 					>
 						String, number and bool are the most basic types:
 					</Highlight>
 				</Text>
 				<CodeBlockComponent code={variablesCode} />
+
+				<Text>
+					<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
+						Notice that foo is now declared in the global scope and
+						that is not allowed, all objects in Kaori can only live
+						in local scope
+					</Highlight>
+				</Text>
+				<CodeBlockComponent code={invalidVariableCode} />
 			</Stack>
 		</SectionContainerComponent>
 	);
