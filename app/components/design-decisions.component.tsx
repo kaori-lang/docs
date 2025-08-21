@@ -13,7 +13,7 @@ const questions = [
 	{
 		value: "1",
 		question: "Why braces instead of indentation for blocks?",
-		answer: "Kaori uses braces to explicitly mark the beginning and end of code blocks. This avoids ambiguity, makes nesting clear, and allows the language to support more complex expressions and statements without relying on whitespace sensitivity.",
+		answer: "I fell in love with the C-like a long ago, sorry Python",
 	},
 	{
 		value: "2",
@@ -23,8 +23,8 @@ const questions = [
 	},
 	{
 		value: "3",
-		question: "Why there is no null value?",
-		answer: "Having explicit null values and uninitialized variables adds more runtime checks and more overhead",
+		question: "Why are there no default initialized variables?",
+		answer: "Enforcing variables to be declared with a value removes the extra complexity of having to confirm whether it got assigned to some actual value or it is being referenced in some place with default value and it should throw compilation error",
 	},
 	{
 		value: "4",
@@ -35,12 +35,12 @@ const questions = [
 	{
 		value: "5",
 		question: "Why nested functions are not allowed?",
-		answer: "Kaori does not allow nested functions to keep the function resolution and bytecode layout simple. All functions exist at the top level, which avoids capturing outer scopes, reduces runtime overhead",
+		answer: "Lexical scope resolution for nested functions adds way more complexity than what I intend to deal with right now, capturing outer scope variables when every function is on the top level is a whole different story, I didn't want to spend too much time in that topic, nested functions might be added in the future!",
 	},
 	{
 		value: "6",
 		question: "Why only a single type to represent numbers?",
-		answer: "The lack of distinctions between integers and floats keeps it simple",
+		answer: "The lack of distinctions between integers and floats is the kind of simplicity that I like",
 	},
 	{
 		value: "7",
