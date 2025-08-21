@@ -23,8 +23,8 @@
 		"types": {
 			"patterns": [
 				{
-					"name": "storage.type.kaori",
-					"match": "\\b(num|bool|str)\\b"
+					"name": "entity.name.type.kaori",
+					"match": "\\b[A-Z][A-Za-z0-9_]*|number|bool\\b"
 				}
 			]
 		},
@@ -44,7 +44,7 @@
 			"patterns": [
 				{
 					"name": "constant.language.kaori",
-					"match": "\\b(true|false|null)\\b"
+					"match": "\\b(true|false)\\b"
 				}
 			]
 		},
@@ -91,12 +91,18 @@
 			"patterns": [
 				{
 					"name": "comment.line.double-slash.kaori",
-					"match": "//.*$"
+					"match": "//.*"
 				},
 				{
 					"name": "comment.block.kaori",
 					"begin": "/\\*",
-					"end": "\\*/"
+					"end": "\\*/",
+					"patterns": [
+						{
+							"name": "comment.block.documentation.kaori",
+							"match": "\\*\\s.*"
+						}
+					]
 				}
 			]
 		}
