@@ -22,10 +22,10 @@ export const HelloWorldComponent: FunctionComponent<
 						query={["hello world"]}
 						styles={{ bgColor: "gray.900" }}
 					>
-						Creating your first program in Kaori is quite simple and
-						main function does not need an explicit return type
-						annotation, because it is only the entry point of our
-						program
+						Writting your first program in Kaori is quite simple and
+						the main function does not need a return type
+						annotation, because the entry point of the program does
+						not need to return values
 					</Highlight>
 				</Text>
 

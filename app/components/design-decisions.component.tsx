@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
-import { Text, Stack, Highlight, Accordion, Span } from "@chakra-ui/react";
+import { Accordion, Span } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
-import { CodeBlockComponent } from "./code-block.component";
 
 interface DesignDecisionsComponentProps {}
 
