@@ -92,10 +92,63 @@ def fib_iterative() {
 `;
 
 const compositeExample = `
-def createCar() -> Car {
-    myCar: Car = { model: "Tesla Model S", year: 2025, electric: true };
-    return myCar;
-}
+program                  -> function_declaration* EOF
+
+type                     -> function_type | primitive_type
+primitive_type           -> bool | num | str
+function_type            -> ( [type [, type]*] ) -> type
+
+variable_declaration     -> identifier : type = expression ;
+
+parameter                -> identifier: type
+function_declaration     -> def identifier ( [parameter [, parameter]*]? ) (-> type)? block_statement
+
+block_statement          -> {
+                           expression_statement
+                         | print_statement
+                         | if_statement
+                         | while_statement
+                         | for_statement
+                         | block_statement
+                         | variable_declaration }
+
+expression_statement     -> expression ;
+
+print_statement          -> print ( expression ) ;
+
+if_statement             -> if expression block_statement [else [if_statement | block_statement]]?
+
+while_statement          -> while expression block_statement
+
+for_statement            -> for variable_declaration ; expression ; expression block_statement
+
+expression               -> assignment | logic_or
+
+assignment               -> identifier = expression
+
+logic_or                 -> logic_and [|| logic_and]*
+
+logic_and                -> equality [&& equality]*
+
+equality                 -> comparison [[!= | ==] comparison]*
+
+comparison               -> term [[> | >= | < | <=] term]*
+
+term                     -> factor [[+ | -] factor]*
+
+factor                   -> prefix_unary [[* | /] prefix_unary]*
+
+prefix_unary             -> [! | -] unary | primary
+
+primary                  -> number_literal
+                         | string_literal
+                         | boolean_literal
+                         | postfix_unary
+                         | ( expression )
+
+postfix_unary            -> [identifier [++ | --]? | function_call]
+
+function_call            -> callee [(expression [, expression]*)]*
 `;
 
 const operatorItems = [
@@ -125,7 +178,7 @@ export default function Home() {
 		<CodeBlock.AdapterProvider value={shikiAdapter}>
 			<Container maxW="5xl" py={10}>
 				<VStack spaceY={8} align="start">
-					<Heading size="2xl">Kaori Language Documentation</Heading>
+					<Heading size="4xl">Kaori Programming Language</Heading>
 
 					<Box w="full">
 						<Heading size="lg" mb={2}>
@@ -138,92 +191,6 @@ export default function Home() {
 							<code>bool</code>:
 						</Text>
 						<CodeBlockComponent code={varsExample} />
-					</Box>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Operators
-						</Heading>
-						<Text mb={4}>
-							Kaori provides arithmetic, comparison, equality, and
-							logical operators. Here’s a summary:
-						</Text>
-						<Table.Root size="md">
-							<Table.Header>
-								<Table.Row>
-									<Table.ColumnHeader>
-										Operator(s)
-									</Table.ColumnHeader>
-									<Table.ColumnHeader>
-										Category
-									</Table.ColumnHeader>
-									<Table.ColumnHeader>
-										Description
-									</Table.ColumnHeader>
-								</Table.Row>
-							</Table.Header>
-							<Table.Body>
-								{operatorItems.map((op) => (
-									<Table.Row key={op.id}>
-										<Table.Cell>{op.symbol}</Table.Cell>
-										<Table.Cell>{op.category}</Table.Cell>
-										<Table.Cell>{op.desc}</Table.Cell>
-									</Table.Row>
-								))}
-							</Table.Body>
-						</Table.Root>
-						<Text mt={4}>
-							Operators can be used in expressions and assigned to
-							variables:
-						</Text>
-						<CodeBlockComponent code={opsExample} />
-					</Box>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Conditionals
-						</Heading>
-						<Text mb={4}>
-							Use <b>if</b> / <b>else</b> to branch logic:
-						</Text>
-						<CodeBlockComponent code={ifElseExample} />
-					</Box>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Loops
-						</Heading>
-						<Text mb={4}>
-							Kaori supports C-style <b>for</b> loops, nested
-							loops, and <b>while</b> loops:
-						</Text>
-						<CodeBlockComponent code={forLoopExample} />
-						<CodeBlockComponent code={nestedForExample} />
-						<CodeBlockComponent code={whileExample} />
-					</Box>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Functions
-						</Heading>
-						<Text mb={4}>
-							Functions are defined with <b>def</b>, accept typed
-							parameters, and can specify a return type:
-						</Text>
-						<CodeBlockComponent code={fibExample} />
-						<CodeBlockComponent code={fibIterativeExample} />
-					</Box>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Composite Types
-						</Heading>
-						<Text mb={4}>
-							Structured objects are declared with{" "}
-							<code>&#123; ... &#125;</code> and can be returned
-							from functions:
-						</Text>
-						<CodeBlockComponent code={compositeExample} />
 					</Box>
 				</VStack>
 			</Container>
