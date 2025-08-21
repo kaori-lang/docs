@@ -30,7 +30,7 @@ export const VariablesComponent: FunctionComponent<
 			<Stack spaceY={4}>
 				<Text>
 					Variable declaration needs the type annotation and they must
-					always be initialized with their right hand side values
+					always be initialized with their right hand side values.
 				</Text>
 
 				<Text>
@@ -47,7 +47,7 @@ export const VariablesComponent: FunctionComponent<
 					<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
 						Notice that foo is now declared in the global scope and
 						that is not allowed, all objects can only live in local
-						scope
+						scope.
 					</Highlight>
 				</Text>
 				<CodeBlockComponent code={invalidVariableCode} />

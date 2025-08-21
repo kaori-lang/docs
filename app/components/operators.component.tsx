@@ -128,12 +128,12 @@ export const OperatorsComponent: FunctionComponent<
 						]}
 						styles={{ fontWeight: "bold" }}
 					>
-						Operators are the building blocks of expressions. In
-						Kaori, they are divided into arithmetic, comparison,
-						logical, assignment, and unary categories. Each operator
-						has a fixed precedence, which determines the order in
-						which expressions are evaluated when multiple operators
-						appear together.
+						Operators are the building blocks of expressions. They
+						are divided into arithmetic, comparison, logical,
+						assignment, and unary categories. Each operator has a
+						fixed precedence, which determines the order in which
+						expressions are evaluated when multiple operators appear
+						together.
 					</Highlight>
 				</Text>
 
@@ -143,7 +143,7 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
-					code={`3 + 4 * 5; //  23
+					code={`3 + 4 * 5; // 23
 (3 + 4) * 5; // 35`}
 				/>
 
@@ -180,10 +180,10 @@ true || false; // true
 
 				<Text>
 					<Highlight
-						query={["assignment operator", "lowest precedence"]}
+						query={["assignment operator"]}
 						styles={{ fontWeight: "bold" }}
 					>
-						The assignment operator = has the lowest precedence,
+						The assignment operator has the lowest precedence,
 						ensuring that the expression on the right-hand side is
 						fully evaluated before being assigned to the variable on
 						the left:

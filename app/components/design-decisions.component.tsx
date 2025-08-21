@@ -45,7 +45,7 @@ const questions = [
 	{
 		value: "7",
 		question: "Why stack based virtual machine instead of register?",
-		answer: "Generating bytecode for stack based vm is an easier and temporary solution to be able to get things running",
+		answer: "Generating bytecode for stack based vm is an easier, yet efficient approach if compared to the naive tree walker and it is temporary a solution to be able to get things running",
 	},
 ];
 

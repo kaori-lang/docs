@@ -25,7 +25,7 @@ export const HelloWorldComponent: FunctionComponent<
 						Writting your first program in Kaori is quite simple and
 						the main function does not need a return type
 						annotation, because the entry point of the program does
-						not need to return values
+						not need to return values.
 					</Highlight>
 				</Text>
 
