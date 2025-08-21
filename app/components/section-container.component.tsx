@@ -11,7 +11,7 @@ export const SectionContainerComponent: FunctionComponent<
 > = ({ title, children }) => {
 	return (
 		<Box w="full">
-			<Heading>{title}</Heading>
+			<Heading size="3xl">{title}</Heading>
 
 			<Box>{children}</Box>
 		</Box>

@@ -1,19 +1,65 @@
-import { Box, Heading } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
+import { Text, Code, Stack, Highlight } from "@chakra-ui/react";
+import { SectionContainerComponent } from "./section-container.component";
+import { CodeBlockComponent } from "./code-block.component";
 
-interface IntroductionComponentProps {
-	title: string;
-	children: React.ReactNode;
+interface IntroductionComponentProps {}
+
+let introductionCode = `
+def main() {
+    fib_n: number = 5;
+    print(fib(fib_n));
 }
+
+def fib(n: number) -> number {
+    if n == 0 {
+        return 0;
+    }
+    if n == 1 {
+        return 1;
+    }
+    return fib(n - 1) + fib(n - 2);
+}`;
 
 export const IntroductionComponent: FunctionComponent<
 	IntroductionComponentProps
-> = ({ title, children }) => {
+> = () => {
 	return (
-		<Box w="full">
-			<Heading>{title}</Heading>
+		<SectionContainerComponent title="Introduction">
+			<Stack spaceY={4}>
+				<Text>
+					<Highlight
+						query={["simple", "expressive", "readable"]}
+						styles={{ bgColor: "gray.900" }}
+					>
+						Kaori is designed to be simple, expressive, and
+						readable. It's syntax combines familiar ideas from
+						modern languages while keeping a minimal and clean
+						structure.
+					</Highlight>
+				</Text>
 
-			<Box>{children}</Box>
-		</Box>
+				<Text>Here is a quick look at some syntax:</Text>
+
+				<CodeBlockComponent code={introductionCode} />
+
+				<Text>
+					<Highlight
+						query={["recursive", "iterative"]}
+						styles={{
+							bg: "gray.900",
+							px: "1",
+							py: "0.5",
+							rounded: "md",
+						}}
+					>
+						Fibonnaci can be written with recursive functions, or
+						iterative, using for loops. This makes the language
+						approachable for beginners while powerful enough for
+						more advanced programs.
+					</Highlight>
+				</Text>
+			</Stack>
+		</SectionContainerComponent>
 	);
 };

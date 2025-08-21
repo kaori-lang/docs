@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { shikiAdapter } from "./adapters/highlight.adapter";
 import { CodeBlockComponent } from "./components/code-block.component";
+import { IntroductionComponent } from "./components/introduction.component";
 
 const varsExample = `
 b: String = "Kaori Lang";
@@ -177,22 +178,7 @@ export default function Home() {
 	return (
 		<CodeBlock.AdapterProvider value={shikiAdapter}>
 			<Container maxW="5xl" py={10}>
-				<VStack spaceY={8} align="start">
-					<Heading size="4xl">Kaori Programming Language</Heading>
-
-					<Box w="full">
-						<Heading size="lg" mb={2}>
-							Variables & Types
-						</Heading>
-						<Text mb={4}>
-							Kaori supports typed variable declarations using{" "}
-							<b>:</b>. Example of <code>str</code>,{" "}
-							<code>String</code>, <code>number</code>, and{" "}
-							<code>bool</code>:
-						</Text>
-						<CodeBlockComponent code={varsExample} />
-					</Box>
-				</VStack>
+				<IntroductionComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);
