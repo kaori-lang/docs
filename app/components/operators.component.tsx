@@ -143,8 +143,8 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
-					code={`3 + 4 * 5   // evaluates as 3 + (4 * 5) = 23
-(3 + 4) * 5 // parentheses override precedence = 35`}
+					code={`3 + 4 * 5; //  23
+(3 + 4) * 5; // 35`}
 				/>
 
 				<Text>
@@ -157,9 +157,9 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
-					code={`12 > 7    // true
-7 == 12   // false
-95 >= 95  // true`}
+					code={`12 > 7; // true
+7 == 12; // false
+95 >= 95; // true`}
 				/>
 
 				<Text>
@@ -173,9 +173,9 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
-					code={`true && false   // false
-true || false   // true
-!(5 == 6)       // true`}
+					code={`true && false; // false
+true || false; // true
+!(5 == 6); // true`}
 				/>
 
 				<Text>
@@ -190,7 +190,7 @@ true || false   // true
 					</Highlight>
 				</Text>
 
-				<CodeBlockComponent code={`a: num = 3 + 4 * 2; // a = 11`} />
+				<CodeBlockComponent code={`a = 3 + 4 * 2; // a = 11;`} />
 
 				<Text>
 					<Highlight
@@ -199,7 +199,8 @@ true || false   // true
 					>
 						Parentheses can always be used to make evaluation order
 						explicit, and are recommended for readability in complex
-						expressions
+						expressions, with lack of parentheses the parsing is
+						done according to operators precedence:
 					</Highlight>
 				</Text>
 

@@ -46,8 +46,8 @@ export const VariablesComponent: FunctionComponent<
 				<Text>
 					<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
 						Notice that foo is now declared in the global scope and
-						that is not allowed, all objects in Kaori can only live
-						in local scope
+						that is not allowed, all objects can only live in local
+						scope
 					</Highlight>
 				</Text>
 				<CodeBlockComponent code={invalidVariableCode} />
