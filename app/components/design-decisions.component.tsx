@@ -30,7 +30,7 @@ const questions = [
 		value: "4",
 		question:
 			"Why is there no creation of objects for functions at runtime?",
-		answer: "By not creating runtime objects for functions, Kaori reduces indirection and overhead. Function calls translate directly to bytecode jumps, improving execution speed compared to languages where functions are first-class objects",
+		answer: "Less indirection, function calls translate directly to bytecode jumps",
 	},
 	{
 		value: "5",

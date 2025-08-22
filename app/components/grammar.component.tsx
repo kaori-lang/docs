@@ -17,7 +17,7 @@ function_declaration     -> "def" identifier "(" (parameter ("," parameter)*)? "
 let expressionRules = `
 expression               -> assignment | logic_or
 
-assignment               -> identifier "=" expression
+assignment               -> identifier "=" expression // Changing in the future
 
 logic_or                 -> logic_and ("||" logic_and)*
 
@@ -39,9 +39,9 @@ primary                  -> number_literal
                          | postfix_unary
                          | "(" expression ")"
 
-postfix_unary            -> identifier ("++" | "--")? | function_call
+postfix_unary            -> identifier ("++" | "--")? | function_call // Changing in the future
 
-function_call            -> callee "(" (expression ("," expression)*)? ")"
+function_call            -> identifier ("(" (expression ("," expression)*)? ")")*  // Changing in the future
 `;
 
 let statementRules = `
@@ -69,7 +69,7 @@ type            -> function_type | simple_type
 
 simple_type     -> primitive_type | identifier
 
-primitive_type  -> "bool" | "number" | "string"
+primitive_type  -> "bool" | "number"
 
 function_type   -> "(" (type ("," type)*)? ")" "->" type
 
@@ -111,7 +111,7 @@ export const GrammarComponent: FunctionComponent<
 				<Text>
 					A programming language also has its own grammar. In English
 					grammar classes, we learned the rules to build our first
-					sentences formed with words, in the computer science:
+					sentences formed with words, in the compilers world
 					statements, expressions and declarations are built with
 					tokens that are formed by a sequence of one or more
 					characters.

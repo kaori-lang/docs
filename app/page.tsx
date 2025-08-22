@@ -10,6 +10,7 @@ import { VariablesComponent } from "./components/variables.component";
 import { OperatorsComponent } from "./components/operators.component";
 import { GrammarComponent } from "./components/grammar.component";
 import { ControlFlowComponent } from "./components/control-flow.component";
+import { FunctionsComponent } from "./components/functions.component";
 
 export default function Home() {
 	return (
@@ -28,6 +29,8 @@ export default function Home() {
 				<OperatorsComponent />
 
 				<ControlFlowComponent />
+
+				<FunctionsComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);
