@@ -7,7 +7,7 @@ export const shikiAdapter = createShikiAdapter<HighlighterGeneric<any, any>>({
 	async load() {
 		const { createHighlighter } = await import("shiki");
 		return createHighlighter({
-			langs: [kaoriLang, regexGrammar],
+			langs: [kaoriLang, regexGrammar, "rust"],
 			themes: ["github-dark", "github-light"],
 		});
 	},

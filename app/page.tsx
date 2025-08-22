@@ -18,13 +18,13 @@ export default function Home() {
 
 				<DesignDecisionsComponent />
 
+				<GrammarComponent />
+
 				<HelloWorldComponent />
 
 				<VariablesComponent />
 
 				<OperatorsComponent />
-
-				<GrammarComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);

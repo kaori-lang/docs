@@ -72,7 +72,7 @@
 				},
 				{
 					"name": "keyword.operator.logical.kaori",
-					"match": "!"
+					"match": "(!|&&|\\|)"
 				}
 			]
 		},

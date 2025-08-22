@@ -210,7 +210,8 @@ true || false; // true
 						Parentheses can always be used to make evaluation order
 						explicit, and are recommended for readability in complex
 						expressions, with lack of parentheses the parsing is
-						done according to operators precedence:
+						done according to operators precedence, if the
+						precedence is higher then the priority is higher
 					</Highlight>
 				</Text>
 
