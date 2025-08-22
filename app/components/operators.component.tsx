@@ -40,7 +40,7 @@ export const OperatorsComponent: FunctionComponent<
 						query={["Comparison operators", "boolean"]}
 						styles={{ fontWeight: "bold" }}
 					>
-						{`Comparison operators like >, <=, or ==" always evaluate to a boolean value (true or false):`}
+						{`Comparison operators like >, <=, or == always evaluate to a boolean value:`}
 					</Highlight>
 				</Text>
 
@@ -57,8 +57,8 @@ export const OperatorsComponent: FunctionComponent<
 						query={["Logical operators"]}
 						styles={{ fontWeight: "bold" }}
 					>
-						Logical operators such as && (and) and || (or) allow
-						combining boolean expressions:
+						Logical operators such as && and || allow combining
+						boolean expressions:
 					</Highlight>
 				</Text>
 
@@ -94,10 +94,9 @@ true || false; // true
 						styles={{ fontWeight: "bold" }}
 					>
 						Parentheses can always be used to make evaluation order
-						explicit, and are recommended for readability in complex
-						expressions, with lack of parentheses the parsing is
-						done according to operators precedence, if the
-						precedence is higher then the priority is higher
+						explicit. If parentheses are omitted, parsing follows
+						operator precedence: higher-precedence operators are
+						evaluated before lower-precedence ones."
 					</Highlight>
 				</Text>
 			</Stack>

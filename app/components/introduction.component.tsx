@@ -33,9 +33,9 @@ export const IntroductionComponent: FunctionComponent<
 						styles={{ fontWeight: "bold" }}
 					>
 						Kaori is designed to be simple, expressive, and
-						readable. It's syntax combines familiar ideas from
-						modern languages such as Python and Rust, while keeping
-						a minimal and clean structure.
+						readable. Its syntax combines familiar ideas from modern
+						languages such as Python and Rust, while keeping a
+						minimal and clean structure.
 					</Highlight>
 				</Text>
 

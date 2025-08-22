@@ -45,17 +45,17 @@ function_call            -> callee "(" (expression ("," expression)*)? ")"
 `;
 
 let statementRules = `
-block_statement          -> "{" ( expression_statement ";"
-                                 | print_statement ";"
+block_statement          -> "{" ( expression_statement
+                                 | print_statement
                                  | if_statement
                                  | while_statement
                                  | for_statement
                                  | block_statement
                                  | variable_declaration ";")* "}"
 
-expression_statement     -> expression 
+expression_statement     -> expression ";"
 
-print_statement          -> "print" "(" expression ")"
+print_statement          -> "print" "(" expression ")" ";"
 
 if_statement             -> "if" expression block_statement ("else" (if_statement | block_statement))?
 
@@ -65,9 +65,14 @@ for_statement            -> "for" variable_declaration ";" expression ";" expres
 `;
 
 let typeRules = `
-type                     -> (function_type | primitive_type)
-primitive_type           -> "bool" | "number" | "String"
-function_type            -> "(" (type ("," type)*)? ")" "->" type
+type            -> function_type | simple_type
+
+simple_type     -> primitive_type | identifier
+
+primitive_type  -> "bool" | "number" | "string"
+
+function_type   -> "(" (type ("," type)*)? ")" "->" type
+
 `;
 
 let parseWhileLoopCode = `
@@ -104,11 +109,11 @@ export const GrammarComponent: FunctionComponent<
 		<SectionContainerComponent title="Grammar and the parsing">
 			<Stack spaceY={4}>
 				<Text>
-					A programming language also has it's own grammar, in a
-					English grammar classes we have learned the rules to build
-					our first sentences formed with words, in the computer
-					science statements, expressions and declarations are built
-					with tokens that are formed by a sequence of one or more
+					A programming language also has its own grammar. In English
+					grammar classes, we learned the rules to build our first
+					sentences formed with words, in the computer science:
+					statements, expressions and declarations are built with
+					tokens that are formed by a sequence of one or more
 					characters.
 				</Text>
 
@@ -116,13 +121,14 @@ export const GrammarComponent: FunctionComponent<
 					We are going to enforce a set of rules known as grammar,
 					this is a very important step to develop a compiler, going
 					from a sequence of tokens to an Abstract Syntax Tree that
-					can represent a program in a more meaningful way
+					can represent a program in a more meaningful way.
 				</Text>
 
 				<Text>
 					Here is a non EBNF grammar with custom syntax highlight,
-					created with regular expression, for you non Compiler Dev
-					also be able to understand it without diving deep into EBNF:
+					created with regular expression, so that non-compiler
+					developers can also understand it without having to dive
+					into EBNF syntax:
 				</Text>
 
 				<CodeBlockComponent
@@ -138,7 +144,7 @@ export const GrammarComponent: FunctionComponent<
 							"colon",
 							"assign operator",
 							"expression",
-							"declaration node",
+							"declaration",
 							"syntax error",
 							"type",
 						]}
@@ -146,13 +152,12 @@ export const GrammarComponent: FunctionComponent<
 							fontWeight: "bold",
 						}}
 					>
-						What any of this even mean? Take a look at the variable
-						declaration rule, it takes a sequence of the
-						respectively tokens: an identifier, then a colon, then
-						it tries to parse a type and generate a type ast node
-						for it, then an assign operator token and then finally
-						it tries to parse an expression, after all those steps
-						it builds the declaration node for the variable.
+						What does any of this even mean? Take a look at the
+						variable declaration rule, it expects an identifier,
+						then a colon, then it tries to parse a type, then an
+						assign operator token and then finally it tries to parse
+						an expression, after all those steps it builds the
+						declaration node for the variable.
 					</Highlight>
 				</Text>
 
@@ -168,12 +173,14 @@ export const GrammarComponent: FunctionComponent<
 							fontWeight: "bold",
 						}}
 					>
-						But what if it didn't, for example, find an assign
-						operator after the parsing of type? Then that would be
-						what is known as syntax error! If we are trying to parse
-						a variable declaration, according to the rules an assign
-						operator is always expected after a type annotation, so
-						make sure to not miss it.
+						Let's look at an example where our rule is not
+						followede: what happens if the next token to be consumed
+						after parsing the type annotation is not an assign
+						operator? Then that would be what is known as a syntax
+						error! If we are trying to parse a variable declaration,
+						according to the rules an assign operator is always
+						expected after a type annotation, so make sure to not
+						miss it in your code.
 					</Highlight>
 				</Text>
 
@@ -247,8 +254,7 @@ export const GrammarComponent: FunctionComponent<
 						For parsing a print statement according to the grammar,
 						it is expected a print token, followed by a left
 						parentheses, then an expression, then a right
-						parentheses and finally a semicolon token. I bet you are
-						now convinced about the magic of it, aren't you? 😀
+						parentheses and finally a semicolon token.
 					</Highlight>
 				</Text>
 
@@ -264,22 +270,22 @@ export const GrammarComponent: FunctionComponent<
 				/>
 
 				<Text>
-					Mathematicians a long time ago created the order of
+					Mathematicians, a long time ago, created the order of
 					operations convention, it is so we don't have to put as many
 					parentheses in an expression to be able to express it in a
-					way others would understand it with no ambiguity, they
-					killed two birds with one stone: the expression becomes way
-					less verbose to read and the ambiguity is gone! So here is
-					the question: what is the answer to that expression
+					way others would understand it with no ambiguity issues,
+					they killed two birds with one stone: the expression becomes
+					way less verbose to read and the ambiguity is gone! So here
+					is the question: what is the answer to that expression
 					according to them?
 				</Text>
 
 				<Text>
-					The multiplication is done first, only after the addition is
-					done, and the result is obviously: 17. Multiplication and
-					division are part of the factor rule, addition and
-					subtraction are part of the term rule. Let's take a deep
-					look at them:
+					The multiplication is done before the addition and the
+					result is obviously: 17. Multiplication and division are
+					both part of the factor rule because they share the same
+					precedence level, addition and subtraction are part of the
+					term rule. Let's take a deep look at them:
 				</Text>
 
 				<CodeBlockComponent
@@ -294,13 +300,9 @@ factor                   -> prefix_unary (("*" | "/") prefix_unary)*
 				<Text>
 					To be able to parse an addition or a subtraction, we need to
 					try parse a factor on the left and on the right side of it
-					to ensure all the multiplications or divisions are done
-					before, this is how the order of operations are enforced.
-					The parser will try to find an operator with a higher
-					precedence than factor and parse it before it actually
-					parses factor, that operator might be a prefix unary
-					operator, which is an operator that only takes one operand
-					and comes before it.
+					to ensure all the multiplications or divisions or operators
+					with higher precedence are parsed before, this is how the
+					order of operations are enforced in the parser.
 				</Text>
 
 				<CodeBlockComponent
