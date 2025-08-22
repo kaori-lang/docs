@@ -13,22 +13,13 @@ export const OperatorsComponent: FunctionComponent<
 			<Stack spaceY={4}>
 				<Text>
 					<Highlight
-						query={[
-							"arithmetic",
-							"comparison",
-							"logical",
-							"assignment",
-							"unary",
-							"precedence",
-						]}
+						query={["precedence"]}
 						styles={{ fontWeight: "bold" }}
 					>
-						Operators are the building blocks of expressions. They
-						are divided into arithmetic, comparison, logical,
-						assignment, and unary categories. Each operator has a
-						fixed precedence, which determines the order in which
-						expressions are evaluated when multiple operators appear
-						together.
+						Operators are the building blocks of expressions, and
+						each operator has a fixed precedence, which determines
+						the order in which expressions are evaluated when
+						multiple operators appear together.
 					</Highlight>
 				</Text>
 

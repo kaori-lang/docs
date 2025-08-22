@@ -30,7 +30,7 @@ export const VariablesComponent: FunctionComponent<
 			<Stack spaceY={4}>
 				<Text>
 					Variable declaration needs the type annotation and they must
-					always be initialized with their right hand side values.
+					always be declared with their right hand side values.
 				</Text>
 
 				<Text>

@@ -104,24 +104,24 @@ export const GrammarComponent: FunctionComponent<
 		<SectionContainerComponent title="Grammar and the parsing">
 			<Stack spaceY={4}>
 				<Text>
-					A programming language also has it's own grammar, in our
+					A programming language also has it's own grammar, in a
 					English grammar classes we have learned the rules to build
 					our first sentences formed with words, in the computer
-					science world we build our statements, expressions and
-					declarations, with tokens that are formed by a sequence of
-					one or more characters.
+					science statements, expressions and declarations are built
+					with tokens that are formed by a sequence of one or more
+					characters.
 				</Text>
 
 				<Text>
 					We are going to enforce a set of rules known as grammar,
-					this is a very important step to develop our compiler, we
-					are going from a sequence of tokens to an Abstract Syntax
-					Tree that can represent our program in a more meaningful way
+					this is a very important step to develop a compiler, going
+					from a sequence of tokens to an Abstract Syntax Tree that
+					can represent a program in a more meaningful way
 				</Text>
 
 				<Text>
-					Here is our non EBNF grammar with custom syntax highlight,
-					created with regular expression, for you non compiler dev
+					Here is a non EBNF grammar with custom syntax highlight,
+					created with regular expression, for you non Compiler Dev
 					also be able to understand it without diving deep into EBNF:
 				</Text>
 
@@ -152,7 +152,7 @@ export const GrammarComponent: FunctionComponent<
 						it tries to parse a type and generate a type ast node
 						for it, then an assign operator token and then finally
 						it tries to parse an expression, after all those steps
-						it builds the declaration node for our variable.
+						it builds the declaration node for the variable.
 					</Highlight>
 				</Text>
 
@@ -171,7 +171,7 @@ export const GrammarComponent: FunctionComponent<
 						But what if it didn't, for example, find an assign
 						operator after the parsing of type? Then that would be
 						what is known as syntax error! If we are trying to parse
-						a variable declaration, according to our rules an assign
+						a variable declaration, according to the rules an assign
 						operator is always expected after a type annotation, so
 						make sure to not miss it.
 					</Highlight>
@@ -190,10 +190,10 @@ export const GrammarComponent: FunctionComponent<
 							fontWeight: "bold",
 						}}
 					>
-						Our parser is written with a Recursive Descent Parser
+						The parser is written with a Recursive Descent Parser
 						and the good thing of it is that it mirrors every single
-						non terminal in our grammar. Take a look at the while
-						statement non terminal and let's compare it with our
+						non terminal in the grammar. Take a look at the while
+						statement non terminal and let's compare it with the
 						Rust parser code for it:
 					</Highlight>
 				</Text>
@@ -244,7 +244,7 @@ export const GrammarComponent: FunctionComponent<
 							fontWeight: "bold",
 						}}
 					>
-						For parsing a print statement according to our grammar,
+						For parsing a print statement according to the grammar,
 						it is expected a print token, followed by a left
 						parentheses, then an expression, then a right
 						parentheses and finally a semicolon token. I bet you are
@@ -266,20 +266,20 @@ export const GrammarComponent: FunctionComponent<
 				<Text>
 					Mathematicians a long time ago created the order of
 					operations convention, it is so we don't have to put as many
-					parentheses in our expressions to express the real meaning
-					of it, they killed two birds with one stone: the expression
-					becomes way less verboose to read and the ambiguity is gone!
-					So here is the question: what is the answer to that
-					expression according to mathematicians?
+					parentheses in an expression to be able to express it in a
+					way others would understand it with no ambiguity, they
+					killed two birds with one stone: the expression becomes way
+					less verbose to read and the ambiguity is gone! So here is
+					the question: what is the answer to that expression
+					according to them?
 				</Text>
 
 				<Text>
-					We first do the multiplication and only then we can do the
-					sum, the result is obviously: 17. Our expression's grammar
-					also follow the conventions, multiplication and division are
-					part of the factor non terminal, addition and subtraction
-					are part of the non terminal term. Let's take a deep look at
-					term and factor:
+					The multiplication is done first, only after the addition is
+					done, and the result is obviously: 17. Multiplication and
+					division are part of the factor rule, addition and
+					subtraction are part of the term rule. Let's take a deep
+					look at them:
 				</Text>
 
 				<CodeBlockComponent
@@ -292,14 +292,15 @@ factor                   -> prefix_unary (("*" | "/") prefix_unary)*
 				/>
 
 				<Text>
-					To be able to parse our addition or subtraction, we need to
+					To be able to parse an addition or a subtraction, we need to
 					try parse a factor on the left and on the right side of it
 					to ensure all the multiplications or divisions are done
-					before, this is how the order of operations is enforced. The
-					recursive calls will try to find an operator with a higher
-					precedence than factor before it actually parses it, that
-					operator might be a prefix unary operator, which is an
-					operator that only takes one operand and comes before it.
+					before, this is how the order of operations are enforced.
+					The parser will try to find an operator with a higher
+					precedence than factor and parse it before it actually
+					parses factor, that operator might be a prefix unary
+					operator, which is an operator that only takes one operand
+					and comes before it.
 				</Text>
 
 				<CodeBlockComponent
@@ -307,6 +308,12 @@ factor                   -> prefix_unary (("*" | "/") prefix_unary)*
 					language="regex-grammar"
 					code={expressionRules}
 				/>
+
+				<Text>
+					The last, but not the least important, the parsing rules for
+					types, because types can also be represented by recursive
+					trees.
+				</Text>
 
 				<CodeBlockComponent
 					title="types"
