@@ -29,7 +29,11 @@ export const HelloWorldComponent: FunctionComponent<
 					</Highlight>
 				</Text>
 
-				<CodeBlockComponent code={helloWorldCode} />
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={helloWorldCode}
+				/>
 			</Stack>
 		</SectionContainerComponent>
 	);

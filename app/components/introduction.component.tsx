@@ -41,7 +41,11 @@ export const IntroductionComponent: FunctionComponent<
 
 				<Text>Here is a quick look at some syntax:</Text>
 
-				<CodeBlockComponent code={introductionCode} />
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={introductionCode}
+				/>
 			</Stack>
 		</SectionContainerComponent>
 	);

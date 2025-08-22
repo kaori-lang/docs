@@ -41,7 +41,11 @@ export const VariablesComponent: FunctionComponent<
 						String, number and bool are the most basic types:
 					</Highlight>
 				</Text>
-				<CodeBlockComponent code={variablesCode} />
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={variablesCode}
+				/>
 
 				<Text>
 					<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
@@ -50,7 +54,11 @@ export const VariablesComponent: FunctionComponent<
 						scope.
 					</Highlight>
 				</Text>
-				<CodeBlockComponent code={invalidVariableCode} />
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={invalidVariableCode}
+				/>
 			</Stack>
 		</SectionContainerComponent>
 	);

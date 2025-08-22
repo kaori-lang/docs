@@ -143,6 +143,8 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
 					code={`3 + 4 * 5; // 23
 (3 + 4) * 5; // 35`}
 				/>
@@ -157,6 +159,8 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
 					code={`12 > 7; // true
 7 == 12; // false
 95 >= 95; // true`}
@@ -173,6 +177,8 @@ export const OperatorsComponent: FunctionComponent<
 				</Text>
 
 				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
 					code={`true && false; // false
 true || false; // true
 !(5 == 6); // true`}
@@ -190,7 +196,11 @@ true || false; // true
 					</Highlight>
 				</Text>
 
-				<CodeBlockComponent code={`a = 3 + 4 * 2; // a = 11;`} />
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={`a = 3 + 4 * 2; // a = 11;`}
+				/>
 
 				<Text>
 					<Highlight
