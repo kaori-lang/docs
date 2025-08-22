@@ -9,6 +9,7 @@ import { HelloWorldComponent } from "./components/hello-world.component";
 import { VariablesComponent } from "./components/variables.component";
 import { OperatorsComponent } from "./components/operators.component";
 import { GrammarComponent } from "./components/grammar.component";
+import { ControlFlowComponent } from "./components/control-flow.component";
 
 export default function Home() {
 	return (
@@ -25,6 +26,8 @@ export default function Home() {
 				<VariablesComponent />
 
 				<OperatorsComponent />
+
+				<ControlFlowComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);

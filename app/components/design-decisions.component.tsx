@@ -35,7 +35,7 @@ const questions = [
 	{
 		value: "5",
 		question: "Why are nested functions not allowed?",
-		answer: "Lexical scope resolution for nested functions adds much more complexity than I want to handle right now. Capturing outer scope variables while keeping every function at the top level is a completely different challenge. Nested functions might be added in the future!",
+		answer: "Lexical scope resolution for nested functions adds much more complexity than I want to handle right now. Nested functions might be added in the future!",
 	},
 	{
 		value: "6",
@@ -46,7 +46,7 @@ const questions = [
 		value: "7",
 		question:
 			"Why a stack-based virtual machine instead of a register-based one?",
-		answer: "Generating bytecode for a stack-based VM is an easier yet efficient approach compared to a naïve tree walker. It is a temporary solution to get things running",
+		answer: "It is just a temporary solution to get things running without having to rely on the naive tree walker interpreter",
 	},
 ];
 
