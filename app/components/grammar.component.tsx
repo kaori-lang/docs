@@ -70,6 +70,33 @@ primitive_type           -> "bool" | "number" | "String"
 function_type            -> "(" (type ("," type)*)? ")" "->" type
 `;
 
+let parseWhileLoopCode = `
+fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
+    let span = self.token_stream.span();
+
+    self.token_stream.consume(TokenKind::While)?;
+
+    let condition = self.parse_expression()?;
+    let block = self.parse_block_statement()?;
+
+    Ok(Stmt::while_loop(condition, block, span))
+}
+`;
+
+let parsePrintCode = `
+fn parse_print_statement(&mut self) -> Result<Stmt, KaoriError> {
+    let span = self.token_stream.span();
+
+    self.token_stream.consume(TokenKind::Print)?;
+    self.token_stream.consume(TokenKind::LeftParen)?;
+    let expression = self.parse_expression()?;
+    self.token_stream.consume(TokenKind::RightParen)?;
+    self.token_stream.consume(TokenKind::Semicolon)?;
+
+    Ok(Stmt::print(expression, span))
+}
+`;
+
 export const GrammarComponent: FunctionComponent<
 	GrammarComponentProps
 > = () => {
@@ -81,8 +108,8 @@ export const GrammarComponent: FunctionComponent<
 					English grammar classes we have learned the rules to build
 					our first sentences formed with words, in the computer
 					science world we build our statements, expressions and
-					declarations, with tokens that are formed by a sequence of 1
-					or more characters.
+					declarations, with tokens that are formed by a sequence of
+					one or more characters.
 				</Text>
 
 				<Text>
@@ -149,6 +176,7 @@ export const GrammarComponent: FunctionComponent<
 						make sure to not miss it.
 					</Highlight>
 				</Text>
+
 				<CodeBlockComponent
 					title="statements"
 					language="regex-grammar"
@@ -157,22 +185,121 @@ export const GrammarComponent: FunctionComponent<
 
 				<Text>
 					<Highlight
+						query={["Recursive Descent Parser", "while statement"]}
+						styles={{
+							fontWeight: "bold",
+						}}
+					>
+						Our parser is written with a Recursive Descent Parser
+						and the good thing of it is that it mirrors every single
+						non terminal in our grammar. Take a look at the while
+						statement non terminal and let's compare it with our
+						Rust parser code for it:
+					</Highlight>
+				</Text>
+
+				<CodeBlockComponent
+					title="parser.rs"
+					language="rust"
+					code={parseWhileLoopCode}
+				/>
+
+				<Text>
+					<Highlight
 						query={[
-							"type annotation",
-							"assign operator",
-							"syntax error",
-							"type",
+							"while loop",
+							"while",
+							"expression",
+							"condition",
+							"block statement",
 						]}
 						styles={{
 							fontWeight: "bold",
 						}}
 					>
-						During the parsing of some specific non terminal or
-						rule, we've discussed that we need to consume a set of
-						tokens accordingly to the grammar, but there are still
-						unanswered questions about the commmon ambiguities that
-						often appear in our sequence of tokens
+						It consumes the while token, parses an expression, which
+						is the condition for the while loop, then parses a block
+						statement and that's it, this is the magic of it! Let's
+						look at another example if you're still not convinced:
 					</Highlight>
+				</Text>
+
+				<CodeBlockComponent
+					title="parser.rs"
+					language="rust"
+					code={parsePrintCode}
+				/>
+
+				<Text>
+					<Highlight
+						query={[
+							"print statement",
+							"print",
+							"left parentheses",
+							"expression",
+							"right parentheses",
+							"semicolon",
+						]}
+						styles={{
+							fontWeight: "bold",
+						}}
+					>
+						For parsing a print statement according to our grammar,
+						it is expected a print token, followed by a left
+						parentheses, then an expression, then a right
+						parentheses and finally a semicolon token. I bet you are
+						now convinced about the magic of it, aren't you? 😀
+					</Highlight>
+				</Text>
+
+				<Text>
+					There are still unanswered questions about some ambiguities,
+					look at the following example:
+				</Text>
+
+				<CodeBlockComponent
+					title="main.kaori"
+					language="kaori"
+					code={"2 + 3 * 5;"}
+				/>
+
+				<Text>
+					Mathematicians a long time ago created the order of
+					operations convention, it is so we don't have to put as many
+					parentheses in our expressions to express the real meaning
+					of it, they killed two birds with one stone: the expression
+					becomes way less verboose to read and the ambiguity is gone!
+					So here is the question: what is the answer to that
+					expression according to mathematicians?
+				</Text>
+
+				<Text>
+					We first do the multiplication and only then we can do the
+					sum, the result is obviously: 17. Our expression's grammar
+					also follow the conventions, multiplication and division are
+					part of the factor non terminal, addition and subtraction
+					are part of the non terminal term. Let's take a deep look at
+					term and factor:
+				</Text>
+
+				<CodeBlockComponent
+					title="expressions"
+					language="regex-grammar"
+					code={`
+                        term                     -> factor (("+" | "-") factor)*
+factor                   -> prefix_unary (("*" | "/") prefix_unary)*
+                    `}
+				/>
+
+				<Text>
+					To be able to parse our addition or subtraction, we need to
+					try parse a factor on the left and on the right side of it
+					to ensure all the multiplications or divisions are done
+					before, this is how the order of operations is enforced. The
+					recursive calls will try to find an operator with a higher
+					precedence than factor before it actually parses it, that
+					operator might be a prefix unary operator, which is an
+					operator that only takes one operand and comes before it.
 				</Text>
 
 				<CodeBlockComponent
