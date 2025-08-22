@@ -10,14 +10,13 @@ export const FunctionsComponent: FunctionComponent<
 > = ({}) => {
 	return (
 		<SectionContainerComponent title="Functions">
-			<Stack spaceY={4}>
-				<Text>
-					A function is declared with the def keyword, followed by its
-					name, parameters, and an optional return type.
-				</Text>
+			<Text>
+				A function is declared with the def keyword, followed by its
+				name, parameters, and an optional return type.
+			</Text>
 
-				<CodeBlockComponent
-					code={`def square(n: number) -> number {
+			<CodeBlockComponent
+				code={`def square(n: number) -> number {
     return n * n;
 }
 
@@ -25,17 +24,17 @@ def main() {
     result: number = square(5);
     print(result); // 25
 }`}
-					language="kaori"
-					title="main.kaori"
-				/>
+				language="kaori"
+				title="main.kaori"
+			/>
 
-				<Text>
-					Functions can also call themselves recursively, just
-					remember to include a base case :D
-				</Text>
+			<Text>
+				Functions can also call themselves recursively, just remember to
+				include a base case :D
+			</Text>
 
-				<CodeBlockComponent
-					code={`def fib(n: number) -> number {
+			<CodeBlockComponent
+				code={`def fib(n: number) -> number {
     if n == 0 {
         return 0;
     }
@@ -48,10 +47,9 @@ def main() {
 def main() {
     print(fib(6)); 
 }`}
-					language="kaori"
-					title="main.kaori"
-				/>
-			</Stack>
+				language="kaori"
+				title="main.kaori"
+			/>
 		</SectionContainerComponent>
 	);
 };

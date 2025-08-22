@@ -7,7 +7,7 @@ interface LogoComponentProps {}
 export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 	return (
 		<Box display="flex" alignItems="center">
-			<Icon size="xl">
+			<Icon boxSize="8">
 				<Image src="./violin.svg" alt="violin" />
 			</Icon>
 
@@ -17,7 +17,7 @@ export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 				marginLeft={2}
 				fontWeight="bold"
 			>
-				Kaori
+				Kaori Programming Language
 			</Text>
 		</Box>
 	);

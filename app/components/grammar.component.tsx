@@ -107,222 +107,214 @@ export const GrammarComponent: FunctionComponent<
 > = () => {
 	return (
 		<SectionContainerComponent title="Grammar and the parsing">
-			<Stack spaceY={4}>
-				<Text>
-					A programming language also has its own grammar. In English
-					grammar classes, we learned the rules to build our first
-					sentences formed with words, in the compilers world
-					statements, expressions and declarations are built with
-					tokens that are formed by a sequence of one or more
-					characters.
-				</Text>
+			<Text>
+				A programming language also has its own grammar. In English
+				grammar classes, we learned the rules to build our first
+				sentences formed with words, in the compilers world statements,
+				expressions and declarations are built with tokens that are
+				formed by a sequence of one or more characters.
+			</Text>
 
-				<Text>
-					We are going to enforce a set of rules known as grammar,
-					this is a very important step to develop a compiler, going
-					from a sequence of tokens to an Abstract Syntax Tree that
-					can represent a program in a more meaningful way.
-				</Text>
+			<Text>
+				We are going to enforce a set of rules known as grammar, this is
+				a very important step to develop a compiler, going from a
+				sequence of tokens to an Abstract Syntax Tree that can represent
+				a program in a more meaningful way.
+			</Text>
 
-				<Text>
-					Here is a non EBNF grammar with custom syntax highlight,
-					created with regular expression, so that non-compiler
-					developers can also understand it without having to dive
-					into EBNF syntax:
-				</Text>
+			<Text>
+				Here is a non EBNF grammar with custom syntax highlight, created
+				with regular expression, so that non-compiler developers can
+				also understand it without having to dive into EBNF syntax:
+			</Text>
 
-				<CodeBlockComponent
-					title="declarations"
-					language="regex-grammar"
-					code={declarationRules}
-				/>
+			<CodeBlockComponent
+				title="declarations"
+				language="regex-grammar"
+				code={declarationRules}
+			/>
 
-				<Text>
-					<Highlight
-						query={[
-							"identifier",
-							"colon",
-							"assign operator",
-							"expression",
-							"declaration",
-							"syntax error",
-							"type",
-						]}
-						styles={{
-							fontWeight: "bold",
-						}}
-					>
-						What does any of this even mean? Take a look at the
-						variable declaration rule, it expects an identifier,
-						then a colon, then it tries to parse a type, then an
-						assign operator token and then finally it tries to parse
-						an expression, after all those steps it builds the
-						declaration node for the variable.
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={[
+						"identifier",
+						"colon",
+						"assign operator",
+						"expression",
+						"declaration",
+						"syntax error",
+						"type",
+					]}
+					styles={{
+						fontWeight: "bold",
+					}}
+				>
+					What does any of this even mean? Take a look at the variable
+					declaration rule, it expects an identifier, then a colon,
+					then it tries to parse a type, then an assign operator token
+					and then finally it tries to parse an expression, after all
+					those steps it builds the declaration node for the variable.
+				</Highlight>
+			</Text>
 
-				<Text>
-					<Highlight
-						query={[
-							"type annotation",
-							"assign operator",
-							"syntax error",
-							"type",
-						]}
-						styles={{
-							fontWeight: "bold",
-						}}
-					>
-						Let's look at an example where our rule is not
-						followede: what happens if the next token to be consumed
-						after parsing the type annotation is not an assign
-						operator? Then that would be what is known as a syntax
-						error! If we are trying to parse a variable declaration,
-						according to the rules an assign operator is always
-						expected after a type annotation, so make sure to not
-						miss it in your code.
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={[
+						"type annotation",
+						"assign operator",
+						"syntax error",
+						"type",
+					]}
+					styles={{
+						fontWeight: "bold",
+					}}
+				>
+					Let's look at an example where our rule is not followede:
+					what happens if the next token to be consumed after parsing
+					the type annotation is not an assign operator? Then that
+					would be what is known as a syntax error! If we are trying
+					to parse a variable declaration, according to the rules an
+					assign operator is always expected after a type annotation,
+					so make sure to not miss it in your code.
+				</Highlight>
+			</Text>
 
-				<CodeBlockComponent
-					title="statements"
-					language="regex-grammar"
-					code={statementRules}
-				/>
+			<CodeBlockComponent
+				title="statements"
+				language="regex-grammar"
+				code={statementRules}
+			/>
 
-				<Text>
-					<Highlight
-						query={["Recursive Descent Parser", "while statement"]}
-						styles={{
-							fontWeight: "bold",
-						}}
-					>
-						The parser is written with a Recursive Descent Parser
-						and the good thing of it is that it mirrors every single
-						non terminal in the grammar. Take a look at the while
-						statement non terminal and let's compare it with the
-						Rust parser code for it:
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={["Recursive Descent Parser", "while statement"]}
+					styles={{
+						fontWeight: "bold",
+					}}
+				>
+					The parser is written with a Recursive Descent Parser and
+					the good thing of it is that it mirrors every single non
+					terminal in the grammar. Take a look at the while statement
+					non terminal and let's compare it with the Rust parser code
+					for it:
+				</Highlight>
+			</Text>
 
-				<CodeBlockComponent
-					title="parser.rs"
-					language="rust"
-					code={parseWhileLoopCode}
-				/>
+			<CodeBlockComponent
+				title="parser.rs"
+				language="rust"
+				code={parseWhileLoopCode}
+			/>
 
-				<Text>
-					<Highlight
-						query={[
-							"while loop",
-							"while",
-							"expression",
-							"condition",
-							"block statement",
-						]}
-						styles={{
-							fontWeight: "bold",
-						}}
-					>
-						It consumes the while token, parses an expression, which
-						is the condition for the while loop, then parses a block
-						statement and that's it, this is the magic of it! Let's
-						look at another example if you're still not convinced:
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={[
+						"while loop",
+						"while",
+						"expression",
+						"condition",
+						"block statement",
+					]}
+					styles={{
+						fontWeight: "bold",
+					}}
+				>
+					It consumes the while token, parses an expression, which is
+					the condition for the while loop, then parses a block
+					statement and that's it, this is the magic of it! Let's look
+					at another example if you're still not convinced:
+				</Highlight>
+			</Text>
 
-				<CodeBlockComponent
-					title="parser.rs"
-					language="rust"
-					code={parsePrintCode}
-				/>
+			<CodeBlockComponent
+				title="parser.rs"
+				language="rust"
+				code={parsePrintCode}
+			/>
 
-				<Text>
-					<Highlight
-						query={[
-							"print statement",
-							"print",
-							"left parentheses",
-							"expression",
-							"right parentheses",
-							"semicolon",
-						]}
-						styles={{
-							fontWeight: "bold",
-						}}
-					>
-						For parsing a print statement according to the grammar,
-						it is expected a print token, followed by a left
-						parentheses, then an expression, then a right
-						parentheses and finally a semicolon token.
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={[
+						"print statement",
+						"print",
+						"left parentheses",
+						"expression",
+						"right parentheses",
+						"semicolon",
+					]}
+					styles={{
+						fontWeight: "bold",
+					}}
+				>
+					For parsing a print statement according to the grammar, it
+					is expected a print token, followed by a left parentheses,
+					then an expression, then a right parentheses and finally a
+					semicolon token.
+				</Highlight>
+			</Text>
 
-				<Text>
-					There are still unanswered questions about some ambiguities,
-					look at the following example:
-				</Text>
+			<Text>
+				There are still unanswered questions about some ambiguities,
+				look at the following example:
+			</Text>
 
-				<CodeBlockComponent
-					title="main.kaori"
-					language="kaori"
-					code={"2 + 3 * 5;"}
-				/>
+			<CodeBlockComponent
+				title="main.kaori"
+				language="kaori"
+				code={"2 + 3 * 5;"}
+			/>
 
-				<Text>
-					Mathematicians, a long time ago, created the order of
-					operations convention, it is so we don't have to put as many
-					parentheses in an expression to be able to express it in a
-					way others would understand it with no ambiguity issues,
-					they killed two birds with one stone: the expression becomes
-					way less verbose to read and the ambiguity is gone! So here
-					is the question: what is the answer to that expression
-					according to them?
-				</Text>
+			<Text>
+				Mathematicians, a long time ago, created the order of operations
+				convention, it is so we don't have to put as many parentheses in
+				an expression to be able to express it in a way others would
+				understand it with no ambiguity issues, they killed two birds
+				with one stone: the expression becomes way less verbose to read
+				and the ambiguity is gone! So here is the question: what is the
+				answer to that expression according to them?
+			</Text>
 
-				<Text>
-					The multiplication is done before the addition and the
-					result is obviously: 17. Multiplication and division are
-					both part of the factor rule because they share the same
-					precedence level, addition and subtraction are part of the
-					term rule. Let's take a deep look at them:
-				</Text>
+			<Text>
+				The multiplication is done before the addition and the result is
+				obviously: 17. Multiplication and division are both part of the
+				factor rule because they share the same precedence level,
+				addition and subtraction are part of the term rule. Let's take a
+				deep look at them:
+			</Text>
 
-				<CodeBlockComponent
-					title="expressions"
-					language="regex-grammar"
-					code={`
+			<CodeBlockComponent
+				title="expressions"
+				language="regex-grammar"
+				code={`
                         term                     -> factor (("+" | "-") factor)*
 factor                   -> prefix_unary (("*" | "/") prefix_unary)*
                     `}
-				/>
+			/>
 
-				<Text>
-					To be able to parse an addition or a subtraction, we need to
-					try parse a factor on the left and on the right side of it
-					to ensure all the multiplications or divisions or operators
-					with higher precedence are parsed before, this is how the
-					order of operations are enforced in the parser.
-				</Text>
+			<Text>
+				To be able to parse an addition or a subtraction, we need to try
+				parse a factor on the left and on the right side of it to ensure
+				all the multiplications or divisions or operators with higher
+				precedence are parsed before, this is how the order of
+				operations are enforced in the parser.
+			</Text>
 
-				<CodeBlockComponent
-					title="expressions"
-					language="regex-grammar"
-					code={expressionRules}
-				/>
+			<CodeBlockComponent
+				title="expressions"
+				language="regex-grammar"
+				code={expressionRules}
+			/>
 
-				<Text>
-					The last, but not the least important, the parsing rules for
-					types, because types can also be represented by recursive
-					trees.
-				</Text>
+			<Text>
+				The last, but not the least important, the parsing rules for
+				types, because types can also be represented by recursive trees.
+			</Text>
 
-				<CodeBlockComponent
-					title="types"
-					language="regex-grammar"
-					code={typeRules}
-				/>
-			</Stack>
+			<CodeBlockComponent
+				title="types"
+				language="regex-grammar"
+				code={typeRules}
+			/>
 		</SectionContainerComponent>
 	);
 };

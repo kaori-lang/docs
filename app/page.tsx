@@ -11,11 +11,15 @@ import { OperatorsComponent } from "./components/operators.component";
 import { GrammarComponent } from "./components/grammar.component";
 import { ControlFlowComponent } from "./components/control-flow.component";
 import { FunctionsComponent } from "./components/functions.component";
+import { NavbarComponent } from "./components/navbar.component";
+import { TheFutureComponent } from "./components/the-future.component";
 
 export default function Home() {
 	return (
 		<CodeBlock.AdapterProvider value={shikiAdapter}>
 			<Container maxW="5xl" py="8" spaceY="16">
+				<NavbarComponent />
+
 				<IntroductionComponent />
 
 				<DesignDecisionsComponent />
@@ -31,6 +35,8 @@ export default function Home() {
 				<ControlFlowComponent />
 
 				<FunctionsComponent />
+
+				<TheFutureComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);

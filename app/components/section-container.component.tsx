@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Stack } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 
 interface SectionContainerComponentProps {
@@ -11,11 +11,11 @@ export const SectionContainerComponent: FunctionComponent<
 > = ({ title, children }) => {
 	return (
 		<Box w="full">
-			<Heading size="3xl" marginBottom={4}>
+			<Heading size="2xl" marginBottom={4}>
 				{title}
 			</Heading>
 
-			<Box>{children}</Box>
+			<Stack spaceY={4}>{children}</Stack>
 		</Box>
 	);
 };

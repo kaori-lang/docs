@@ -26,27 +26,24 @@ export const IntroductionComponent: FunctionComponent<
 > = () => {
 	return (
 		<SectionContainerComponent title="Introduction">
-			<Stack spaceY={4}>
-				<Text>
-					<Highlight
-						query={["simple", "expressive", "readable"]}
-						styles={{ fontWeight: "bold" }}
-					>
-						Kaori is designed to be simple, expressive, and
-						readable. Its syntax combines familiar ideas from modern
-						languages such as Python and Rust, while keeping a
-						minimal and clean structure.
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={["simple", "expressive", "readable"]}
+					styles={{ fontWeight: "bold" }}
+				>
+					Designed to be simple, expressive, and readable. Its syntax
+					combines familiar ideas from modern languages such as Python
+					and Rust, while keeping a minimal and clean structure.
+				</Highlight>
+			</Text>
 
-				<Text>Here is a quick look at some syntax:</Text>
+			<Text>Here is a quick look at some syntax:</Text>
 
-				<CodeBlockComponent
-					title="main.kaori"
-					language="kaori"
-					code={introductionCode}
-				/>
-			</Stack>
+			<CodeBlockComponent
+				title="main.kaori"
+				language="kaori"
+				code={introductionCode}
+			/>
 		</SectionContainerComponent>
 	);
 };

@@ -7,7 +7,7 @@ interface NavbarComponentProps {}
 
 export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 	return (
-		<Box display="flex" justifyContent="space-between">
+		<Box display="flex" justifyContent="space-between" alignItems="center">
 			<LogoComponent />
 
 			<IconButton

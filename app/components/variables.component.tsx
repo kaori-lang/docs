@@ -27,39 +27,37 @@ export const VariablesComponent: FunctionComponent<
 > = () => {
 	return (
 		<SectionContainerComponent title="Variables and data types">
-			<Stack spaceY={4}>
-				<Text>
-					Variable declarations require type annotations, and must
-					always be initialized with values on the right-hand side.
-				</Text>
+			<Text>
+				Variable declarations require type annotations, and must always
+				be initialized with values on the right-hand side.
+			</Text>
 
-				<Text>
-					<Highlight
-						query={["String", "number", "bool"]}
-						styles={{ fontWeight: "bold" }}
-					>
-						String, number and bool are the most basic types:
-					</Highlight>
-				</Text>
-				<CodeBlockComponent
-					title="main.kaori"
-					language="kaori"
-					code={variablesCode}
-				/>
+			<Text>
+				<Highlight
+					query={["String", "number", "bool"]}
+					styles={{ fontWeight: "bold" }}
+				>
+					String, number and bool are the most basic types:
+				</Highlight>
+			</Text>
+			<CodeBlockComponent
+				title="main.kaori"
+				language="kaori"
+				code={variablesCode}
+			/>
 
-				<Text>
-					<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
-						Notice that foo is now declared in the global scope and
-						that is not allowed, all objects can only live in the
-						local scope.
-					</Highlight>
-				</Text>
-				<CodeBlockComponent
-					title="main.kaori"
-					language="kaori"
-					code={invalidVariableCode}
-				/>
-			</Stack>
+			<Text>
+				<Highlight query={["foo"]} styles={{ fontWeight: "bold" }}>
+					Notice that foo is now declared in the global scope and that
+					is not allowed, all objects can only live in the local
+					scope.
+				</Highlight>
+			</Text>
+			<CodeBlockComponent
+				title="main.kaori"
+				language="kaori"
+				code={invalidVariableCode}
+			/>
 		</SectionContainerComponent>
 	);
 };

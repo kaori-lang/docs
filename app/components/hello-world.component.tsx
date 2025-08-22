@@ -16,25 +16,23 @@ export const HelloWorldComponent: FunctionComponent<
 > = () => {
 	return (
 		<SectionContainerComponent title="The first Hello World">
-			<Stack spaceY={4}>
-				<Text>
-					<Highlight
-						query={["hello world"]}
-						styles={{ bgColor: "gray.900" }}
-					>
-						Writing your first program in Kaori is quite simple and
-						the main function does not need a return type
-						annotation, because the entry point of the program does
-						not need to return values.
-					</Highlight>
-				</Text>
+			<Text>
+				<Highlight
+					query={["hello world"]}
+					styles={{ bgColor: "gray.900" }}
+				>
+					Writing your first program in Kaori is quite simple and the
+					main function does not need a return type annotation,
+					because the entry point of the program does not need to
+					return values.
+				</Highlight>
+			</Text>
 
-				<CodeBlockComponent
-					title="main.kaori"
-					language="kaori"
-					code={helloWorldCode}
-				/>
-			</Stack>
+			<CodeBlockComponent
+				title="main.kaori"
+				language="kaori"
+				code={helloWorldCode}
+			/>
 		</SectionContainerComponent>
 	);
 };
