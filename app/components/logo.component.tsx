@@ -10,7 +10,7 @@ export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 				<Image src="./violin.svg" alt="violin" />
 			</Icon>
 
-			<Text fontSize="xl" marginLeft={2} fontWeight="black">
+			<Text fontSize="xl" marginLeft={2} fontWeight="bold">
 				Kaori Programming Language
 			</Text>
 		</Box>
