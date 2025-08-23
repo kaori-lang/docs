@@ -5,7 +5,7 @@ import { Noto_Sans } from "next/font/google";
 export const metadata: Metadata = {
 	title: "Kaori Programming Language",
 	description: "Documentation and all about Kaori implementation",
-	icons: "violin.svg",
+	icons: "icon.svg",
 };
 
 const notoSans = Noto_Sans({ preload: false });
