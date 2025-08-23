@@ -14,6 +14,7 @@ import { FunctionsComponent } from "./components/functions.component";
 import { NavbarComponent } from "./components/navbar.component";
 import { TheFutureComponent } from "./components/the-future.component";
 import { ErrorReportingComponent } from "./components/error-reporting";
+import { NameInspirationComponent } from "./components/name-inspiration.component";
 
 export default function Home() {
 	return (
@@ -40,6 +41,8 @@ export default function Home() {
 				<ErrorReportingComponent />
 
 				<TheFutureComponent />
+
+				<NameInspirationComponent />
 			</Container>
 		</CodeBlock.AdapterProvider>
 	);
