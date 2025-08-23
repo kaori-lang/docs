@@ -25,11 +25,11 @@ const features = [
 	{ label: "Functions", done: true },
 	{ label: "Structs and implementation block", done: false },
 	{ label: "Errors handling", done: false },
+	{ label: "Modules", done: false },
+	{ label: "Standard library and native data structures", done: false },
 	{ label: "Register based bytecode", done: false },
 	{ label: "Faster virtual machine instructions dispatch", done: false },
-	{ label: "Standard library and native data structures", done: false },
-	{ label: "Modules", done: false },
-	{ label: "Constant folding", done: false },
+	{ label: "Constant folding and other optimizations", done: false },
 ];
 
 export const TheFutureComponent: FunctionComponent<
