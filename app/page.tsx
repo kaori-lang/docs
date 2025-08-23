@@ -1,6 +1,6 @@
 "use client";
 
-import { CodeBlock, Container, Theme } from "@chakra-ui/react";
+import { CodeBlock, Container } from "@chakra-ui/react";
 import { shikiAdapter } from "./adapters/highlight.adapter";
 
 import { IntroductionComponent } from "./components/introduction.component";

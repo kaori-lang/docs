@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	icons: "violin.svg",
 };
 
-const notoSans = Noto_Sans();
+const notoSans = Noto_Sans({ preload: false });
 
 export default function RootLayout({
 	children,
