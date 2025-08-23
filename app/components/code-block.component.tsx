@@ -22,7 +22,7 @@ export const CodeBlockComponent: FunctionComponent<CodeBlockComponentProps> = ({
 				<CodeBlock.Title>{title}</CodeBlock.Title>
 			</CodeBlock.Header>
 			<CodeBlock.Content>
-				<CodeBlock.Code>
+				<CodeBlock.Code overflowX="auto">
 					<CodeBlock.CodeText />
 				</CodeBlock.Code>
 			</CodeBlock.Content>
