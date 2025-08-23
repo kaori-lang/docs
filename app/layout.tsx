@@ -1,11 +1,14 @@
 import { Provider } from "@/components/ui/provider";
 import type { Metadata } from "next";
+import { Noto_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
 	title: "Kaori Programming Language",
 	description: "Documentation and all about Kaori implementation",
 	icons: "violin.svg",
 };
+
+const notoSans = Noto_Sans();
 
 export default function RootLayout({
 	children,
@@ -14,7 +17,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body suppressHydrationWarning>
+			<body className={notoSans.className} suppressHydrationWarning>
 				<Provider>{children}</Provider>
 			</body>
 		</html>
