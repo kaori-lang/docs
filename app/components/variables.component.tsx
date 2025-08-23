@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
-import { Text, Code, Stack, Highlight, Alert } from "@chakra-ui/react";
+import { Text, Highlight } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 
 interface VariablesComponentProps {}
 
-let variablesCode = `
+const variablesCode = `
 def main() {
     foo: number = 5;
     bar: String = "hello world";
@@ -13,7 +13,7 @@ def main() {
 }
 `;
 
-let invalidVariableCode = `
+const invalidVariableCode = `
 foo: number = 5;
 
 def main() {

@@ -1,6 +1,5 @@
 import { Box, Icon, Image, Text } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
-import { HiChartBar } from "react-icons/hi";
 
 interface LogoComponentProps {}
 

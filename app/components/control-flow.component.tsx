@@ -1,4 +1,4 @@
-import { Stack, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";

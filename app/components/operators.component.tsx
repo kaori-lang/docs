@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Text, Stack, Table, Highlight } from "@chakra-ui/react";
+import { Text, Highlight } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 

@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
-import { Text, Code, Stack, Highlight } from "@chakra-ui/react";
+import { Text, Highlight } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 
 interface HelloWorldComponentProps {}
 
-let helloWorldCode = `
+const helloWorldCode = `
 def main() {
     print("hello world");
 }

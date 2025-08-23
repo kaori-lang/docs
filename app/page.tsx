@@ -1,6 +1,6 @@
 "use client";
 
-import { CodeBlock, Container, Theme } from "@chakra-ui/react";
+import { CodeBlock, Container } from "@chakra-ui/react";
 import { shikiAdapter } from "./adapters/highlight.adapter";
 
 import { IntroductionComponent } from "./components/introduction.component";
@@ -13,11 +13,12 @@ import { ControlFlowComponent } from "./components/control-flow.component";
 import { FunctionsComponent } from "./components/functions.component";
 import { NavbarComponent } from "./components/navbar.component";
 import { TheFutureComponent } from "./components/the-future.component";
+import { ErrorReportingComponent } from "./components/error-reporting";
 
 export default function Home() {
 	return (
 		<CodeBlock.AdapterProvider value={shikiAdapter}>
-			<Container maxW="5xl" py="8" spaceY="16">
+			<Container maxW="5xl" pt="8" pb="24" spaceY="16">
 				<NavbarComponent />
 
 				<IntroductionComponent />
@@ -35,6 +36,8 @@ export default function Home() {
 				<ControlFlowComponent />
 
 				<FunctionsComponent />
+
+				<ErrorReportingComponent />
 
 				<TheFutureComponent />
 			</Container>

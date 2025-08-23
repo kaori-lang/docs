@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
-import { Text, Code, Stack, Highlight } from "@chakra-ui/react";
+import { Text, Highlight } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 
 interface IntroductionComponentProps {}
 
-let introductionCode = `
+const introductionCode = `
 def main() {
     fib_n: number = 5;
     print(fib(fib_n));

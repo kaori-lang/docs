@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
-import { Text, Stack, Highlight } from "@chakra-ui/react";
+import { Text, Highlight } from "@chakra-ui/react";
 import { SectionContainerComponent } from "./section-container.component";
 import { CodeBlockComponent } from "./code-block.component";
 
 interface GrammarComponentProps {}
 
-let declarationRules = `
+const declarationRules = `
 program                  -> (function_declaration)* "end of file"
 
 variable_declaration     -> identifier ":" type "=" expression 
@@ -14,7 +14,7 @@ parameter                -> identifier ":" type
 function_declaration     -> "def" identifier "(" (parameter ("," parameter)*)? ")" ("->" type)? block_statement
 `;
 
-let expressionRules = `
+const expressionRules = `
 expression               -> assignment | logic_or
 
 assignment               -> identifier "=" expression // Changing in the future
@@ -44,7 +44,7 @@ postfix_unary            -> identifier ("++" | "--")? | function_call // Changin
 function_call            -> identifier ("(" (expression ("," expression)*)? ")")*  // Changing in the future
 `;
 
-let statementRules = `
+const statementRules = `
 block_statement          -> "{" ( expression_statement
                                  | print_statement
                                  | if_statement
@@ -64,7 +64,7 @@ while_statement          -> "while" expression block_statement
 for_statement            -> "for" variable_declaration ";" expression ";" expression_statement block_statement
 `;
 
-let typeRules = `
+const typeRules = `
 type            -> function_type | simple_type
 
 simple_type     -> primitive_type | identifier
@@ -75,7 +75,7 @@ function_type   -> "(" (type ("," type)*)? ")" "->" type
 
 `;
 
-let parseWhileLoopCode = `
+const parseWhileLoopCode = `
 fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
     let span = self.token_stream.span();
 
@@ -88,7 +88,7 @@ fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
 }
 `;
 
-let parsePrintCode = `
+const parsePrintCode = `
 fn parse_print_statement(&mut self) -> Result<Stmt, KaoriError> {
     let span = self.token_stream.span();
 
@@ -169,7 +169,7 @@ export const GrammarComponent: FunctionComponent<
 						fontWeight: "bold",
 					}}
 				>
-					Let's look at an example where our rule is not followede:
+					Let's look at an example where our rule is not followed:
 					what happens if the next token to be consumed after parsing
 					the type annotation is not an assign operator? Then that
 					would be what is known as a syntax error! If we are trying

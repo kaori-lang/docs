@@ -1,9 +1,36 @@
 import { FunctionComponent } from "react";
-import { Text, Code, Stack, Highlight } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
+import { LuCircleCheck, LuCircleDashed } from "react-icons/lu";
 import { SectionContainerComponent } from "./section-container.component";
-import { CodeBlockComponent } from "./code-block.component";
+import { List } from "@chakra-ui/react";
 
 interface TheFutureComponentProps {}
+
+const features = [
+	{ label: "Error reporting", done: true },
+	{ label: "Assign operator", done: true },
+	{ label: "Logical operators", done: true },
+	{ label: "Arithmetic operators", done: true },
+	{ label: "Comparison operators", done: true },
+	{ label: "Prefix and postfix unary operators", done: true },
+	{ label: "Variable declaration", done: true },
+	{ label: "if / else statements", done: true },
+	{ label: "for loops", done: true },
+	{ label: "while loops", done: true },
+	{ label: "Block statements for scope", done: true },
+	{ label: "Output with print statements", done: true },
+	{ label: "Code comments", done: true },
+	{ label: "Stack based bytecode", done: true },
+	{ label: "Virtual machine interpreter", done: true },
+	{ label: "Functions", done: true },
+	{ label: "Loop control flow (break, continue)", done: false },
+	{ label: "Structs and implementation block", done: false },
+	{ label: "Errors handling", done: false },
+	{ label: "Register based bytecode", done: false },
+	{ label: "Standard library and native data structures", done: false },
+	{ label: "Modules", done: false },
+	{ label: "Constant folding", done: false },
+];
 
 export const TheFutureComponent: FunctionComponent<
 	TheFutureComponentProps
@@ -11,16 +38,40 @@ export const TheFutureComponent: FunctionComponent<
 	return (
 		<SectionContainerComponent title="The Future">
 			<Text>
-				I believe we can at least call it a turing complete programming
-				language, we already added bunch of stuff and it was a fun and a
-				long journey. Kaori is now 5x faster than its old Java
-				implementation, since now its fully written in Rust and no
-				longer uses a naive tree walker for the interpretation, in fact
-				it also beats Python in hot loops with results pointing it as 2x
-				faster, but PyPy beats us with 5x more speed. ☹️
+				I believe we can now confidently call Kaori a Turing-complete
+				programming language. Many core features have already been
+				implemented, and the journey so far has been both fun and
+				challenging. Kaori is now more than 5x faster than its original
+				Java implementation, since it is fully rewritten in Rust and no
+				longer relies on a naive tree-walker interpreter.
 			</Text>
 
-			<Text>Here is a quick look at some syntax:</Text>
+			<Text>
+				In fact, Kaori already outperforms Python in hot loops, running
+				about 2x faster. PyPy is still about 4x faster than us, but we
+				have more optimizations planned for the future. Our goal is to
+				get as close as possible to PyPy JIT-level performance, without
+				a JIT, it sounds very unlikely, but at the same time it is going
+				to be a very exciting journey.
+			</Text>
+
+			<Stack spaceY={0}>
+				<Text fontWeight="bold">Features:</Text>
+				<List.Root gap="2" variant="plain" align="center" mt={4}>
+					{features.map((feature, index) => (
+						<List.Item key={index}>
+							<List.Indicator asChild color="green.500">
+								{feature.done ? (
+									<LuCircleCheck />
+								) : (
+									<LuCircleDashed />
+								)}
+							</List.Indicator>
+							{feature.label}
+						</List.Item>
+					))}
+				</List.Root>
+			</Stack>
 		</SectionContainerComponent>
 	);
 };
