@@ -6,73 +6,75 @@ import { CodeBlockComponent } from "./code-block.component";
 interface GrammarComponentProps {}
 
 const declarationRules = `
-program                  -> (function_declaration)* "end of file"
+program -> (function_declaration)* "end of file"
 
-variable_declaration     -> identifier ":" type "=" expression 
+variable_declaration -> identifier ":" type "=" expression 
 
-parameter                -> identifier ":" type
-function_declaration     -> "def" identifier "(" (parameter ("," parameter)*)? ")" ("->" type)? block_statement
+parameter -> identifier ":" type
+parameters -> (parameter ("," parameter)*)?
+function_declaration -> "def" identifier "(" parameters ")" ("->" type)? block_statement
 `;
 
 const expressionRules = `
-expression               -> assignment | logic_or
+expression -> assignment | logic_or
 
-assignment               -> identifier "=" expression // Changing in the future
+assignment -> identifier "=" expression // Changing in the future
 
-logic_or                 -> logic_and ("||" logic_and)*
+logic_or -> logic_and ("||" logic_and)*
 
-logic_and                -> equality ("&&" equality)*
+logic_and -> equality ("&&" equality)*
 
-equality                 -> comparison (("!=" | "==") comparison)*
+equality -> comparison (("!=" | "==") comparison)*
 
-comparison               -> term ((">" | ">=" | "<" | "<=") term)*
+comparison -> term ((">" | ">=" | "<" | "<=") term)*
 
-term                     -> factor (("+" | "-") factor)*
+term -> factor (("+" | "-") factor)*
 
-factor                   -> prefix_unary (("*" | "/") prefix_unary)*
+factor -> prefix_unary (("*" | "/") prefix_unary)*
 
-prefix_unary             -> ("!" | "-") unary | primary
+prefix_unary -> ("!" | "-") unary | primary
 
-primary                  -> number_literal
-                         | string_literal
-                         | boolean_literal
-                         | postfix_unary
-                         | "(" expression ")"
+primary -> number_literal
+         | string_literal
+         | boolean_literal
+         | postfix_unary
+         | "(" expression ")"
 
-postfix_unary            -> identifier ("++" | "--")? | function_call // Changing in the future
+postfix_unary -> identifier ("++" | "--")? | function_call // Changing in the future
 
-function_call            -> identifier ("(" (expression ("," expression)*)? ")")*  // Changing in the future
+arguments -> (expression ("," expression)*)?
+function_call -> identifier ("(" arguments ")")* // Changing in the future
 `;
 
 const statementRules = `
-block_statement          -> "{" ( expression_statement
-                                 | print_statement
-                                 | if_statement
-                                 | while_statement
-                                 | for_statement
-                                 | block_statement
-                                 | variable_declaration ";")* "}"
+block_statement -> "{" ( expression_statement
+                        | print_statement
+                        | if_statement
+                        | while_statement
+                        | for_statement
+                        | block_statement
+                        | variable_declaration ";")* "}"
 
-expression_statement     -> expression ";"
+expression_statement -> expression ";"
 
-print_statement          -> "print" "(" expression ")" ";"
+print_statement -> "print" "(" expression ")" ";"
 
-if_statement             -> "if" expression block_statement ("else" (if_statement | block_statement))?
+if_statement -> "if" expression block_statement ("else" (if_statement | block_statement))?
 
-while_statement          -> "while" expression block_statement
+while_statement -> "while" expression block_statement
 
-for_statement            -> "for" variable_declaration ";" expression ";" expression_statement block_statement
+for_statement -> "for" variable_declaration ";" expression ";" expression_statement block_statement
 `;
 
 const typeRules = `
-type            -> function_type | simple_type
+type -> function_type | simple_type
 
-simple_type     -> primitive_type | identifier
+simple_type -> primitive_type | identifier
 
-primitive_type  -> "bool" | "number"
+primitive_type -> "bool" | "number"
 
-function_type   -> "(" (type ("," type)*)? ")" "->" type
-
+arguments -> (type ("," type)*)?
+function_type -> "(" arguments ")" "->" type
 `;
 
 const parseWhileLoopCode = `
@@ -285,9 +287,8 @@ export const GrammarComponent: FunctionComponent<
 			<CodeBlockComponent
 				title="expressions"
 				language="regex-grammar"
-				code={`
-                        term                     -> factor (("+" | "-") factor)*
-factor                   -> prefix_unary (("*" | "/") prefix_unary)*
+				code={`term -> factor (("+" | "-") factor)*
+factor -> prefix_unary (("*" | "/") prefix_unary)*
                     `}
 			/>
 
