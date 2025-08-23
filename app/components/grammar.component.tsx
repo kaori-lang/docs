@@ -151,9 +151,10 @@ export const GrammarComponent: FunctionComponent<
 				>
 					What does any of this even mean? Take a look at the variable
 					declaration rule, it expects an identifier, then a colon,
-					then it tries to parse a type, then an assign operator token
-					and then finally it tries to parse an expression, after all
-					those steps it builds the declaration node for the variable.
+					then it tries to parse a type, then it expects an assign
+					operator token and then finally it tries to parse an
+					expression, after all those steps it builds the declaration
+					node for the variable.
 				</Highlight>
 			</Text>
 
@@ -169,13 +170,13 @@ export const GrammarComponent: FunctionComponent<
 						fontWeight: "bold",
 					}}
 				>
-					Let's look at an example where our rule is not followed:
-					what happens if the next token to be consumed after parsing
-					the type annotation is not an assign operator? Then that
-					would be what is known as a syntax error! If we are trying
-					to parse a variable declaration, according to the rules an
-					assign operator is always expected after a type annotation,
-					so make sure to not miss it in your code.
+					An example where our rule is not followed: what happens if
+					the next token to be consumed after parsing the type
+					annotation is not an assign operator? Then that would be
+					what is known as a syntax error! If we are trying to parse a
+					variable declaration, according to the rules an assign
+					operator is always expected after a type annotation, so make
+					sure to not miss it in your code.
 				</Highlight>
 			</Text>
 
@@ -220,9 +221,9 @@ export const GrammarComponent: FunctionComponent<
 					}}
 				>
 					It consumes the while token, parses an expression, which is
-					the condition for the while loop, then parses a block
-					statement and that's it, this is the magic of it! Let's look
-					at another example if you're still not convinced:
+					the condition for the loop, then parses a block statement
+					and that's it, this is the magic of it! Let's look at
+					another example if you're still not convinced:
 				</Highlight>
 			</Text>
 
@@ -254,8 +255,8 @@ export const GrammarComponent: FunctionComponent<
 			</Text>
 
 			<Text>
-				There are still unanswered questions about some ambiguities,
-				look at the following example:
+				There are still unanswered questions about our parsing, look at
+				the following example:
 			</Text>
 
 			<CodeBlockComponent
@@ -278,8 +279,7 @@ export const GrammarComponent: FunctionComponent<
 				The multiplication is done before the addition and the result is
 				obviously: 17. Multiplication and division are both part of the
 				factor rule because they share the same precedence level,
-				addition and subtraction are part of the term rule. Let's take a
-				deep look at them:
+				addition and subtraction are part of the term rule.
 			</Text>
 
 			<CodeBlockComponent
@@ -292,11 +292,11 @@ factor                   -> prefix_unary (("*" | "/") prefix_unary)*
 			/>
 
 			<Text>
-				To be able to parse an addition or a subtraction, we need to try
-				parse a factor on the left and on the right side of it to ensure
-				all the multiplications or divisions or operators with higher
-				precedence are parsed before, this is how the order of
-				operations are enforced in the parser.
+				To be able to parse an addition or a subtraction, the parser
+				tries to parse a factor on the left and on the right side of it
+				to ensure all the multiplications or divisions or operators with
+				higher precedence are parsed before, this is how the order of
+				operations are enforced by the grammar.
 			</Text>
 
 			<CodeBlockComponent

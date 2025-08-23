@@ -28,8 +28,8 @@ export const VariablesComponent: FunctionComponent<
 	return (
 		<SectionContainerComponent title="Variables and data types">
 			<Text>
-				Variable declarations require type annotations, and must always
-				be initialized with values on the right-hand side.
+				Variable declaration require type annotation, and must always be
+				initialized with a value on the right-hand side.
 			</Text>
 
 			<Text>

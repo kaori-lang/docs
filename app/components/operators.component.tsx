@@ -92,9 +92,8 @@ true || false; // true
 					styles={{ fontWeight: "bold" }}
 				>
 					Parentheses can always be used to make evaluation order
-					explicit. If parentheses are omitted, parsing follows
-					operator precedence: higher-precedence operators are
-					evaluated before lower-precedence ones."
+					explicit, if parentheses are omitted then the parsing
+					follows operator precedence.
 				</Highlight>
 			</Text>
 		</SectionContainerComponent>

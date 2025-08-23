@@ -47,12 +47,12 @@ export const TheFutureComponent: FunctionComponent<
 			</Text>
 
 			<Text>
-				In fact, Kaori already outperforms Python in hot loops, running
+				In fact, we already outperform Python in hot loops, running
 				about 2x faster. PyPy is still about 4x faster than us, but we
 				have more optimizations planned for the future. Our goal is to
 				get as close as possible to PyPy JIT-level performance, without
 				a JIT, it sounds very unlikely, but at the same time it is going
-				to be a very exciting journey.
+				to be a very exciting journey, don't you think?
 			</Text>
 
 			<Stack spaceY={0}>

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "Kaori Programming Language",
 	description: "Documentation and all about Kaori implementation",
+	icons: "violin.svg",
 };
 
 export default function RootLayout({

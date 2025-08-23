@@ -30,7 +30,7 @@ def main() {
 
 			<Text>
 				Functions can also call themselves recursively, just remember to
-				include a base case :D
+				include a base case. :D
 			</Text>
 
 			<CodeBlockComponent
