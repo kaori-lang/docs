@@ -31,9 +31,10 @@ export const IntroductionComponent: FunctionComponent<
 					query={["simple", "expressive", "readable"]}
 					styles={{ fontWeight: "bold" }}
 				>
-					Designed to be simple, expressive, and readable. Its syntax
-					combines familiar ideas from modern languages such as Python
-					and Rust, while keeping a minimal and clean structure.
+					Kaori is a statically typed programming language. Designed
+					to be simple, expressive, and readable. Its syntax combines
+					familiar ideas from modern languages such as Python and
+					Rust, while keeping a minimal and clean structure.
 				</Highlight>
 			</Text>
 
