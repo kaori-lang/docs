@@ -13,7 +13,7 @@ export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 			<IconButton
 				variant="ghost"
 				onClick={() =>
-					window.open("https://github.com/Jenseits1/kaori", "_blank")
+					window.open("https://github.com/kaori-lang/kaori", "_blank")
 				}
 			>
 				<RiGithubLine />
