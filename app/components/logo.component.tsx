@@ -7,7 +7,14 @@ interface LogoComponentProps {}
 export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 	return (
 		<Box display="flex" alignItems="center">
-			<Image src="./logo.svg" sizes="md" bgColor="yellow" />
+			<Text
+				color="red.500"
+				fontWeight="bold"
+				fontSize="4xl"
+				mb="2"
+			>{`{`}</Text>
+
+			<Icon as={FaChevronLeft} boxSize={8} color="blue.600" ml={-2} />
 			<Text fontSize="2xl" fontWeight="bold">
 				Kaori
 			</Text>
