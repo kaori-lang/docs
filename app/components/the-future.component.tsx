@@ -24,6 +24,7 @@ const features = [
 	{ label: "Virtual machine interpreter", done: true },
 	{ label: "Functions", done: true },
 	{ label: "Structs and implementation block", done: false },
+	{ label: "Garbage collector", done: false },
 	{ label: "Errors handling", done: false },
 	{ label: "Modules", done: false },
 	{ label: "Standard library and native data structures", done: false },
