@@ -9,11 +9,11 @@ interface TheFutureComponentProps {}
 const features = [
 	{ label: "Error reporting", done: true },
 	{ label: "Code comments", done: true },
-	{ label: "Assign operator", done: true },
+	{ label: "Compound assign operators", done: true },
 	{ label: "Logical operators", done: true },
 	{ label: "Arithmetic operators", done: true },
 	{ label: "Comparison operators", done: true },
-	{ label: "Prefix and postfix unary operators", done: true },
+	{ label: "Prefix unary operators", done: true },
 	{ label: "print statement", done: true },
 	{ label: "Variable declaration", done: true },
 	{ label: "if / else statement", done: true },
