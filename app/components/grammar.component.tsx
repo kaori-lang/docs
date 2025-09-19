@@ -6,13 +6,18 @@ import { CodeBlockComponent } from "./code-block.component";
 interface GrammarComponentProps {}
 
 const declarationRules = `
-program -> (function_declaration)* "end of file"
+program -> declaration* "EOF"
+declaration -> variable_declaration | function_declaration | struct_declaration
 
 variable_declaration -> identifier ":" type "=" expression 
 
 parameter -> identifier ":" type
 parameters -> (parameter ("," parameter)*)?
 function_declaration -> "def" identifier "(" parameters ")" ("->" type)? block_statement
+
+field -> identifier ":" type
+fields -> (field ("," field)*)?
+struct_declaration -> "struct" identifier "{" fields "}"
 `;
 
 const expressionRules = `
