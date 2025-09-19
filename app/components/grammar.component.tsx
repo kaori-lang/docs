@@ -7,6 +7,7 @@ interface GrammarComponentProps {}
 
 const declarationRules = `
 program -> declaration* "EOF"
+
 declaration -> variable_declaration | function_declaration | struct_declaration
 
 variable_declaration -> identifier ":" type "=" expression 
@@ -23,7 +24,7 @@ struct_declaration -> "struct" identifier "{" fields "}"
 const expressionRules = `
 expression -> assignment | logic_or
 
-assignment -> identifier "=" expression // Changing in the future
+assignment -> expression "=" logic_or
 
 logic_or -> logic_and ("||" logic_and)*
 
@@ -52,13 +53,14 @@ function_call -> identifier ("(" arguments ")")* // Changing in the future
 `;
 
 const statementRules = `
-block_statement -> "{" ( expression_statement
-                        | print_statement
-                        | if_statement
-                        | while_statement
-                        | for_statement
-                        | block_statement
-                        | variable_declaration ";")* "}"
+statement -> block_statement 
+			| expression_statement 
+			| print_statement 
+			| if_statement 
+			| while_statement 
+			| for_statement
+
+block_statement -> "{" (declaration | statement)* "}"
 
 expression_statement -> expression ";"
 
