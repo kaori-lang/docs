@@ -8,9 +8,9 @@ interface GrammarComponentProps {}
 const declarationRules = `
 program -> declaration* "EOF"
 
-declaration -> variable_declaration | function_declaration | struct_declaration
+declaration -> variable_declaration ";" | function_declaration | struct_declaration
 
-variable_declaration -> identifier ":" type "=" expression 
+variable_declaration -> "var" identifier ":" type "=" expression 
 
 parameter -> identifier ":" type
 parameters -> (parameter ("," parameter)*)?
@@ -24,7 +24,7 @@ struct_declaration -> "struct" identifier "{" fields "}"
 const expressionRules = `
 expression -> assignment | logic_or
 
-assignment -> expression "=" logic_or
+assignment -> logic_or ("=" | "+=" | "-=" | "*=" | "/=" | "%=") logic_or
 
 logic_or -> logic_and ("||" logic_and)*
 
@@ -54,17 +54,17 @@ function_call -> identifier ("(" arguments ")")* // Changing in the future
 
 const statementRules = `
 statement -> block_statement 
-			| expression_statement 
-			| print_statement 
+			| expression_statement ";"
+			| print_statement ";"
 			| if_statement 
 			| while_statement 
 			| for_statement
 
 block_statement -> "{" (declaration | statement)* "}"
 
-expression_statement -> expression ";"
+expression_statement -> expression 
 
-print_statement -> "print" "(" expression ")" ";"
+print_statement -> "print" "(" expression ")" 
 
 if_statement -> "if" expression block_statement ("else" (if_statement | block_statement))?
 
