@@ -38,7 +38,7 @@ term -> factor (("+" | "-") factor)*
 
 factor -> prefix_unary (("*" | "/") prefix_unary)*
 
-prefix_unary -> ("!" | "-") unary | primary
+prefix_unary -> ("!" | "-") prefix_unary | primary
 
 primary -> number_literal
          | string_literal
@@ -46,10 +46,12 @@ primary -> number_literal
          | postfix_unary
          | "(" expression ")"
 
-postfix_unary -> identifier ("++" | "--")? | function_call // Changing in the future
+postfix_unary -> function_call | struct_literal
+
+struct_literal -> to do
 
 arguments -> (expression ("," expression)*)?
-function_call -> identifier ("(" arguments ")")* // Changing in the future
+function_call -> identifier ("(" arguments ")")* 
 `;
 
 const statementRules = `
@@ -74,9 +76,9 @@ for_statement -> "for" variable_declaration ";" expression ";" expression_statem
 `;
 
 const typeRules = `
-type -> function_type | simple_type
+type -> primitive_type | identifier_type
 
-simple_type -> primitive_type | identifier
+identifier_type -> identifier
 
 primitive_type -> "bool" | "number"
 

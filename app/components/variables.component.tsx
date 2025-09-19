@@ -7,18 +7,18 @@ interface VariablesComponentProps {}
 
 const variablesCode = `
 def main() {
-    foo: number = 5;
-    bar: String = "hello world";
-    foo_bar: bool = true;
+    var foo: number = 5;
+    var bar: String = "hello world";
+    var foo_bar: bool = true;
 }
 `;
 
 const invalidVariableCode = `
-foo: number = 5;
+var foo: number = 5;
 
 def main() {
-    bar: String = "hello world";
-    foo_bar: bool = true;
+    var bar: String = "hello world";
+    var foo_bar: bool = true;
 }
 `;
 
