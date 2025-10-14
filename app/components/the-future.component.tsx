@@ -14,7 +14,7 @@ const features = [
 	{ label: "Arithmetic operators", done: true },
 	{ label: "Comparison operators", done: true },
 	{ label: "Prefix unary operators", done: true },
-	{ label: "print statement", done: true },
+	{ label: "Print statement", done: true },
 	{ label: "Variable declaration", done: true },
 	{ label: "if / else statement", done: true },
 	{ label: "for loop", done: true },

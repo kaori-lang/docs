@@ -11,6 +11,7 @@ export const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
 			<LogoComponent />
 
 			<IconButton
+				size="2xl"
 				variant="ghost"
 				onClick={() =>
 					window.open("https://github.com/kaori-lang/kaori", "_blank")
