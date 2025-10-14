@@ -7,7 +7,7 @@ interface LogoComponentProps {}
 export const LogoComponent: FunctionComponent<LogoComponentProps> = () => {
 	return (
 		<Box display="flex" alignItems="center">
-			<Image w="36" src="logo-transparent.png"></Image>
+			<Image w="28" src="logo-transparent.png"></Image>
 		</Box>
 	);
 };
