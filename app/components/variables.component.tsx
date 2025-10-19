@@ -7,18 +7,16 @@ interface VariablesComponentProps {}
 
 const variablesCode = `
 def main() {
-    var foo: number = 5;
-    var bar: String = "hello world";
-    var foo_bar: bool = true;
+    $foo: number = 5;
+    $foo_bar: bool = true;
 }
 `;
 
 const invalidVariableCode = `
-var foo: number = 5;
+$foo: number = 5;
 
 def main() {
-    var bar: String = "hello world";
-    var foo_bar: bool = true;
+    $foo_bar: bool = true;
 }
 `;
 
@@ -37,7 +35,7 @@ export const VariablesComponent: FunctionComponent<
 					query={["String", "number", "bool"]}
 					styles={{ fontWeight: "bold" }}
 				>
-					String, number and bool are the most basic types:
+					number and bool are the most basic types:
 				</Highlight>
 			</Text>
 			<CodeBlockComponent

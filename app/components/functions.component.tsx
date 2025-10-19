@@ -21,7 +21,7 @@ export const FunctionsComponent: FunctionComponent<
 }
 
 def main() {
-    var result: number = square(5);
+    $result: number = square(5);
     print(result); // 25
 }`}
 				language="kaori"

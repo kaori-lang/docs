@@ -7,8 +7,8 @@ interface IntroductionComponentProps {}
 
 const introductionCode = `
 def main() {
-    var fib_n: number = 5;
-    print(fib(fib_n));
+    $n: number = 5;
+    print(fib(n));
 }
 
 def fib(n: number) -> number {

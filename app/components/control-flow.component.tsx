@@ -41,7 +41,7 @@ export const ControlFlowComponent: FunctionComponent<
 
 			<CodeBlockComponent
 				code={`def main() {
-    var i: number = 0;
+    $i: number = 0;
 
     while i < 3 {
         print(i);
@@ -61,7 +61,7 @@ export const ControlFlowComponent: FunctionComponent<
 
 			<CodeBlockComponent
 				code={`def main() {
-    for var i: number = 0; i < 3; i++ {
+    for $i: number = 0; i < 3; i++ {
         print(i);
     }
 }`}
@@ -76,8 +76,8 @@ export const ControlFlowComponent: FunctionComponent<
 
 			<CodeBlockComponent
 				code={`def main() {
-    for var x: number = 0; x < 2; x++ {
-        for var y: number = 0; y < 2; y++ {
+    for $x: number = 0; x < 2; x++ {
+        for $y: number = 0; y < 2; y++ {
             print(x + y);
         }
     }
