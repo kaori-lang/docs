@@ -45,7 +45,7 @@ export const ControlFlowComponent: FunctionComponent<
 
     while i < 3 {
         print(i);
-        i++;
+        i += 1;
     }
 }`}
 				language="kaori"
@@ -61,7 +61,7 @@ export const ControlFlowComponent: FunctionComponent<
 
 			<CodeBlockComponent
 				code={`def main() {
-    for $i: number = 0; i < 3; i++ {
+    for $i: number = 0; i < 3; i += 1 {
         print(i);
     }
 }`}
@@ -76,8 +76,8 @@ export const ControlFlowComponent: FunctionComponent<
 
 			<CodeBlockComponent
 				code={`def main() {
-    for $x: number = 0; x < 2; x++ {
-        for $y: number = 0; y < 2; y++ {
+    for $x: number = 0; x < 2; x += 1 {
+        for $y: number = 0; y < 2; y += 1 {
             print(x + y);
         }
     }
