@@ -145,7 +145,7 @@
     --sidebar-bg: #000000;
     --sidebar-fg: hsl(0, 0%, 95%);
     --sidebar-non-existant: #333333;
-    --sidebar-active: #6b6bff;
+    --sidebar-active: #e0e0e0;
     --sidebar-spacer: #050505;
 
     --scrollbar: #252525;
@@ -183,8 +183,8 @@
 
     /* Adjusted for dark theme */
     --copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
-    /* Same as `--sidebar-active` */
-    --copy-button-filter-hover: invert(47%) sepia(96%) saturate(2345%) hue-rotate(226deg) brightness(102%) contrast(101%);
+    /* Updated for bright gray sidebar-active color */
+    --copy-button-filter-hover: invert(90%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
 
     --footnote-highlight: #6b6bff;
 
@@ -196,7 +196,7 @@
     --blockquote-warning-color: #d29922;
     --blockquote-caution-color: #f85149;
 
-    --sidebar-header-border-color: #6b6bff;
+    --sidebar-header-border-color: #e0e0e0;
 }
 
 .navy {
