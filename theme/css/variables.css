@@ -176,56 +176,60 @@
 }
 
 .navy {
-    --bg: hsl(226, 23%, 11%);
-    --fg: #bcbdd0;
+/* General Background/Foreground */
+--bg: hsl(0, 0%, 5%);           /* Very Dark Grey, close to black */
+--fg: #f0f0f0;                  /* Brightest text for maximum contrast */
 
-    --sidebar-bg: #282d3f;
-    --sidebar-fg: #c8c9db;
-    --sidebar-non-existant: #505274;
-    --sidebar-active: #2b79a2;
-    --sidebar-spacer: #2d334f;
+/* Sidebar */
+--sidebar-bg: hsl(0, 0%, 7%);
+--sidebar-fg: #ffffff;
+--sidebar-non-existant: #5c5c5c;
+--sidebar-active: #00AEEF;      /* ELECTRIC BLUE */
+--sidebar-spacer: hsl(0, 0%, 10%);
 
-    --scrollbar: var(--sidebar-fg);
+/* Scrollbar, Icons, Links, and Code */
+--scrollbar: var(--sidebar-fg);
+--icons: #808080;
+--icons-hover: #ffffff;
+--links: #00AEEF;               /* ELECTRIC BLUE */
+--inline-code-color: #00AEEF;   /* INLINE CODE TEXT (ELECTRIC BLUE) */
 
-    --icons: #737480;
-    --icons-hover: #b7b9cc;
+/* Popups/Theme Switcher */
+--theme-popup-bg: hsl(0, 0%, 3%);
+--theme-popup-border: #606060;
+--theme-hover: hsl(0, 0%, 15%);
 
-    --links: #2b79a2;
+/* Quotes */
+--quote-bg: hsl(0, 0%, 10%);
+--quote-border: #00AEEF;         /* ELECTRIC BLUE border */
 
-    --inline-code-color: #c5c8c6;
+/* Warning */
+--warning-border: #ffc46d;
 
-    --theme-popup-bg: #161923;
-    --theme-popup-border: #737480;
-    --theme-hover: #282e40;
+/* Tables */
+--table-border-color: hsl(0, 0%, 12%);
+--table-header-bg: hsl(0, 0%, 20%);
+--table-alternate-bg: hsl(0, 0%, 8%);
 
-    --quote-bg: hsl(226, 15%, 17%);
-    --quote-border: hsl(226, 15%, 22%);
+/* Search */
+--searchbar-border-color: #505050;
+--searchbar-bg: #e0e0e0;
+--searchbar-fg: #000;
+--searchbar-shadow-color: #505050;
+--searchresults-header-fg: #b0b0b0;
+--searchresults-border-color: #404040;
+--searchresults-li-bg: hsl(0, 0%, 6%);
+--search-mark-bg: #89cff0;       /* Light Blue for search highlight */
 
-    --warning-border: #ff8e00;
+/* Other */
+--color-scheme: dark;
 
-    --table-border-color: hsl(226, 23%, 16%);
-    --table-header-bg: hsl(226, 23%, 31%);
-    --table-alternate-bg: hsl(226, 23%, 14%);
+/* Copy Button (filter adjusted to result in electric blue on hover) */
+--copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+--copy-button-filter-hover: invert(40%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
 
-    --searchbar-border-color: #aaa;
-    --searchbar-bg: #aeaec6;
-    --searchbar-fg: #000;
-    --searchbar-shadow-color: #aaa;
-    --searchresults-header-fg: #5f5f71;
-    --searchresults-border-color: #5c5c68;
-    --searchresults-li-bg: #242430;
-    --search-mark-bg: #a2cff5;
-
-    --color-scheme: dark;
-
-    /* Same as `--icons` */
-    --copy-button-filter: invert(51%) sepia(10%) saturate(393%) hue-rotate(198deg) brightness(86%) contrast(87%);
-    /* Same as `--sidebar-active` */
-    --copy-button-filter-hover: invert(46%) sepia(20%) saturate(1537%) hue-rotate(156deg) brightness(85%) contrast(90%);
-
-    --footnote-highlight: #4079ae;
-
-    --overlay-bg: rgba(33, 40, 48, 0.4);
+--footnote-highlight: #00AEEF;  /* ELECTRIC BLUE */
+--overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
 .rust {
