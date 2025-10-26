@@ -19,7 +19,7 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 
 As you can see, Kaori significantly outperforms CPython and is competitive with Lua, while PyPy still leads the pack with its sophisticated JIT compilation.
 
-## Feature Status
+# Feature Status
 
 -   [x] Error reporting
 -   [x] Code comments
@@ -30,12 +30,14 @@ As you can see, Kaori significantly outperforms CPython and is competitive with 
 -   [x] Prefix unary operators
 -   [x] Print statement
 -   [x] Variable declaration
+-   [x] Type system
 -   [x] If / else statement
 -   [x] For loop
 -   [x] While loop
 -   [x] Functions
 -   [x] Bytecode instructions
 -   [x] Register virtual machine
+-   [x] Type inference
 -   [ ] Structs and implementation blocks
 -   [ ] Garbage collector
 -   [ ] Error handling mechanisms

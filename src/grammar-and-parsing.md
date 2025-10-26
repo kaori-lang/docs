@@ -111,9 +111,9 @@ expression -> assignment | logic_or
 
 assignment -> logic_or ("=" | "+=" | "-=" | "*=" | "/=" | "%=") logic_or
 
-logic_or -> logic_and ("||" logic_and)*
+logic_or -> logic_and ("or" logic_and)*
 
-logic_and -> equality ("&&" equality)*
+logic_and -> equality ("and" equality)*
 
 equality -> comparison (("!=" | "==") comparison)*
 
@@ -123,7 +123,7 @@ term -> factor (("+" | "-") factor)*
 
 factor -> prefix_unary (("*" | "/") prefix_unary)*
 
-prefix_unary -> ("!" | "-") prefix_unary | primary
+prefix_unary -> ("not" | "-") prefix_unary | primary
 
 primary -> number_literal
          | string_literal

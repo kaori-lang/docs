@@ -23,7 +23,7 @@ Comparison operators like `>`, `<=`, or `==` always evaluate to a boolean value:
 
 ## Logical Operators
 
-Logical operators such as `&&` and `||` allow combining boolean expressions:
+Logical operators such as `and`, `or` and `not` allow combining boolean expressions:
 
 ```kaori
 true and false; // false

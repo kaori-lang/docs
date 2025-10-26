@@ -24,7 +24,7 @@ A `while` loop runs a block of code repeatedly as long as the condition remains 
 
 ```kaori
 def main() {
-    $i: number = 0;
+    $i = 0;
 
     while i < 3 {
         print(i);
@@ -39,7 +39,7 @@ A `for` loop is just syntax sugar for the `while` loop and also runs a block of 
 
 ```kaori
 def main() {
-    for $i: number = 0; i < 3; i += 1 {
+    for $i = 0; i < 3; i += 1 {
         print(i);
     }
 }
@@ -51,8 +51,8 @@ Loops can be nested, which is useful for iterating over multiple dimensions.
 
 ```kaori
 def main() {
-    for $x: number = 0; x < 2; x += 1 {
-        for $y: number = 0; y < 2; y += 1 {
+    for $x = 0; x < 2; x += 1 {
+        for $y = 0; y < 2; y += 1 {
             print(x + y);
         }
     }

@@ -123,62 +123,62 @@
 }
 
 .light, html:not(.js) {
-/* General Background/Foreground */
---bg: hsl(0, 0%, 5%);           /* Very Dark Grey, close to black */
---fg: #f0f0f0;                  /* Brightest text for maximum contrast */
-
-/* Sidebar */
---sidebar-bg: hsl(0, 0%, 7%);
---sidebar-fg: #ffffff;
---sidebar-non-existant: #5c5c5c;
---sidebar-active: #00AEEF;      /* ELECTRIC BLUE */
---sidebar-spacer: hsl(0, 0%, 10%);
-
-/* Scrollbar, Icons, Links, and Code */
---scrollbar: var(--sidebar-fg);
---icons: #808080;
---icons-hover: #ffffff;
---links: #00AEEF;               /* ELECTRIC BLUE */
---inline-code-color: #00AEEF;   /* INLINE CODE TEXT (ELECTRIC BLUE) */
-
-/* Popups/Theme Switcher */
---theme-popup-bg: hsl(0, 0%, 3%);
---theme-popup-border: #606060;
---theme-hover: hsl(0, 0%, 15%);
-
-/* Quotes */
---quote-bg: hsl(0, 0%, 10%);
---quote-border: #00AEEF;         /* ELECTRIC BLUE border */
-
-/* Warning */
---warning-border: #ffc46d;
-
-/* Tables */
---table-border-color: hsl(0, 0%, 12%);
---table-header-bg: hsl(0, 0%, 20%);
---table-alternate-bg: hsl(0, 0%, 8%);
-
-/* Search */
---searchbar-border-color: #505050;
---searchbar-bg: #e0e0e0;
---searchbar-fg: #000;
---searchbar-shadow-color: #505050;
---searchresults-header-fg: #b0b0b0;
---searchresults-border-color: #404040;
---searchresults-li-bg: hsl(0, 0%, 6%);
---search-mark-bg: #89cff0;       /* Light Blue for search highlight */
-
-/* Other */
---color-scheme: dark;
-
-/* Copy Button (filter adjusted to result in electric blue on hover) */
---copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
---copy-button-filter-hover: invert(40%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
-
---footnote-highlight: #00AEEF;  /* ELECTRIC BLUE */
---overlay-bg: rgba(0, 0, 0, 0.7);
-}
-
+    /* General Background/Foreground */
+    --bg: hsl(0, 0%, 2%);           /* Almost pure black */
+    --fg: #e5e5e5;                  /* Slightly softer than pure white for eyes */
+  
+    /* Sidebar */
+    --sidebar-bg: hsl(0, 0%, 4%);
+    --sidebar-fg: #f5f5f5;
+    --sidebar-non-existant: #3a3a3a;
+    --sidebar-active: #00AEEF;      /* Electric Blue */
+    --sidebar-spacer: hsl(0, 0%, 6%);
+  
+    /* Scrollbar, Icons, Links, and Code */
+    --scrollbar: var(--sidebar-fg);
+    --icons: #606060;
+    --icons-hover: #ffffff;
+    --links: #00AEEF;               /* Electric Blue */
+    --inline-code-color: #00AEEF;   /* Inline code text */
+  
+    /* Popups/Theme Switcher */
+    --theme-popup-bg: hsl(0, 0%, 1%);
+    --theme-popup-border: #404040;
+    --theme-hover: hsl(0, 0%, 10%);
+  
+    /* Quotes */
+    --quote-bg: hsl(0, 0%, 5%);
+    --quote-border: #00AEEF;         /* Electric Blue border */
+  
+    /* Warning */
+    --warning-border: #ffc46d;
+  
+    /* Tables */
+    --table-border-color: hsl(0, 0%, 8%);
+    --table-header-bg: hsl(0, 0%, 15%);
+    --table-alternate-bg: hsl(0, 0%, 4%);
+  
+    /* Search */
+    --searchbar-border-color: #303030;
+    --searchbar-bg: #1c1c1c;
+    --searchbar-fg: #e5e5e5;
+    --searchbar-shadow-color: #202020;
+    --searchresults-header-fg: #888888;
+    --searchresults-border-color: #303030;
+    --searchresults-li-bg: hsl(0, 0%, 3%);
+    --search-mark-bg: #007acc;       /* Slightly darker blue for highlight */
+  
+    /* Other */
+    --color-scheme: dark;
+  
+    /* Copy Button */
+    --copy-button-filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(100%);
+    --copy-button-filter-hover: invert(30%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
+  
+    --footnote-highlight: #00AEEF;  /* Electric Blue */
+    --overlay-bg: rgba(0, 0, 0, 0.85); /* Darker overlay */
+  }
+  
 .navy {
 /* General Background/Foreground */
 --bg: hsl(0, 0%, 5%);           /* Very Dark Grey, close to black */
