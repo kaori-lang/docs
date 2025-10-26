@@ -17,7 +17,7 @@ As you can see, Kaori significantly outperforms CPython and is competitive with 
 
 > **Note:** This benchmark is based on a simple Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
 
-## Features
+## Development roadmap
 
 -   [x] Error reporting
 -   [x] Code comments
@@ -41,7 +41,3 @@ As you can see, Kaori significantly outperforms CPython and is competitive with 
 -   [ ] Error handling mechanisms
 -   [ ] Module system
 -   [ ] Standard library and native data structures
-
-## What's Next?
-
-The language foundation is solid, and we're now focused on expanding core features and optimization. The upcoming features listed above will bring Kaori closer to a complete, production-ready language with further bytecode optimizations and additional features based on community feedback.
