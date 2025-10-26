@@ -131,15 +131,15 @@
     --sidebar-bg: hsl(0, 0%, 4%);
     --sidebar-fg: #f5f5f5;
     --sidebar-non-existant: #3a3a3a;
-    --sidebar-active: #00AEEF;      /* Electric Blue */
+    --sidebar-active: #B0B0B0;      /* Soft light gray */
     --sidebar-spacer: hsl(0, 0%, 6%);
   
     /* Scrollbar, Icons, Links, and Code */
     --scrollbar: var(--sidebar-fg);
     --icons: #606060;
     --icons-hover: #ffffff;
-    --links: #00AEEF;               /* Electric Blue */
-    --inline-code-color: #00AEEF;   /* Inline code text */
+    --links: #B0B0B0;               /* Soft gray */
+    --inline-code-color: #B0B0B0;   /* Inline code text */
   
     /* Popups/Theme Switcher */
     --theme-popup-bg: hsl(0, 0%, 1%);
@@ -148,7 +148,7 @@
   
     /* Quotes */
     --quote-bg: hsl(0, 0%, 5%);
-    --quote-border: #00AEEF;         /* Electric Blue border */
+    --quote-border: #242121;        /* Soft gray border */
   
     /* Warning */
     --warning-border: #ffc46d;
@@ -166,19 +166,20 @@
     --searchresults-header-fg: #888888;
     --searchresults-border-color: #303030;
     --searchresults-li-bg: hsl(0, 0%, 3%);
-    --search-mark-bg: #007acc;       /* Slightly darker blue for highlight */
+    --search-mark-bg: #555555;       /* Subtle gray for search highlight */
   
     /* Other */
     --color-scheme: dark;
   
     /* Copy Button */
     --copy-button-filter: invert(50%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(100%);
-    --copy-button-filter-hover: invert(30%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
+    --copy-button-filter-hover: invert(30%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(100%);
   
-    --footnote-highlight: #00AEEF;  /* Electric Blue */
+    --footnote-highlight: #B0B0B0;  /* Soft gray */
     --overlay-bg: rgba(0, 0, 0, 0.85); /* Darker overlay */
   }
   
+
 .navy {
 /* General Background/Foreground */
 --bg: hsl(0, 0%, 5%);           /* Very Dark Grey, close to black */

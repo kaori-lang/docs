@@ -1,12 +1,8 @@
 # The Future
 
-I believe we can now confidently call Kaori a **Turing-complete programming language**. Many core features have already been implemented, and the journey so far has been both fun and challenging. Kaori is now more than 5x faster than its original Java implementation, since it is fully rewritten in Rust and no longer relies on a naive tree-walker interpreter.
+I believe we can now confidently call Kaori a **Turing-complete programming language**. Many core features have already been implemented, and the journey so far has been both fun and challenging.
 
 ## Performance
-
-Kaori's performance is now competitive with established dynamic languages. We've surpassed Python significantly and are approaching Lua's performance levels. PyPy remains our benchmark goal—it's currently about 2x faster than us in iterative code and 3x faster in recursive scenarios. Our goal is to get as close as possible to PyPy JIT-level performance without a JIT. It sounds very unlikely, but at the same time it is going to be a very exciting journey, don't you think?
-
-### Fibonacci Benchmark Results
 
 Here's how Kaori compares to other dynamic languages when computing Fibonacci numbers:
 
@@ -19,7 +15,9 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 
 As you can see, Kaori significantly outperforms CPython and is competitive with Lua, while PyPy still leads the pack with its sophisticated JIT compilation.
 
-# Feature Status
+> **Note:** This benchmark is based on a simple Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
+
+## Features
 
 -   [x] Error reporting
 -   [x] Code comments
