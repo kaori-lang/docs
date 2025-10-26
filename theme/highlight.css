@@ -4,6 +4,7 @@
  */
 
  .hljs {
+  font-size: medium;
   display: block;
   overflow-x: auto;
   background: #010101;        /* Almost pure black */
