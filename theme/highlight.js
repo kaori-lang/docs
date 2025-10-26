@@ -130,17 +130,30 @@ const regexGrammar = {
 	name: "regex-grammar",
 	scopeName: "source.regex-grammar",
 	patterns: [
+		{ include: "#rule-definition" },
 		{ include: "#nonterminals" },
 		{ include: "#terminals" },
 		{ include: "#symbols" },
 		{ include: "#comments" },
 	],
 	repository: {
+		"rule-definition": {
+			patterns: [
+				{
+					match: "(\\b[a-zA-Z_][a-zA-Z0-9_]*\\b)(\\s*)(->)",
+					captures: {
+						1: { name: "entity.name.function.regex-grammar" },
+						2: { name: "text" },
+						3: { name: "keyword.operator.regex-grammar" },
+					},
+				},
+			],
+		},
 		nonterminals: {
 			patterns: [
 				{
-					name: "entity.name.rule.regex-grammar",
-					match: "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=\\s*->)",
+					name: "variable.other.regex-grammar",
+					match: "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?!\\s*->)",
 				},
 			],
 		},
@@ -156,7 +169,7 @@ const regexGrammar = {
 			patterns: [
 				{
 					name: "keyword.operator.regex-grammar",
-					match: "->|\\||\\(|\\)|\\{|\\}|\\*|\\+|\\?|;",
+					match: "->|\\||\\{|\\}|\\*|\\+|\\?|\\(|\\)|,",
 				},
 			],
 		},
@@ -170,7 +183,6 @@ const regexGrammar = {
 		},
 	},
 };
-
 let highlighter;
 
 window.hljs = {
