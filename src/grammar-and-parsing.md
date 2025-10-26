@@ -8,12 +8,12 @@ Here is a non-EBNF grammar with custom syntax highlight, created with regular ex
 
 ## Declarations
 
-```
+```regex-grammar
 program -> declaration* "EOF"
 
 declaration -> variable_declaration ";" | function_declaration | struct_declaration
 
-variable_declaration -> "$" identifier ":" type "=" expression
+variable_declaration -> "$" identifier (":" type)? "=" expression
 
 parameter -> identifier ":" type
 parameters -> (parameter ("," parameter)*)?
@@ -31,7 +31,7 @@ An example where our rule is not followed: what happens if the next token to be 
 
 ## Statements
 
-```
+```regex-grammar
 statement -> block_statement
            | expression_statement ";"
            | print_statement ";"
@@ -97,7 +97,7 @@ Mathematicians, a long time ago, created the order of operations convention. It 
 
 The multiplication is done before the addition and the result is obviously: **17**. Multiplication and division are both part of the `factor` rule because they share the same precedence level. Addition and subtraction are part of the `term` rule.
 
-```
+```regex-grammar
 term -> factor (("+" | "-") factor)*
 factor -> prefix_unary (("*" | "/") prefix_unary)*
 ```
@@ -106,7 +106,7 @@ To be able to parse an addition or a subtraction, the parser tries to parse a fa
 
 ## Expressions
 
-```
+```regex-grammar
 expression -> assignment | logic_or
 
 assignment -> logic_or ("=" | "+=" | "-=" | "*=" | "/=" | "%=") logic_or
@@ -143,7 +143,7 @@ function_call -> identifier ("(" arguments ")")*
 
 Last, but not the least important, the parsing rules for types—because types can also be represented by recursive trees.
 
-```
+```regex-grammar
 type -> primitive_type | identifier_type
 
 identifier_type -> identifier

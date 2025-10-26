@@ -7,7 +7,7 @@ Here’s a quick look at some syntax:
 
 ```kaori
 def main() {
-    $n: number = 5;
+    $n = 5;
     print(fib(n));
 }
 

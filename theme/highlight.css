@@ -1,69 +1,97 @@
 /*
- * An increased contrast highlighting scheme loosely based on the
- * "Base16 Atelier Dune Light" theme by Bram de Haan
- * (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
- * Original Base16 color scheme by Chris Kempson
- * (https://github.com/chriskempson/base16)
+ * Aurora X Highlight.js Theme
+ * Inspired by the VS Code Aurora X theme JSON
+ * by Washington — dark aesthetic, blue-violet accents, aurora glow
  */
 
-/* Comment */
-.hljs-comment,
-.hljs-quote {
-  color: #575757;
-}
-
-/* Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attribute,
-.hljs-attr,
-.hljs-tag,
-.hljs-name,
-.hljs-regexp,
-.hljs-link,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class {
-  color: #d70025;
-}
-
-/* Orange */
-.hljs-number,
-.hljs-meta,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params {
-  color: #b21e00;
-}
-
-/* Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet {
-  color: #008200;
-}
-
-/* Blue */
-.hljs-title,
-.hljs-section {
-  color: #0030f2;
-}
-
-/* Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #9d00ec;
-}
-
-.hljs {
+ .hljs {
   display: block;
   overflow-x: auto;
-  background: #f6f7f6;
-  color: #000;
+  background: #07090F;
+  color: #EEFFFF;
+  padding: 1em;
+  border-radius: 0.5rem;
 }
 
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #546E7A;
+  font-style: italic;
+}
+
+/* Keywords, storage */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type,
+.hljs-built_in {
+  color: #C792EA; /* purple */
+}
+
+/* Numbers, constants, literals, parameters */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-variable.constant_ {
+  color: #F78C6C; /* orange */
+}
+
+/* Strings */
+.hljs-string,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #C3E88D; /* green */
+}
+
+/* Functions, methods */
+.hljs-title,
+.hljs-title.function_,
+.hljs-function .hljs-title {
+  color: #82AAFF; /* blue */
+}
+
+/* Class names, support types */
+.hljs-class,
+.hljs-meta .hljs-class,
+.hljs-type-name,
+.hljs-built_in.class_ {
+  color: #FFCB6B; /* gold */
+}
+
+/* Tags, operators, punctuation */
+.hljs-tag,
+.hljs-name,
+.hljs-attr,
+.hljs-attribute,
+.hljs-operator,
+.hljs-punctuation {
+  color: #89DDFF; /* cyan */
+}
+
+/* HTML/XML tags */
+.hljs-tag .hljs-name {
+  color: #F07178; /* pink/red */
+}
+
+/* Meta information */
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #C792EA;
+}
+
+/* Addition and Deletion (diffs) */
+.hljs-addition {
+  color: #C3E88D;
+  background-color: rgba(100, 211, 137, 0.15);
+}
+
+.hljs-deletion {
+  color: #FF5370;
+  background-color: rgba(221, 80, 116, 0.15);
+}
+
+/* Emphasis & strong text */
 .hljs-emphasis {
   font-style: italic;
 }
@@ -72,12 +100,21 @@
   font-weight: bold;
 }
 
-.hljs-addition {
-  color: #22863a;
-  background-color: #f0fff4;
+/* Highlight glow accents */
+.hljs-keyword,
+.hljs-title,
+.hljs-function .hljs-title {
+  text-shadow: 0 0 6px rgba(134, 165, 255, 0.3);
 }
 
-.hljs-deletion {
-  color: #b31d28;
-  background-color: #ffeef0;
+/* Links and URIs */
+.hljs-link {
+  color: #82AAFF;
+  text-decoration: underline;
+}
+
+/* Subtle line-number or code block background contrast (optional) */
+.hljs-ln-code,
+pre code.hljs {
+  background-color: #07090F;
 }

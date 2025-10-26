@@ -3,7 +3,6 @@
 [Kaori Programming Language](kaori.md)
 
 -   [Introduction](introduction.md)
--   [Design Decisions](design-decisions.md)
 -   [Grammar and Parsing](grammar-and-parsing.md)
 -   [First Hello World](first-hello-world.md)
 -   [Variables and Data Types](variables-and-types.md)

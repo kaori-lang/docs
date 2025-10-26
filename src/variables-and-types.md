@@ -16,7 +16,7 @@ def main() {
 Notice that `foo` is now declared in the global scope and that is **not allowed**. All objects can only live in the local scope.
 
 ```kaori
-$foo: number = 5;  // ❌ Error: variables cannot be declared in global scope
+
 
 def main() {
     $foo_bar: bool = true;  // ✓ Correct: variables must be in local scope

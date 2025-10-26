@@ -123,56 +123,60 @@
 }
 
 .light, html:not(.js) {
-    --bg: hsl(0, 0%, 100%);
-    --fg: hsl(0, 0%, 0%);
+/* General Background/Foreground */
+--bg: hsl(0, 0%, 5%);           /* Very Dark Grey, close to black */
+--fg: #f0f0f0;                  /* Brightest text for maximum contrast */
 
-    --sidebar-bg: #fafafa;
-    --sidebar-fg: hsl(0, 0%, 0%);
-    --sidebar-non-existant: #aaaaaa;
-    --sidebar-active: #1f1fff;
-    --sidebar-spacer: #f4f4f4;
+/* Sidebar */
+--sidebar-bg: hsl(0, 0%, 7%);
+--sidebar-fg: #ffffff;
+--sidebar-non-existant: #5c5c5c;
+--sidebar-active: #00AEEF;      /* ELECTRIC BLUE */
+--sidebar-spacer: hsl(0, 0%, 10%);
 
-    --scrollbar: #8F8F8F;
+/* Scrollbar, Icons, Links, and Code */
+--scrollbar: var(--sidebar-fg);
+--icons: #808080;
+--icons-hover: #ffffff;
+--links: #00AEEF;               /* ELECTRIC BLUE */
+--inline-code-color: #00AEEF;   /* INLINE CODE TEXT (ELECTRIC BLUE) */
 
-    --icons: #747474;
-    --icons-hover: #000000;
+/* Popups/Theme Switcher */
+--theme-popup-bg: hsl(0, 0%, 3%);
+--theme-popup-border: #606060;
+--theme-hover: hsl(0, 0%, 15%);
 
-    --links: #20609f;
+/* Quotes */
+--quote-bg: hsl(0, 0%, 10%);
+--quote-border: #00AEEF;         /* ELECTRIC BLUE border */
 
-    --inline-code-color: #301900;
+/* Warning */
+--warning-border: #ffc46d;
 
-    --theme-popup-bg: #fafafa;
-    --theme-popup-border: #cccccc;
-    --theme-hover: #e6e6e6;
+/* Tables */
+--table-border-color: hsl(0, 0%, 12%);
+--table-header-bg: hsl(0, 0%, 20%);
+--table-alternate-bg: hsl(0, 0%, 8%);
 
-    --quote-bg: hsl(197, 37%, 96%);
-    --quote-border: hsl(197, 37%, 91%);
+/* Search */
+--searchbar-border-color: #505050;
+--searchbar-bg: #e0e0e0;
+--searchbar-fg: #000;
+--searchbar-shadow-color: #505050;
+--searchresults-header-fg: #b0b0b0;
+--searchresults-border-color: #404040;
+--searchresults-li-bg: hsl(0, 0%, 6%);
+--search-mark-bg: #89cff0;       /* Light Blue for search highlight */
 
-    --warning-border: #ff8e00;
+/* Other */
+--color-scheme: dark;
 
-    --table-border-color: hsl(0, 0%, 95%);
-    --table-header-bg: hsl(0, 0%, 80%);
-    --table-alternate-bg: hsl(0, 0%, 97%);
+/* Copy Button (filter adjusted to result in electric blue on hover) */
+--copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+--copy-button-filter-hover: invert(40%) sepia(90%) saturate(2000%) hue-rotate(180deg) brightness(100%) contrast(100%);
 
-    --searchbar-border-color: #aaa;
-    --searchbar-bg: #fafafa;
-    --searchbar-fg: #000;
-    --searchbar-shadow-color: #aaa;
-    --searchresults-header-fg: #666;
-    --searchresults-border-color: #888;
-    --searchresults-li-bg: #e4f2fe;
-    --search-mark-bg: #a2cff5;
-
-    --color-scheme: light;
-
-    /* Same as `--icons` */
-    --copy-button-filter: invert(45.49%);
-    /* Same as `--sidebar-active` */
-    --copy-button-filter-hover: invert(14%) sepia(93%) saturate(4250%) hue-rotate(243deg) brightness(99%) contrast(130%);
-
-    --footnote-highlight: #7e7eff;
-
-    --overlay-bg: rgba(200, 200, 205, 0.4);
+--footnote-highlight: #00AEEF;  /* ELECTRIC BLUE */
+--overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
 .navy {
