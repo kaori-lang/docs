@@ -54,7 +54,7 @@ for_statement -> "for" variable_declaration ";" expression ";" expression_statem
 
 The parser is written with a **Recursive Descent Parser** and the good thing about it is that it mirrors every single non-terminal in the grammar. Take a look at the while statement non-terminal and let's compare it with the Rust parser code for it:
 
-```rust
+```rust no_run
 fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
     let span = self.token_stream.span();
 
@@ -69,7 +69,7 @@ fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
 
 It consumes the while token, parses an expression (which is the condition for the loop), then parses a block statement and that's it—this is the magic of it! Let's look at another example if you're still not convinced:
 
-```rust
+```rust no_run
 fn parse_print_statement(&mut self) -> Result<Stmt, KaoriError> {
     let span = self.token_stream.span();
 

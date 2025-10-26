@@ -10,7 +10,7 @@ def square(n: number) -> number {
 }
 
 def main() {
-    $result: number = square(5);
+    $result = square(5);
     print(result); // 25
 }
 ```
@@ -20,17 +20,23 @@ def main() {
 Functions can also call themselves recursively. Just remember to include a base case! :D
 
 ```kaori
-def fib(n: number) -> number {
-    if n == 0 {
-        return 0;
+def foo(n: number) {
+    print(n);
+
+    if n > 0 {
+        bar(n - 1);
     }
-    if n == 1 {
-        return 1;
+}
+
+def bar(n: number) {
+    print(n);
+
+    if n > 0 {
+        foo(n - 1);
     }
-    return fib(n - 1) + fib(n - 2);
 }
 
 def main() {
-    print(fib(6));
+    foo(10);
 }
 ```

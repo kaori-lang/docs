@@ -26,9 +26,9 @@ Comparison operators like `>`, `<=`, or `==` always evaluate to a boolean value:
 Logical operators such as `&&` and `||` allow combining boolean expressions:
 
 ```kaori
-true && false; // false
-true || false; // true
-!(5 == 6);     // true
+true and false; // false
+true or false; // true
+not 5 == 6;     // true
 ```
 
 ## Assignment Operator

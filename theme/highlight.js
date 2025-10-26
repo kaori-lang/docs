@@ -47,11 +47,11 @@ const kaori = {
 			patterns: [
 				{
 					name: "variable.other.declaration.kaori",
-					match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:)",
+					match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:?)",
 				},
 				{
 					name: "entity.name.type.kaori",
-					match: ":(\\s*[A-Z][A-Za-z0-9_]*|\\s*number|\\s*bool)\\b",
+					match: "(\\s*[A-Z][A-Za-z0-9_]*)\\b",
 				},
 			],
 		},
@@ -85,7 +85,10 @@ const kaori = {
 					name: "keyword.operator.assignment.kaori",
 					match: "(?<![=!<>])=(?!=)",
 				},
-				{ name: "keyword.operator.logical.kaori", match: "(!|&&|\\|)" },
+				{
+					name: "keyword.operator.logical.kaori",
+					match: "(not|or|and)",
+				},
 			],
 		},
 		strings: {
@@ -193,9 +196,13 @@ window.hljs = {
 			});
 		}
 
-		block.parentElement.innerHTML = await highlighter.codeToHtml(
-			block.innerText,
-			{ lang, theme: "aurora-x" }
-		);
+		const html = await highlighter.codeToHtml(block.innerText, {
+			lang,
+			theme: "aurora-x",
+		});
+
+		// Keep the <pre> element and its scroll
+		block.innerHTML = html.replace(/^<pre[^>]*>|<\/pre>$/g, "");
+		block.classList.add("shiki");
 	},
 };
