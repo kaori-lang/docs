@@ -1,15 +1,15 @@
 # Functions
 
-A function is declared with the `def` keyword, followed by its name, parameters, and an optional return type.
+A function is declared with the `fun` keyword, followed by its name, parameters, and an optional return type.
 
 ## Basic Functions
 
 ```kaori
-def square(n: number) -> number {
+fun square(n: number) -> number {
     return n * n;
 }
 
-def main() {
+fun main() {
     $result = square(5);
     print(result); // 25
 }
@@ -20,7 +20,7 @@ def main() {
 Functions can also call themselves recursively. Just remember to include a base case! :D
 
 ```kaori
-def foo(n: number) {
+fun foo(n: number) {
     print(n);
 
     if n > 0 {
@@ -28,7 +28,7 @@ def foo(n: number) {
     }
 }
 
-def bar(n: number) {
+fun bar(n: number) {
     print(n);
 
     if n > 0 {
@@ -36,7 +36,7 @@ def bar(n: number) {
     }
 }
 
-def main() {
+fun main() {
     foo(10);
 }
 ```

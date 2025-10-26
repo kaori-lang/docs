@@ -60,7 +60,7 @@ Kaori provides compound assignment operators that combine an arithmetic operatio
 -   `%=` Modulo and assign
 
 ```kaori
-def main() {
+fun main() {
     $x = 10;
 
     x += 5;  // Equivalent to: x = x + 5  (x is now 15)
@@ -74,7 +74,7 @@ def main() {
 Compound assignment operators are particularly useful in loops and when updating values incrementally:
 
 ```kaori
-def main() {
+fun main() {
     $sum = 0;
 
     for $i = 1; i <= 5; i += 1 {
@@ -88,7 +88,7 @@ def main() {
 The right-hand side of a compound assignment can be any valid expression:
 
 ```kaori
-def main() {
+fun main() {
     $total = 100;
     $multiplier = 3;
 

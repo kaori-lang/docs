@@ -145,7 +145,7 @@
     --sidebar-bg: #000000;
     --sidebar-fg: hsl(0, 0%, 95%);
     --sidebar-non-existant: #333333;
-    --sidebar-active: #e0e0e0;
+    --sidebar-active: #ff6363;
     --sidebar-spacer: #050505;
 
     --scrollbar: #252525;
@@ -196,7 +196,7 @@
     --blockquote-warning-color: #d29922;
     --blockquote-caution-color: #f85149;
 
-    --sidebar-header-border-color: #e0e0e0;
+    --sidebar-header-border-color: #ff6363;
 }
 
 .navy {

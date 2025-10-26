@@ -6,12 +6,12 @@ It draws inspiration from modern languages like **Python** and **Rust**, combini
 Here’s a quick look at some syntax:
 
 ```kaori
-def main() {
+fun main() {
     $n = 5;
     print(fib(n));
 }
 
-def fib(n: number) -> number {
+fun fib(n: number) -> number {
     if n < 2 {
         return n;
     }

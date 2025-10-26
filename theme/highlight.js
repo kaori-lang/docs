@@ -19,7 +19,7 @@ const kaori = {
 			patterns: [
 				{
 					name: "keyword.control.kaori",
-					match: "\\b(def|if|else|for|while|return|break|continue)\\b",
+					match: "\\b(fun|if|else|for|while|return|break|continue)\\b",
 				},
 			],
 		},

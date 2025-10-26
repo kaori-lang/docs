@@ -5,7 +5,7 @@ Variable declarations in Kaori can include type annotations, but they are **opti
 `number` and `bool` are the most basic types:
 
 ```kaori
-def main() {
+fun main() {
     $foo: number = 5;        // Explicit type annotation
     $bar = 10;               // Type inferred as number
     $foo_bar: bool = true;   // Explicit type annotation
@@ -18,7 +18,7 @@ def main() {
 The Kaori compiler uses **automatic type inference** for variables without explicit type annotations. The type is determined from the initialization value:
 
 ```kaori
-def main() {
+fun main() {
     $count = 42;           // Inferred as number
     $active = true;        // Inferred as bool
 }
@@ -27,7 +27,7 @@ def main() {
 You can still provide explicit type annotations when you want to be more explicit about types or when it improves code clarity:
 
 ```kaori
-def main() {
+fun main() {
     $temperature: number = 98.6;  // Explicit
     $humidity = 65;                // Inferred
 }

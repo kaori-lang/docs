@@ -5,7 +5,7 @@ Error reporting is one of the core features. A programming language without clea
 ## Example: Syntax Error
 
 ```kaori
-def main() {
+fun main() {
     print(2 +);
 }
 ```

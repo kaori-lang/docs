@@ -18,7 +18,7 @@ variable_declaration -> "$" identifier (":" type)? "=" expression
 parameter -> identifier ":" type
 parameters -> (parameter ("," parameter)*)?
 function_body -> "{" (statement | declaration)* "}"
-function_declaration -> "def" identifier "(" parameters ")" ("->" type)? function_body
+function_declaration -> "fun" identifier "(" parameters ")" ("->" type)? function_body
 
 field -> identifier ":" type
 fields -> (field ("," field)*)?
