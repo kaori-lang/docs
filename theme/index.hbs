@@ -11,15 +11,13 @@
         <base href="{{ base_url }}">
         {{/if}}
 
-        <meta content="Official documentation for Kaori Programming Language" name="description">
-        <meta content="Kaori Programming Language Documentation" property="og:title">
-        <meta content="Official documentation for Kaori Programming Language" property="og:description">
-        <meta content="https://github.com/kaori-lang/docs/blob/main/thumbnail.png?raw=true" property="og:image">
-        <meta content="width=device-width, initial-scale=1" name="viewport">
-        <meta property="og:type" content="article">
+      
+
 
         <!-- Custom HTML head -->
-        {{> head}}
+
+       {{!--  {{> head}} --}}
+       {{ head}}
 
         <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,6 +65,14 @@
         </script>
         <!-- Start loading toc.js asap -->
         <script src="{{ resource "toc.js" }}"></script>
+
+        <meta property="og:title" content="Kaori Programming Language Documentation">
+        <meta property="og:description" content="Official documentation for Kaori Programming Language">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://kaori-lang.github.io/docs/">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kaori-lang/docs/main/thumbnail.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
     </head>
     <body>
     <div id="mdbook-help-container">
