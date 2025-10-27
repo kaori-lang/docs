@@ -123,7 +123,7 @@ term -> factor (("+" | "-") factor)*
 
 factor -> prefix_unary (("*" | "/") prefix_unary)*
 
-prefix_unary -> ("not" | "-") prefix_unary | primary
+prefix_unary -> "-" prefix_unary | "not" logical_or | primary
 
 primary -> number_literal
          | string_literal
