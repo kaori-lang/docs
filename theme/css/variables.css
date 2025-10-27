@@ -17,7 +17,7 @@
 /* Themes */
 
 .ayu {
-    --bg: hsl(210, 25%, 8%);
+    --bg: #0f141a;
     --fg: #c5c5c5;
 
     --sidebar-bg: #14191f;
@@ -139,64 +139,72 @@
 }
 
 .light, html:not(.js) {
-    --bg: hsl(0 0% 7% / 1);
+    /* Base Colors */
+    --bg: #121212;
     --fg: hsl(0, 0%, 95%);
 
-    --sidebar-bg: hsl(0 0% 7% / 1);
+    /* Sidebar */
+    --sidebar-bg: #0c0c0c;
     --sidebar-fg: hsl(0, 0%, 95%);
-    --sidebar-non-existant: #333333;
+    --sidebar-non-existant: #0c0c0c;
     --sidebar-active: #ff6363;
-    --sidebar-spacer: #050505;
+    --sidebar-spacer: #0c0c0c;
+    --sidebar-header-border-color: #ff6363;
 
-    --scrollbar: #252525;
+    /* Scrollbar */
+    --scrollbar: #1a1a1a;
 
+    /* Icons */
     --icons: #909090;
     --icons-hover: #ffffff;
 
+    /* Links */
     --links: #58a6ff;
 
-    --inline-code-color: #ffa657;
+    /* Inline code */
+    --inline-code-color: #ff6363;
+ 
 
-    --theme-popup-bg: #000000;
+    /* Theme popup */
+    --theme-popup-bg: #0c0c0c;
     --theme-popup-border: #1a1a1a;
-    --theme-hover: #0a0a0a;
+    --theme-hover: #0c0c0c;
 
-    --quote-bg: hsl(0, 0%, 4%);
-    --quote-border: hsl(0, 0%, 12%);
+    /* Quotes */
+    --quote-bg: #1b1b1b;
+    --quote-border: #1a1a1a;
 
+    /* Warnings */
     --warning-border: #ff8e00;
 
-    --table-border-color: hsl(0, 0%, 10%);
-    --table-header-bg: hsl(0, 0%, 6%);
-    --table-alternate-bg: hsl(0, 0%, 3%);
+    /* Tables */
+    --table-border-color: #1a1a1a;
+    --table-header-bg: #0c0c0c;
+    --table-alternate-bg: #1b1b1b;
 
+    /* Search */
     --searchbar-border-color: #1a1a1a;
-    --searchbar-bg: #000000;
+    --searchbar-bg: #0c0c0c;
     --searchbar-fg: #e0e0e0;
     --searchbar-shadow-color: #000000;
     --searchresults-header-fg: #777777;
     --searchresults-border-color: #1a1a1a;
-    --searchresults-li-bg: #0a0a0a;
+    --searchresults-li-bg: #0c0c0c;
     --search-mark-bg: #2a3a50;
 
+    /* Misc */
     --color-scheme: dark;
-
-    /* Adjusted for dark theme */
     --copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
-    /* Updated for bright gray sidebar-active color */
     --copy-button-filter-hover: invert(90%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
-
     --footnote-highlight: #6b6bff;
+    --overlay-bg: #000000d9;
 
-    --overlay-bg: rgba(0, 0, 0, 0.85);
-
+    /* Blockquote categories */
     --blockquote-note-color: #58a6ff;
     --blockquote-tip-color: #3fb950;
     --blockquote-important-color: #a371f7;
     --blockquote-warning-color: #d29922;
     --blockquote-caution-color: #f85149;
-
-    --sidebar-header-border-color: #ff6363;
 }
 
 .navy {

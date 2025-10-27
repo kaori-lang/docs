@@ -4,15 +4,8 @@ authors = ["washingtonfbueno"]
 language = "en"
 
 [output.html]
-
 default-theme = "light"
 preferred-dark-theme = "light"
-smart-punctuation = true
-mathjax-support = false
-
-
-no-section-label = false
 git-repository-url = "https://github.com/kaori-lang/kaori"
-
 edit-url-template = "https://github.com/kaori-lang/docs/edit/main/{path}"
 
