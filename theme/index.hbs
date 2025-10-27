@@ -11,7 +11,10 @@
         <base href="{{ base_url }}">
         {{/if}}
 
-        <meta property="og:image" content="{{ resource "favicon.png" }}">
+        <meta property="og:image" content="{{ path_to_root }}favicon.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Kaori Programming Language Documentation">
 
         <!-- Custom HTML head -->
         {{> head}}
