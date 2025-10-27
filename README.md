@@ -27,8 +27,6 @@ The documentation will be available at `http://localhost:3000`.
 
 ### Build Only
 
-If you just want to build without serving:
-
 ```bash
 mdbook build
 ```
