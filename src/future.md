@@ -17,7 +17,7 @@ As you can see, Kaori significantly outperforms CPython and is competitive with 
 
 > **Note:** This benchmark is based on a simple Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
 
-## Development oadmap
+## Development roadmap
 
 -   [x] Error reporting
 -   [x] Code comments
