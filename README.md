@@ -1,11 +1,5 @@
 # Kaori Programming Language Documentation
 
-Welcome to the official documentation for **Kaori**, an educational programming language built to explore compiler design and language implementation
-
-## Building the Documentation
-
-This documentation is built using [mdBook](https://rust-lang.github.io/mdBook/). To build and view it locally:
-
 ### Prerequisites
 
 Install mdBook:
@@ -14,14 +8,29 @@ Install mdBook:
 cargo install --git https://github.com/rust-lang/mdBook.git mdbook
 ```
 
-### Build and Serve
+### Clone the Repository
+
+First, clone the documentation repository:
 
 ```bash
-# Build the documentation
-mdbook build
-
-# Serve locally with live reload
-mdbook serve
+git clone https://github.com/kaori-lang/docs.git
+cd kaori-docs
 ```
 
-The documentation will be available at `http://localhost:3000`
+_(Update with your actual repository URL)_
+
+### Build, Serve and Open
+
+```bash
+mdbook serve --open
+```
+
+The documentation will be available at `http://localhost:3000`.
+
+### Build Only
+
+If you just want to build without serving:
+
+```bash
+mdbook build
+```
