@@ -115,5 +115,5 @@
 /* Optional line number or background contrast */
 .hljs-ln-code,
 pre code.hljs {
-  background-color: #010101;  /* Keep fully black for consistency */
+  background-color: #0c0c0c;  /* Keep fully black for consistency */
 }

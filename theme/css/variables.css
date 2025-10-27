@@ -139,10 +139,10 @@
 }
 
 .light, html:not(.js) {
-    --bg: hsl(0, 0%, 2%);
+    --bg: hsl(0 0% 7% / 1);
     --fg: hsl(0, 0%, 95%);
 
-    --sidebar-bg: #000000;
+    --sidebar-bg: hsl(0 0% 7% / 1);
     --sidebar-fg: hsl(0, 0%, 95%);
     --sidebar-non-existant: #333333;
     --sidebar-active: #ff6363;
