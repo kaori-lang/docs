@@ -17,8 +17,6 @@ git clone https://github.com/kaori-lang/docs.git
 cd kaori-docs
 ```
 
-_(Update with your actual repository URL)_
-
 ### Build, Serve and Open
 
 ```bash
