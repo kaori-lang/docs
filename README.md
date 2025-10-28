@@ -2,8 +2,6 @@
 
 ### Prerequisites
 
-Install mdBook:
-
 ```bash
 cargo install --git https://github.com/rust-lang/mdBook.git mdbook
 ```
