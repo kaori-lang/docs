@@ -6,16 +6,24 @@ I believe we can now confidently call Kaori a **Turing-complete programming lang
 
 Here's how Kaori compares to other dynamic languages when computing Fibonacci numbers:
 
-| Language  | Iterative (s) | Recursive (s) |
-| --------- | ------------- | ------------- |
-| **Kaori** | **0.393906**  | **3.312068**  |
-| Lua       | 0.286515      | 4.779067      |
-| Python    | 3.011300      | 12.621375     |
-| PyPy      | 0.182464      | 1.148566      |
+| Language  | Version | Iterative (s) | Recursive (s) |
+| --------- | ------- | ------------- | ------------- |
+| **Kaori** | 1.0.0   | **0.393906**  | **3.312068**  |
+| Lua       | 5.4.2   | 0.286515      | 4.779067      |
+| Python    | 3.11.0  | 3.011300      | 12.621375     |
+| PyPy      | 7.3.20  | 0.182464      | 1.148566      |
 
-As you can see, Kaori significantly outperforms CPython and is competitive with Lua, while PyPy still leads the pack with its sophisticated JIT compilation.
+**Iterative**: `fib(40)` computed 10^6 times using an iterative algorithm  
+**Recursive**: `fib(40)` computed once using a naive recursive algorithm (no memoization)
 
-> **Note:** This benchmark is based on a simple Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
+### Environment
+
+-   **CPU**: AMD Ryzen 5 5600 (6-core, 12-thread, 3.5GHz base / 4.4GHz boost)
+-   **RAM**: 16GB DDR4 3000MHz
+-   **Motherboard**: ASUS A320M
+-   **OS**: Windows 11
+
+> **Note:** These benchmarks are based on a specific Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
 
 ## Development roadmap
 
