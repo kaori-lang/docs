@@ -8,7 +8,7 @@ Kaori is an **educational project** built to explore and understand how programm
 
 -   Lexical analysis and parsing
 -   Semantic analysis
--   Type systems and type inference
+-   Dynamic typing and runtime type checking
 -   Compiler optimization techniques
 -   Optimal bytecode generation and virtual machines
 

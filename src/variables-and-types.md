@@ -1,34 +1,25 @@
 # Variables and Data Types
 
-Variable declarations in Kaori can include type annotations, but they are **optional**. When a type annotation is not provided, the compiler automatically infers the type from the initial value. All variables must be initialized with a value on the right-hand side.
+Variables in Kaori are declared with the `let` keyword and must always be initialized with a value. Since Kaori is dynamically typed, there are no type annotations — the type of a variable is determined at runtime by the value it holds.
 
 `number` and `bool` are the most basic types:
 
 ```kaori
 fun main() {
-    $foo: number = 5;        // Explicit type annotation
-    $bar = 10;               // Type inferred as number
-    $foo_bar: bool = true;   // Explicit type annotation
-    $is_valid = false;       // Type inferred as bool
+    let foo = 5;        // number
+    let bar = 10;       // number
+    let foo_bar = true; // bool
+    let is_valid = false; // bool
 }
 ```
 
-## Type Inference
+## Dynamic Typing
 
-The Kaori compiler uses **automatic type inference** for variables without explicit type annotations. The type is determined from the initialization value:
-
-```kaori
-fun main() {
-    $count = 42;           // Inferred as number
-    $active = true;        // Inferred as bool
-}
-```
-
-You can still provide explicit type annotations when you want to be more explicit about types or when it improves code clarity:
+Since Kaori is dynamically typed, variables are not bound to a specific type at compile time. The runtime tracks the type of each value and will raise an error if an operation is performed on an incompatible type:
 
 ```kaori
 fun main() {
-    $temperature: number = 98.6;  // Explicit
-    $humidity = 65;                // Inferred
+    let count = 42;     // holds a number at runtime
+    let active = true;  // holds a bool at runtime
 }
 ```

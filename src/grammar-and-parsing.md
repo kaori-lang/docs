@@ -13,21 +13,21 @@ program -> declaration* "EOF"
 
 declaration -> variable_declaration ";" | function_declaration | struct_declaration
 
-variable_declaration -> "$" identifier (":" type)? "=" expression
+variable_declaration -> "let" identifier "=" expression
 
-parameter -> identifier ":" type
+parameter -> identifier
 parameters -> (parameter ("," parameter)*)?
 function_body -> "{" (statement | declaration)* "}"
-function_declaration -> "fun" identifier "(" parameters ")" ("->" type)? function_body
+function_declaration -> "fun" identifier "(" parameters ")" function_body
 
-field -> identifier ":" type
+field -> identifier
 fields -> (field ("," field)*)?
 struct_declaration -> "struct" identifier "{" fields "}"
 ```
 
-What does any of this even mean? Take a look at the variable declaration rule: it expects an identifier, then a colon, then it tries to parse a type, then it expects an assign operator token, and then finally it tries to parse an expression. After all those steps, it builds the declaration node for the variable.
+What does any of this even mean? Take a look at the variable declaration rule: it expects the `let` keyword, then an identifier, then an assign operator, and finally an expression. After all those steps, it builds the declaration node for the variable.
 
-An example where our rule is not followed: what happens if the next token to be consumed after parsing the type annotation is not an assign operator? Then that would be what is known as a **syntax error**! If we are trying to parse a variable declaration, according to the rules an assign operator is always expected after a type annotation, so make sure to not miss it in your code.
+An example where our rule is not followed: what happens if the next token to be consumed after the identifier is not an assign operator? Then that would be what is known as a **syntax error**! If we are trying to parse a variable declaration, according to the rules an assign operator is always expected after the identifier, so make sure to not miss it in your code.
 
 ## Statements
 
@@ -141,15 +141,4 @@ function_call -> identifier ("(" arguments ")")*
 
 ## Types
 
-Last, but not the least important, the parsing rules for types—because types can also be represented by recursive trees.
-
-```regex-grammar
-type -> primitive_type | identifier_type
-
-identifier_type -> identifier
-
-primitive_type -> "bool" | "number"
-
-arguments -> (type ("," type)*)?
-function_type -> "(" arguments ")" "->" type
-```
+Since Kaori is dynamically typed, there are no type annotations in the language. Types are determined at runtime based on the values assigned to variables and returned from functions.

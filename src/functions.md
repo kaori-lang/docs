@@ -5,12 +5,12 @@ A function is declared with the `fun` keyword, followed by its name, parameters,
 ## Basic Functions
 
 ```kaori
-fun square(n: number) -> number {
+fun square(n) {
     return n * n;
 }
 
 fun main() {
-    $result = square(5);
+    let result = square(5);
     print(result); // 25
 }
 ```
@@ -20,7 +20,7 @@ fun main() {
 Functions can also call themselves recursively. Just remember to include a base case! :D
 
 ```kaori
-fun foo(n: number) {
+fun foo(n) {
     print(n);
 
     if n > 0 {
@@ -28,7 +28,7 @@ fun foo(n: number) {
     }
 }
 
-fun bar(n: number) {
+fun bar(n) {
     print(n);
 
     if n > 0 {

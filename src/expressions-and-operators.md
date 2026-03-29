@@ -46,7 +46,7 @@ not 5 == 6;     // true
 The assignment operator (`=`) has the lowest precedence, ensuring that the expression on the right-hand side is fully evaluated before being assigned to the variable on the left:
 
 ```kaori
-$a = 3 + 4 * 2; // a = 11
+let a = 3 + 4 * 2; // a = 11
 ```
 
 ### Compound Assignment Operators
@@ -61,7 +61,7 @@ Kaori provides compound assignment operators that combine an arithmetic operatio
 
 ```kaori
 fun main() {
-    $x = 10;
+    let x = 10;
 
     x += 5;  // Equivalent to: x = x + 5  (x is now 15)
     x -= 3;  // Equivalent to: x = x - 3  (x is now 12)
@@ -75,9 +75,9 @@ Compound assignment operators are particularly useful in loops and when updating
 
 ```kaori
 fun main() {
-    $sum = 0;
+    let sum = 0;
 
-    for $i = 1; i <= 5; i += 1 {
+    for let i = 1; i <= 5; i += 1 {
         sum += i;  // Add each number to the sum
     }
 
@@ -89,8 +89,8 @@ The right-hand side of a compound assignment can be any valid expression:
 
 ```kaori
 fun main() {
-    $total = 100;
-    $multiplier = 3;
+    let total = 100;
+    let multiplier = 3;
 
     total *= multiplier + 2;  // total = total * (3 + 2) = 500
 }

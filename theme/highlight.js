@@ -5,7 +5,6 @@ const kaori = {
 	patterns: [
 		{ include: "#comments" },
 		{ include: "#keywords" },
-		{ include: "#types" },
 		{ include: "#functions" },
 		{ include: "#constants" },
 		{ include: "#numbers" },
@@ -19,15 +18,7 @@ const kaori = {
 			patterns: [
 				{
 					name: "keyword.control.kaori",
-					match: "\\b(fun|if|else|for|while|return|break|continue)\\b",
-				},
-			],
-		},
-		types: {
-			patterns: [
-				{
-					name: "entity.name.type.kaori",
-					match: "\\b([A-Z][A-Za-z0-9_]*|number|bool)\\b",
+					match: "\\b(fun|let|if|else|for|while|return|break|continue)\\b",
 				},
 			],
 		},
@@ -35,7 +26,10 @@ const kaori = {
 			patterns: [
 				{
 					name: "entity.name.function.definition.kaori",
-					match: "\\bdef\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+					match: "\\bfun\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+					captures: {
+						1: { name: "entity.name.function.kaori" },
+					},
 				},
 				{
 					name: "entity.name.function.call.kaori",
@@ -46,12 +40,8 @@ const kaori = {
 		variables: {
 			patterns: [
 				{
-					name: "variable.other.declaration.kaori",
-					match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:?)",
-				},
-				{
-					name: "entity.name.type.kaori",
-					match: "(\\s*[A-Z][A-Za-z0-9_]*)\\b",
+					name: "variable.other.kaori",
+					match: "(?<=\\blet\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
 				},
 			],
 		},
@@ -87,7 +77,7 @@ const kaori = {
 				},
 				{
 					name: "keyword.operator.logical.kaori",
-					match: "(not|or|and)",
+					match: "\\b(not|or|and)\\b",
 				},
 			],
 		},
@@ -117,7 +107,10 @@ const kaori = {
 		},
 		symbols: {
 			patterns: [
-				{ name: "keyword.operator.regex-grammar", match: "\\$" },
+				{
+					name: "punctuation.definition.kaori",
+					match: "[{}()\\[\\];,.]",
+				},
 			],
 		},
 	},
