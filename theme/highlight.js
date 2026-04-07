@@ -147,7 +147,7 @@ const kaori = {
 			patterns: [
 				{
 					name: "punctuation.definition.kaori",
-					match: "[{}()\\[\\];,.]",
+					match: "[{}()\\[\\];,.:]",
 				},
 			],
 		},
