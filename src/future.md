@@ -29,22 +29,24 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 
 -   [x] Error reporting
 -   [x] Code comments
--   [x] Compound assign operators
--   [x] Logical operators
 -   [x] Arithmetic operators
 -   [x] Comparison operators
+-   [x] Logical operators
 -   [x] Prefix unary operators
 -   [x] Print statement
 -   [x] Variable declaration
--   [x] Dynamic typing
+-   [x] Compound assignment operators
 -   [x] If / else statement
 -   [x] For loop
 -   [x] While loop
 -   [x] Functions
 -   [x] Bytecode instructions
 -   [x] Register virtual machine
--   [ ] Structs and implementation blocks
+-   [x] Small optimizations
+-   [x] Dictionaries
+-   [ ] Vectors
+-   [ ] Standard library
 -   [ ] Garbage collector
 -   [ ] Error handling mechanisms
 -   [ ] Module system
--   [ ] Standard library and native data structures
+-   [ ] Advanced optimizations

@@ -11,79 +11,35 @@ Here is a non-EBNF grammar with custom syntax highlight, created with regular ex
 ```regex-grammar
 program -> declaration* "EOF"
 
-declaration -> variable_declaration ";" | function_declaration | struct_declaration
+declaration -> function_declaration
 
-variable_declaration -> "let" identifier "=" expression
-
-parameter -> identifier
-parameters -> (parameter ("," parameter)*)?
-function_body -> "{" (statement | declaration)* "}"
+parameters -> (identifier ("," identifier)*)?
+function_body -> "{" statement* "}"
 function_declaration -> "fun" identifier "(" parameters ")" function_body
-
-field -> identifier
-fields -> (field ("," field)*)?
-struct_declaration -> "struct" identifier "{" fields "}"
 ```
-
-What does any of this even mean? Take a look at the variable declaration rule: it expects the `let` keyword, then an identifier, then an assign operator, and finally an expression. After all those steps, it builds the declaration node for the variable.
-
-An example where our rule is not followed: what happens if the next token to be consumed after the identifier is not an assign operator? Then that would be what is known as a **syntax error**! If we are trying to parse a variable declaration, according to the rules an assign operator is always expected after the identifier, so make sure to not miss it in your code.
 
 ## Statements
 
 ```regex-grammar
 statement -> block_statement
            | expression_statement ";"
-           | print_statement ";"
+           | return_statement ";"
            | if_statement
            | while_statement
            | for_statement
 
-block_statement -> "{" (declaration | statement)* "}"
+block_statement -> "{" statement* "}"
 
 expression_statement -> expression
 
-print_statement -> "print" "(" expression ")"
+return_statement -> "return" (expression)?
 
 if_statement -> "if" expression block_statement ("else" (if_statement | block_statement))?
 
 while_statement -> "while" expression block_statement
 
-for_statement -> "for" variable_declaration ";" expression ";" expression_statement block_statement
+for_statement -> "for" expression ";" expression ";" expression_statement block_statement
 ```
-
-The parser is written with a **Recursive Descent Parser** and the good thing about it is that it mirrors every single non-terminal in the grammar. Take a look at the while statement non-terminal and let's compare it with the Rust parser code for it:
-
-```rust no_run
-fn parse_while_loop_statement(&mut self) -> Result<Stmt, KaoriError> {
-    let span = self.token_stream.span();
-
-    self.token_stream.consume(TokenKind::While)?;
-
-    let condition = self.parse_expression()?;
-    let block = self.parse_block_statement()?;
-
-    Ok(Stmt::while_loop(condition, block, span))
-}
-```
-
-It consumes the while token, parses an expression (which is the condition for the loop), then parses a block statement and that's it—this is the magic of it! Let's look at another example if you're still not convinced:
-
-```rust no_run
-fn parse_print_statement(&mut self) -> Result<Stmt, KaoriError> {
-    let span = self.token_stream.span();
-
-    self.token_stream.consume(TokenKind::Print)?;
-    self.token_stream.consume(TokenKind::LeftParen)?;
-    let expression = self.parse_expression()?;
-    self.token_stream.consume(TokenKind::RightParen)?;
-    self.token_stream.consume(TokenKind::Semicolon)?;
-
-    Ok(Stmt::print(expression, span))
-}
-```
-
-For parsing a print statement according to the grammar, it is expected: a print token, followed by a left parenthesis, then an expression, then a right parenthesis, and finally a semicolon token.
 
 ## Operator Precedence
 
@@ -107,9 +63,11 @@ To be able to parse an addition or a subtraction, the parser tries to parse a fa
 ## Expressions
 
 ```regex-grammar
-expression -> assignment | logic_or
+expression -> declare_assign | compound_assign | logic_or
 
-assignment -> logic_or ("=" | "+=" | "-=" | "*=" | "/=" | "%=") logic_or
+declare_assign -> logic_or ":=" logic_or
+
+compound_assign -> logic_or ("+=" | "-=" | "*=" | "/=" | "%=") logic_or
 
 logic_or -> logic_and ("or" logic_and)*
 
@@ -123,22 +81,23 @@ term -> factor (("+" | "-") factor)*
 
 factor -> prefix_unary (("*" | "/") prefix_unary)*
 
-prefix_unary -> "-" prefix_unary | "not" logical_or | primary
+prefix_unary -> "-" prefix_unary | "not" logic_or
+
+arguments -> (expression ("," expression)*)?
 
 primary -> number_literal
          | string_literal
          | boolean_literal
-         | postfix_unary
+         | dict_literal
+         | identifier (postfix_unary)*
          | "(" expression ")"
 
-postfix_unary -> function_call | struct_literal
+postfix_unary -> function_call | member_access
 
-struct_literal -> to do
+function_call -> "(" arguments ")"
 
-arguments -> (expression ("," expression)*)?
-function_call -> identifier ("(" arguments ")")*
+member_access -> "." identifier
+
+dict_field -> expression (":" expression)?
+dict_literal -> "{" (dict_field ("," dict_field)* ","?)? "}"
 ```
-
-## Types
-
-Since Kaori is dynamically typed, there are no type annotations in the language. Types are determined at runtime based on the values assigned to variables and returned from functions.

@@ -26,7 +26,7 @@ A `while` loop runs a block of code repeatedly as long as the condition remains 
 
 ```kaori
 fun main() {
-    let i = 0;
+    i := 0;
 
     while i < 3 {
         print(i);
@@ -37,11 +37,11 @@ fun main() {
 
 ## For Loops
 
-A `for` loop is syntax sugar for the `while` loop and provides a more compact way to write loops with initialization, condition, and increment logic. It has a variable declaration, a condition, and an expression statement that modifies the loop variable.
+A `for` loop provides a more compact way to write loops with variable initialization, condition, and increment logic.
 
 ```kaori
 fun main() {
-    for let i = 0; i < 3; i += 1 {
+    for i := 0; i < 3; i += 1 {
         print(i);
     }
 }
@@ -55,8 +55,8 @@ Loops can be nested, which is useful for iterating over multiple dimensions or w
 
 ```kaori
 fun main() {
-    for let x = 0; x < 2; x += 1 {
-        for let y = 0; y < 2; y += 1 {
+    for x := 0; x < 2; x += 1 {
+        for y := 0; y < 2; y += 1 {
             print(x + y);
         }
     }
@@ -69,7 +69,7 @@ The `break` statement immediately exits the innermost loop, skipping any remaini
 
 ```kaori
 fun main() {
-    for let i = 0; i < 10; i += 1 {
+    for i := 0; i < 10; i += 1 {
         if i == 5 {
             break;  // Exit the loop when i equals 5
         }
@@ -83,8 +83,8 @@ In nested loops, `break` only exits the innermost loop:
 
 ```kaori
 fun main() {
-    for let x = 0; x < 3; x += 1 {
-        for let y = 0; y < 3; y += 1 {
+    for x := 0; x < 3; x += 1 {
+        for y := 0; y < 3; y += 1 {
             if y == 2 {
                 break;  // Only exits the inner loop
             }
@@ -100,7 +100,7 @@ The `continue` statement skips the rest of the current iteration and moves to th
 
 ```kaori
 fun main() {
-    for let i = 0; i < 5; i += 1 {
+    for i := 0; i < 5; i += 1 {
         if i == 2 {
             continue;  // Skip printing when i equals 2
         }
@@ -114,7 +114,7 @@ You can use `continue` to filter out unwanted iterations:
 ```kaori
 fun main() {
     // Print only even numbers
-    for let i = 0; i < 10; i += 1 {
+    for i := 0; i < 10; i += 1 {
         if i % 2 != 0 {
             continue;  // Skip odd numbers
         }

@@ -10,7 +10,7 @@ fun square(n) {
 }
 
 fun main() {
-    let result = square(5);
+    result := square(5);
     print(result); // 25
 }
 ```

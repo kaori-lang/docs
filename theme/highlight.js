@@ -11,6 +11,8 @@ const kaori = {
 		{ include: "#operators" },
 		{ include: "#strings" },
 		{ include: "#variables" },
+		{ include: "#member_access" },
+		{ include: "#dict_keys" },
 		{ include: "#symbols" },
 	],
 	repository: {
@@ -18,10 +20,11 @@ const kaori = {
 			patterns: [
 				{
 					name: "keyword.control.kaori",
-					match: "\\b(fun|let|if|else|for|while|return|break|continue)\\b",
+					match: "\\b(fun|if|else|for|while|return|break|continue)\\b",
 				},
 			],
 		},
+
 		functions: {
 			patterns: [
 				{
@@ -37,14 +40,37 @@ const kaori = {
 				},
 			],
 		},
+
+		// 🔥 Variables (no more `let`)
 		variables: {
 			patterns: [
 				{
 					name: "variable.other.kaori",
-					match: "(?<=\\blet\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+					match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
 				},
 			],
 		},
+
+		// 🔥 Dict keys: {a: 5}
+		dict_keys: {
+			patterns: [
+				{
+					name: "variable.other.property.kaori",
+					match: "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*:)",
+				},
+			],
+		},
+
+		// 🔥 Member access: cat.name
+		member_access: {
+			patterns: [
+				{
+					name: "variable.other.property.kaori",
+					match: "(?<=\\.)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+				},
+			],
+		},
+
 		constants: {
 			patterns: [
 				{
@@ -53,6 +79,7 @@ const kaori = {
 				},
 			],
 		},
+
 		numbers: {
 			patterns: [
 				{
@@ -61,6 +88,7 @@ const kaori = {
 				},
 			],
 		},
+
 		operators: {
 			patterns: [
 				{
@@ -73,7 +101,11 @@ const kaori = {
 				},
 				{
 					name: "keyword.operator.assignment.kaori",
-					match: "(?<![=!<>])=(?!=)",
+					match: ":=|(?<![=!<>])=(?!=)",
+				},
+				{
+					name: "keyword.operator.assignment.compound.kaori",
+					match: "(\\+=|-=|\\*=|/=|%=)",
 				},
 				{
 					name: "keyword.operator.logical.kaori",
@@ -81,14 +113,19 @@ const kaori = {
 				},
 			],
 		},
+
 		strings: {
 			name: "string.quoted.double.kaori",
 			begin: '"',
 			end: '"',
 			patterns: [
-				{ name: "constant.character.escape.kaori", match: "\\\\." },
+				{
+					name: "constant.character.escape.kaori",
+					match: "\\\\.",
+				},
 			],
 		},
+
 		comments: {
 			patterns: [
 				{ name: "comment.line.double-slash.kaori", match: "//.*" },
@@ -105,6 +142,7 @@ const kaori = {
 				},
 			],
 		},
+
 		symbols: {
 			patterns: [
 				{

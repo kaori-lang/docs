@@ -9,6 +9,7 @@
 -   [Expressions and Operators](expressions-and-operators.md)
 -   [Control Flow](control-flow.md)
 -   [Functions](functions.md)
+-   [Object Oriented Programming](oop.md)
 -   [Error Reporting](error-reporting.md)
 -   [The Future](future.md)
 -   [Name Inspiration](name-inspiration.md)
