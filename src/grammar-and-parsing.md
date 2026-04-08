@@ -79,7 +79,9 @@ comparison -> term ((">" | ">=" | "<" | "<=") term)*
 
 term -> factor (("+" | "-") factor)*
 
-factor -> prefix_unary (("*" | "/") prefix_unary)*
+factor -> power (("*" | "/" | "%") power)*
+
+power -> prefix_unary ("**" power)?
 
 prefix_unary -> "-" prefix_unary | "not" logic_or
 

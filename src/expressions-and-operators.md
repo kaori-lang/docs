@@ -11,13 +11,16 @@ Kaori supports the standard arithmetic operators for mathematical calculations:
 -   `*` Multiplication
 -   `/` Division
 -   `%` Modulo (remainder)
+-   `**` Exponentiation (power)
 
-Multiplication, division, and modulo have higher precedence than addition and subtraction:
+Multiplication, division, and modulo have higher precedence than addition and subtraction. Exponentiation (`**`) has the highest precedence among arithmetic operators:
 
 ```kaori
-3 + 4 * 5;   // 23
-(3 + 4) * 5; // 35
-10 % 3;      // 1
+3 + 4 * 5;    // 23
+(3 + 4) * 5;  // 35
+10 % 3;       // 1
+2 ** 10;      // 1024
+2 + 3 ** 2;   // 11 (exponentiation before addition)
 ```
 
 ## Comparison Operators
@@ -58,16 +61,18 @@ Kaori provides compound assignment operators that combine an arithmetic operatio
 -   `*=` Multiply and assign
 -   `/=` Divide and assign
 -   `%=` Modulo and assign
+-   `**=` Exponentiate and assign
 
 ```kaori
 fun main() {
     x := 10;
 
-    x += 5;  // Equivalent to: x = x + 5  (x is now 15)
-    x -= 3;  // Equivalent to: x = x - 3  (x is now 12)
-    x *= 2;  // Equivalent to: x = x * 2  (x is now 24)
-    x /= 4;  // Equivalent to: x = x / 4  (x is now 6)
-    x %= 4;  // Equivalent to: x = x % 4  (x is now 2)
+    x += 5;   // Equivalent to: x = x + 5   (x is now 15)
+    x -= 3;   // Equivalent to: x = x - 3   (x is now 12)
+    x *= 2;   // Equivalent to: x = x * 2   (x is now 24)
+    x /= 4;   // Equivalent to: x = x / 4   (x is now 6)
+    x %= 4;   // Equivalent to: x = x % 4   (x is now 2)
+    x **= 3;  // Equivalent to: x = x ** 3  (x is now 8)
 }
 ```
 
@@ -93,6 +98,7 @@ fun main() {
     multiplier := 3;
 
     total *= multiplier + 2;  // total = total * (3 + 2) = 500
+    total **= 2;              // total = total ** 2 = 250000
 }
 ```
 
