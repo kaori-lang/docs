@@ -14,15 +14,15 @@ Kaori is a dynamically typed, simple programming language inspired by Python. It
 
 Variables in Kaori are declared using the `:=` operator. A variable is automatically created and initialized when you first assign to it. Since Kaori is dynamically typed, the type of a variable is determined at runtime by the value it holds.
 
-The most basic types are `number`, `bool`, and `string`:
+The most basic types are `number`, `bool`, `nil` and `string`:
 
 ```kaori
 fun main() {
-    foo := 5;        // number
-    bar := 10;       // number
-    foo_bar := true; // bool
-    is_valid := false; // bool
-    name := "Alice";   // string
+    foo := 5; // number
+    bar := true; // bool
+    name := "Alice"; // string
+    cat = {age: 4};
+    print(cat.name) // nil
 }
 ```
 

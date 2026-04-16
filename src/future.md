@@ -8,10 +8,10 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 
 | Language  | Version | Iterative (ms) | Iterative ± | Recursive (ms) | Recursive ± |
 | --------- | ------- | -------------- | ----------- | -------------- | ----------- |
-| **Kaori** | 1.0.0   | **324.802**    | 1.95%       | **37.642**     | 1.24%       |
-| Lua       | 5.4.2   | 214.700        | 1.60%       | 38.350         | 2.28%       |
-| Python    | 3.11.0  | 2381.799       | 5.75%       | 102.565        | 1.41%       |
-| PyPy      | 7.3.20  | 46.893         | 1.16%       | 21.390         | 0.86%       |
+| **Kaori** | 1.0.0   | **246.296**    | 1.40%       | **26.969**     | 0.86%       |
+| Lua       | 5.5.0   | 201.600        | 5.01%       | 36.500         | 3.14%       |
+| Python    | 3.14.4  | 3083.135       | 11.00%      | 102.384        | 2.50%       |
+| PyPy      | 7.3.20  | 47.110         | 1.67%       | 21.881         | 3.56%       |
 
 **Iterative**: `fib(30)` computed 10^6 times using an iterative algorithm  
 **Recursive**: `fib(30)` computed once using a naive recursive algorithm (no memoization)
@@ -23,7 +23,7 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 -   **Motherboard**: ASUS A320M
 -   **OS**: Windows 11
 
-> **Note:** These benchmarks are based on a specific Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks.
+> **Note:** These benchmarks are based on a specific Fibonacci implementation and should not be taken as comprehensive performance claims. Kaori is still in early development, and performance characteristics may vary significantly across different workloads and use cases. Real-world performance depends on many factors beyond microbenchmarks. Benchmark results may also be slightly outdated at times as the language continues to evolve.
 
 ## Development roadmap
 
@@ -42,11 +42,10 @@ Here's how Kaori compares to other dynamic languages when computing Fibonacci nu
 -   [x] Functions
 -   [x] Bytecode instructions
 -   [x] Register virtual machine
--   [x] Small optimizations
+-   [x] Optimizations
 -   [x] Dictionaries
 -   [ ] Vectors
 -   [ ] Standard library
 -   [ ] Garbage collector
 -   [ ] Error handling mechanisms
 -   [ ] Module system
--   [ ] Advanced optimizations
