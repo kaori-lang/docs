@@ -1,15 +1,26 @@
 # Summary
 
-[Kaori Programming Language](kaori.md)
+[Introduction](./introduction.md)
 
--   [Introduction](introduction.md)
--   [Grammar and Parsing](grammar-and-parsing.md)
--   [First Hello World](first-hello-world.md)
--   [Variables and Data Types](variables-and-types.md)
--   [Expressions and Operators](expressions-and-operators.md)
--   [Control Flow](control-flow.md)
--   [Functions](functions.md)
--   [Object Oriented Programming](oop.md)
--   [Error Reporting](error-reporting.md)
--   [The Future](future.md)
--   [Name Inspiration](name-inspiration.md)
+# Getting Started
+
+- [Installation](./installation.md)
+- [Hello World](./hello-world.md)
+- [Running a File](./running.md)
+
+# Language Guide
+
+- [Grammar](./grammar.md)
+- [Values and Types](./values-and-types.md)
+- [Variables](./variables.md)
+- [Operators](./operators.md)
+- [Control Flow](./control-flow.md)
+- [Functions](./functions.md)
+- [Maps](./maps.md)
+- [Mutable State](./mutable-state.md)
+- [Expressions](./expressions.md)
+
+# Advanced
+
+- [Closures](./closures.md)
+- [Object Oriented Programming](./oop.md)

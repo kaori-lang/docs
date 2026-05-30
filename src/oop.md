@@ -1,80 +1,79 @@
-# Object-Oriented Programming
+# Object Oriented Programming
 
-Kaori does not have classes or traditional object-oriented features. Instead, it uses dictionaries to represent objects. This keeps the language simple and flexible.
+Kaori has no built-in class system. Instead, object oriented programming is achieved through maps and functions, with `self` as a convention for the first argument.
 
-```kaori
-fun Cat(name, age, color) {
-    return {
-        name,
-        age,
-        color,
-    };
-}
-```
+## Constructors
 
-You can create object-like structures by returning dictionaries from functions.
-
-## Creating and Using Objects
+A constructor is just a function that returns a map:
 
 ```kaori
-fun Cat(name, age, color) {
-    return {
-        name,
-        age,
-        color,
-    };
+fun Cat(name, age) {
+    #{ name, age }
 }
 
-fun main() {
-    cat := Cat("meow", 5, "black");
-
-    print(cat.name);  // "meow"
-    print(cat.age);   // 5
-}
+let cat = Cat("whiskers", 5);
+print(cat.name); // whiskers
 ```
 
-## Updating fields
+## Methods
 
-Fields can be modified directly:
+Methods are plain functions that take the object as the first argument by convention called `self`:
 
 ```kaori
-fun Cat(name, age, color) {
-    return {
-        name,
-        age,
-        color,
-    };
+fun speak(self) {
+    "meow, I am " + self.name
 }
 
-fun main() {
-    cat := Cat("meow", 5, "black");
-    cat.age += 1;
-
-    print(cat.age); // 6
+fun set_age(self, age) {
+    self.age = age;
+    self
 }
+
+let cat = Cat("whiskers", 5);
+speak(cat);
+set_age(cat, 6);
 ```
 
-## Functions as Methods
+## Namespacing
 
-Functions can operate on objects by receiving them as arguments:
+To avoid name collisions, group related functions in a namespace map:
 
 ```kaori
-fun Cat(name, age, color) {
-    return {
-        name,
-        age,
-        color,
-    };
-}
+let Cat = #{
+    new: fun(name, age) { #{ name, age } },
 
-fun greet(self) {
-    print(self.name);
-}
+    speak: fun(self) {
+        "meow, I am " + self.name
+    },
 
-fun main() {
-    cat := Cat("meow", 5, "black");
-    greet(cat);
-}
+    set_age: fun(self, age) {
+        self.age = age;
+        self
+    },
+};
+
+let cat = Cat.new("whiskers", 5);
+Cat.speak(cat);
+Cat.set_age(cat, 6);
 ```
 
-This approach provides a simple and flexible way to structure data and behavior without introducing complex class systems.
+## Shared State
+
+Use ref cells when multiple closures need to share mutable state:
+
+```kaori
+fun make_counter() {
+    ref count = 0;
+
+    #{
+        increment: fun() { ^count += 1; },
+        decrement: fun() { ^count -= 1; },
+        get: fun() { ^count },
+    }
+}
+
+let c = make_counter();
+c.increment();
+c.increment();
+print(c.get()); // 2
+```

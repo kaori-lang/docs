@@ -103,9 +103,9 @@ const kaori = {
 		operators: {
 			patterns: [
 				{
-					// compound assignment — must come before arithmetic and plain =
-					name: "keyword.operator.assignment.compound.kaori",
-					match: "(\\+=|-=|\\*=|/=|%=)",
+					// pipe operator: |>
+					name: "keyword.operator.pipe.kaori",
+					match: "\\|>",
 				},
 				{
 					// deref: ^x
@@ -123,19 +123,24 @@ const kaori = {
 					match: "#(?=\\{)",
 				},
 				{
-					// comparison — before arithmetic so <= >= don't split
+					// arithmetic
+					name: "keyword.operator.arithmetic.kaori",
+					match: "[+\\-*/%]",
+				},
+				{
+					// comparison
 					name: "keyword.operator.comparison.kaori",
 					match: "(==|!=|<=|>=|<|>)",
 				},
 				{
-					// plain assignment — after compound and comparison
-					name: "keyword.operator.assignment.kaori",
-					match: "(?<![=!<>+\\-*/%])=(?!=)",
+					// compound assignment
+					name: "keyword.operator.assignment.compound.kaori",
+					match: "(\\+=|-=|\\*=|/=|%=)",
 				},
 				{
-					// arithmetic — after compound so += doesn't split
-					name: "keyword.operator.arithmetic.kaori",
-					match: "[+\\-*/%]",
+					// plain assignment
+					name: "keyword.operator.assignment.kaori",
+					match: "(?<![=!<>+\\-*/%])=(?!=)",
 				},
 				{
 					// logical keywords
@@ -241,41 +246,5 @@ const regexGrammar = {
 				},
 			],
 		},
-	},
-};
-
-let highlighter;
-
-window.hljs = {
-	configure() {
-		shikiModule = import("https://esm.sh/shiki@3.4.0");
-	},
-	/** @param {HTMLElement} block */
-	async highlightBlock(block) {
-		const lang = [...block.classList.values()]
-			.map((name) => name.match(/^language-(.+)$/)?.[1])
-			.filter(Boolean)[0];
-
-		if (!lang) {
-			return;
-		}
-
-		if (!highlighter) {
-			const { createHighlighter } = await shikiModule;
-
-			highlighter = await createHighlighter({
-				langs: ["rust", kaori, regexGrammar],
-				themes: ["aurora-x"],
-			});
-		}
-
-		const html = await highlighter.codeToHtml(block.innerText, {
-			lang,
-			theme: "aurora-x",
-		});
-
-		// Keep the <pre> element and its scroll
-		block.innerHTML = html.replace(/^<pre[^>]*>|<\/pre>$/g, "");
-		block.classList.add("shiki");
 	},
 };

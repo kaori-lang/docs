@@ -1,124 +1,99 @@
 # Control Flow
 
-Control flow allows you to decide how the code executes: you can branch into different paths or repeat code with loops. Kaori provides several control flow mechanisms to help you write expressive and efficient code.
+## If
 
-## If Statements
-
-An `if` statement runs a block of code only if its condition is true. You can chain multiple conditions using `else if` and provide a fallback with `else`.
+`if` is an expression — it produces a value:
 
 ```kaori
-fun main() {
-    if 10 > 5 {
-        print("10 is bigger");
-    } else if 2 < 3 {
-        print("2 is smaller");
-    } else {
-        print("all the other branches condition were false");
-    }
+let result = if x > 0 { "positive" } else { "non-positive" };
+```
+
+The `else` branch is optional. If omitted and the condition is false, the expression produces `nil`:
+
+```kaori
+if x > 0 {
+    print("positive");
 }
 ```
 
-The condition must evaluate to a boolean value. You can use comparison operators (`>`, `<`, `>=`, `<=`, `==`, `!=`) and logical operators (`and`, `or`, `not`) to build complex conditions.
-
-## While Loops
-
-A `while` loop runs a block of code repeatedly as long as the condition remains true. The condition is checked before each iteration.
+### Else If
 
 ```kaori
-fun main() {
-    i := 0;
+let sign = if x > 0 {
+    "negative"
+} else if x < 0 {
+    "negative"
+} else {
+    "zero"
+};
+```
 
-    while i < 3 {
-        print(i);
-        i += 1;
-    }
+### If as a Statement
+
+When used as a statement, the result is discarded:
+
+```kaori
+if x > 10 {
+    print("big");
+} else {
+    print("small");
 }
 ```
 
-## For Loops
+## While
 
-A `for` loop provides a more compact way to write loops with variable initialization, condition, and increment logic.
+`while` loops execute a block as long as the condition is true:
 
 ```kaori
-fun main() {
-    for i := 0; i < 3; i += 1 {
-        print(i);
-    }
+let i = 0;
+
+while i < 10 {
+    print(i);
+    i += 1;
 }
 ```
 
-The variable declared in the `for` loop is scoped to the loop body and cannot be accessed outside of it.
+### Break and Continue
 
-## Nested Loops
-
-Loops can be nested, which is useful for iterating over multiple dimensions or working with matrices and grids.
+Use `break` to exit a loop early and `continue` to skip to the next iteration:
 
 ```kaori
-fun main() {
-    for x := 0; x < 2; x += 1 {
-        for y := 0; y < 2; y += 1 {
-            print(x + y);
-        }
+let i = 0;
+
+while i < 10 {
+    if i == 5 {
+        break;
     }
+
+    print(i);
+    i += 1;
 }
 ```
 
-## Break Statement
-
-The `break` statement immediately exits the innermost loop, skipping any remaining iterations. This is useful when you want to stop a loop early based on a condition.
-
 ```kaori
-fun main() {
-    for i := 0; i < 10; i += 1 {
-        if i == 5 {
-            break;  // Exit the loop when i equals 5
-        }
-        print(i);
+let i = 0;
+
+while i < 10 {
+    i += 1;
+
+    if i % 2 == 0 {
+        continue;
     }
-    print("Loop finished");
+
+    print(i); // only prints odd numbers
 }
 ```
 
-In nested loops, `break` only exits the innermost loop:
+## Blocks
+
+A block is a sequence of expressions enclosed in `{ }`. The value of a block is its last expression if it has no trailing semicolon, otherwise `nil`:
 
 ```kaori
-fun main() {
-    for x := 0; x < 3; x += 1 {
-        for y := 0; y < 3; y += 1 {
-            if y == 2 {
-                break;  // Only exits the inner loop
-            }
-            print(x + y);
-        }
-    }
-}
-```
+let result = {
+    let x = 5;
+    let y = 10;
+    x + y      // no semicolon — this is the block's value
+};
 
-## Continue Statement
-
-The `continue` statement skips the rest of the current iteration and moves to the next iteration of the loop. This is useful when you want to skip specific cases without exiting the entire loop.
-
-```kaori
-fun main() {
-    for i := 0; i < 5; i += 1 {
-        if i == 2 {
-            continue;  // Skip printing when i equals 2
-        }
-        print(i);
-    }
-}
-```
-
-You can use `continue` to filter out unwanted iterations:
-
-```kaori
-fun main() {
-    // Print only even numbers
-    for i := 0; i < 10; i += 1 {
-        if i % 2 != 0 {
-            continue;  // Skip odd numbers
-        }
-        print(i);
-    }
-}
+print(result); // 15
 ```

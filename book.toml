@@ -8,4 +8,3 @@ default-theme = "light"
 preferred-dark-theme = "light"
 git-repository-url = "https://github.com/kaori-lang/kaori"
 edit-url-template = "https://github.com/kaori-lang/docs/edit/main/{path}"
-

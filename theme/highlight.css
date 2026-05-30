@@ -1,119 +1,88 @@
-/*
- * Aurora X Highlight.js Theme (Dark/Black Background)
- * Dark aesthetic, blue-violet accents, aurora glow
- */
-
- .hljs {
-  font-size: medium;
-  display: block;
-  overflow-x: auto;
-  background: #0c0c0c;        /* Almost pure black */
-  color: #EEFFFF;             /* Light text for high contrast */
-  padding: 1em;
-  border-radius: 0.5rem;
-  font-family: 'Fira Code', monospace;
-  line-height: 1.5;
+.hljs {
+    display: block;
+    overflow-x: auto;
+    background: #090b0f;
+    color: #e8eaf0;
+    padding: 1em;
+    border-radius: 0.5rem;
+    line-height: 1.6;
 }
 
-/* Comments & Quotes */
+/* Comments */
 .hljs-comment,
 .hljs-quote {
-  color: #546E7A;             /* muted cyan-gray */
-  font-style: italic;
+    color: #3a4a6a;
+    font-style: italic;
 }
 
-/* Keywords, Storage, Control */
+/* Keywords — let, ref, fun, if, while */
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-type,
 .hljs-built_in {
-  color: #C792EA;             /* purple */
-  text-shadow: 0 0 6px rgba(199, 146, 234, 0.25); /* subtle glow */
+    color: #7aa2d4;         /* same blue as sidebar-active */
 }
 
-/* Numbers, constants, literals */
+/* Numbers */
 .hljs-number,
-.hljs-literal,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-variable.constant_ {
-  color: #F78C6C;             /* orange */
-  text-shadow: 0 0 4px rgba(247, 140, 108, 0.2);
+.hljs-literal {
+    color: #a8c4e0;         /* lighter blue */
 }
 
-/* Strings & template variables */
+/* Strings */
 .hljs-string,
-.hljs-template-tag,
 .hljs-template-variable {
-  color: #C3E88D;             /* green */
-  text-shadow: 0 0 4px rgba(195, 232, 141, 0.2);
+    color: #b8d4f0;         /* pale blue-white */
 }
 
-/* Functions, methods, titles */
+/* Functions */
 .hljs-title,
-.hljs-title.function_,
-.hljs-function .hljs-title {
-  color: #82AAFF;             /* blue */
-  text-shadow: 0 0 6px rgba(130, 170, 255, 0.3);
+.hljs-title.function_ {
+    color: #c8dff5;         /* near white blue */
 }
 
-/* Classes, types, support */
-.hljs-class,
-.hljs-meta .hljs-class,
-.hljs-type-name,
-.hljs-built_in.class_ {
-  color: #FFCB6B;             /* gold */
-}
-
-/* Tags, operators, punctuation */
-.hljs-tag,
-.hljs-name,
-.hljs-attr,
-.hljs-attribute,
+/* Operators, punctuation */
 .hljs-operator,
 .hljs-punctuation {
-  color: #89DDFF;             /* cyan */
+    color: #5a7a9a;
 }
 
-/* HTML/XML tag names */
-.hljs-tag .hljs-name {
-  color: #F07178;             /* pink/red */
+/* Variables, identifiers */
+.hljs-variable,
+.hljs-attr {
+    color: #e8eaf0;
 }
 
-/* Meta info & annotations */
-.hljs-meta,
-.hljs-meta .hljs-keyword {
-  color: #C792EA;             /* purple */
+/* true, false, nil */
+.hljs-literal,
+.hljs-symbol {
+    color: #a8c4e0;
 }
 
-/* Diff add/delete */
+/* Types */
+.hljs-type,
+.hljs-class {
+    color: #d0e4f8;
+}
+
+/* Diff */
 .hljs-addition {
-  color: #C3E88D;
-  background-color: rgba(100, 211, 137, 0.15);
+    color: #3fb950;
+    background-color: rgba(63, 185, 80, 0.1);
 }
 
 .hljs-deletion {
-  color: #FF5370;
-  background-color: rgba(221, 80, 116, 0.15);
+    color: #f85149;
+    background-color: rgba(248, 81, 73, 0.1);
 }
 
-/* Emphasis & Strong */
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-/* Links */
-.hljs-link {
-  color: #82AAFF;
-  text-decoration: underline;
-}
-
-/* Optional line number or background contrast */
-.hljs-ln-code,
 pre code.hljs {
-  background-color: #0c0c0c;  /* Keep fully black for consistency */
+    background-color: #090b0f;
 }

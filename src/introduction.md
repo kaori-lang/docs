@@ -1,25 +1,22 @@
-# Introduction
+# Kaori
 
-Welcome to **Kaori**, a programming language created as a personal learning journey into the world of compilers and language design.
+Kaori is a dynamically typed scripting language implemented in Rust. It is designed to be simple and expressive
 
-## Purpose
+## Design Goals
 
-Kaori is an **educational project** built to explore and understand how programming languages work from the ground up. This is a learning-focused endeavor aimed at demystifying the concepts behind:
+- **Everything is an expression** — `if`, blocks, and functions all produce values
+- **Simple and explicit** — no magic, no hidden behavior
 
--   Lexical analysis and parsing
--   Semantic analysis
--   Dynamic typing and runtime type checking
--   Compiler optimization techniques
--   Optimal bytecode generation and virtual machines
+## Examples
 
-The primary goal is **education**—both for myself as the creator and for anyone interested in learning about compiler construction and language implementation.
+```kaori
+fun fib(n) {
+    if n < 2 {
+        n
+    } else {
+        fib(n - 1) + fib(n - 2)
+    }
+}
 
-## Who is This For?
-
-This project and documentation are intended for:
-
--   Students interested in compiler design
--   Developers curious about how languages are built
--   Anyone who wants to peek under the hood of a programming language
-
-The documentation aims to be as **informative as possible**, explaining not just how to use the language, but also the reasoning behind design decisions and implementation details.
+fib(40);
+```

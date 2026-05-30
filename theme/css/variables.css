@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* Globals */
+* {
+    font-variant-ligatures: none;
+}
 
 :root {
     --sidebar-target-width: 300px;
@@ -9,11 +12,11 @@
     --page-padding: 15px;
     --content-max-width: 750px;
     --menu-bar-height: 50px;
-    --mono-font: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
-    --code-font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
+    --code-font-size: 0.875em;
     --searchbar-margin-block-start: 5px;
+     --font-family: "Bricolage Grotesque", sans-serif;
+    --mono-font: "JetBrains Mono", monospace;
 }
-
 /* Themes */
 
 .ayu {
@@ -138,69 +141,69 @@
     --sidebar-header-border-color: #3473ad;
 }
 
+
 .light, html:not(.js) {
     /* Base Colors */
-    --bg: #121212;
-    --fg: hsl(0, 0%, 95%);
+    --bg: #0d0f14;
+    --fg: #e8eaf0;
 
     /* Sidebar */
-    --sidebar-bg: #0c0c0c;
-    --sidebar-fg: hsl(0, 0%, 95%);
-    --sidebar-non-existant: #0c0c0c;
-    --sidebar-active: #ff6363;
-    --sidebar-spacer: #0c0c0c;
-    --sidebar-header-border-color: #ff6363;
+    --sidebar-bg: #090b0f;
+    --sidebar-fg: #e8eaf0;
+    --sidebar-non-existant: #1a1e2a;
+    --sidebar-active: #7aa2d4;
+    --sidebar-spacer: #1a1e2a;
+    --sidebar-header-border-color: #7aa2d4;
 
     /* Scrollbar */
-    --scrollbar: #1a1a1a;
+    --scrollbar: #1a1e2a;
 
     /* Icons */
-    --icons: #909090;
-    --icons-hover: #ffffff;
+    --icons: #4a5570;
+    --icons-hover: #e8eaf0;
 
     /* Links */
-    --links: #58a6ff;
+    --links: #7aa2d4;
 
     /* Inline code */
-    --inline-code-color: #ff6363;
- 
+    --inline-code-color: #a8c4e0;
 
     /* Theme popup */
-    --theme-popup-bg: #0c0c0c;
-    --theme-popup-border: #1a1a1a;
-    --theme-hover: #0c0c0c;
+    --theme-popup-bg: #090b0f;
+    --theme-popup-border: #1a1e2a;
+    --theme-hover: #131720;
 
     /* Quotes */
-    --quote-bg: #1b1b1b;
-    --quote-border: #1a1a1a;
+    --quote-bg: #131720;
+    --quote-border: #7aa2d4;
 
     /* Warnings */
     --warning-border: #ff8e00;
 
     /* Tables */
-    --table-border-color: #1a1a1a;
-    --table-header-bg: #0c0c0c;
-    --table-alternate-bg: #1b1b1b;
+    --table-border-color: #1a1e2a;
+    --table-header-bg: #131720;
+    --table-alternate-bg: #0f1219;
 
     /* Search */
-    --searchbar-border-color: #1a1a1a;
-    --searchbar-bg: #0c0c0c;
-    --searchbar-fg: #e0e0e0;
+    --searchbar-border-color: #1a1e2a;
+    --searchbar-bg: #090b0f;
+    --searchbar-fg: #e8eaf0;
     --searchbar-shadow-color: #000000;
-    --searchresults-header-fg: #777777;
-    --searchresults-border-color: #1a1a1a;
-    --searchresults-li-bg: #0c0c0c;
-    --search-mark-bg: #2a3a50;
+    --searchresults-header-fg: #4a5570;
+    --searchresults-border-color: #1a1e2a;
+    --searchresults-li-bg: #090b0f;
+    --search-mark-bg: #1e3a5f;
 
     /* Misc */
     --color-scheme: dark;
-    --copy-button-filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
+    --copy-button-filter: invert(60%) sepia(10%) saturate(300%) hue-rotate(200deg) brightness(90%) contrast(90%);
     --copy-button-filter-hover: invert(90%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(90%);
-    --footnote-highlight: #6b6bff;
+    --footnote-highlight: #7aa2d4;
     --overlay-bg: #000000d9;
 
     /* Blockquote categories */
-    --blockquote-note-color: #58a6ff;
+    --blockquote-note-color: #7aa2d4;
     --blockquote-tip-color: #3fb950;
     --blockquote-important-color: #a371f7;
     --blockquote-warning-color: #d29922;
