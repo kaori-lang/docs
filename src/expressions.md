@@ -56,11 +56,10 @@ let label = {
 let label = if score > 90 { "A" } else { "B" };
 ```
 
-The `else` branch is optional, but without it the expression produces `nil` when the condition is false:
+When `if` is used as an expression, the `else` branch is required:
 
 ```kaori
-let a = if true { 42 };  // a = 42
-let b = if false { 42 }; // b = nil
+let label = if score > 90 { "A" } else { "B" };
 ```
 
 `if` chains work the same way, the value comes from whichever branch is taken:

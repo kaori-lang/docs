@@ -8,7 +8,7 @@
 let result = if x > 0 { "positive" } else { "non-positive" };
 ```
 
-The `else` branch is optional. If omitted and the condition is false, the expression produces `nil`:
+The `else` branch is optional when `if` is used as a statement. When used as an expression in value position, the `else` branch is required:
 
 ```kaori
 if x > 0 {
