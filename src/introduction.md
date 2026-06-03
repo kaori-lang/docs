@@ -1,13 +1,8 @@
 # Kaori
 
-Kaori is a dynamically typed scripting language implemented in Rust. It is designed to be simple and expressive
+Kaori is a dynamically typed scripting language implemented in Rust. It takes inspiration from Rust and Lua, and is designed to be simple, explicit, and expressive.
 
-## Design Goals
-
-- **Everything is an expression** — `if`, blocks, and functions all produce values
-- **Simple and explicit** — no magic, no hidden behavior
-
-## Examples
+## Example
 
 ```kaori
 fun fib(n) {

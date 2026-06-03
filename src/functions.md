@@ -12,7 +12,7 @@ fun add(a, b) {
 print(add(1, 2)); // 3
 ```
 
-The return value is the last expression in the function body. No `return` keyword needed:
+The return value is the last expression in the body with no trailing semicolon, so no `return` keyword is needed in the common case:
 
 ```kaori
 fun max(a, b) {
@@ -25,33 +25,22 @@ fun max(a, b) {
 Use `return` to exit a function early:
 
 ```kaori
-fun find(value, list) {
-    let i = 0;
-
-    while i < list.len {
-        if list[i] == value {
-            return i;
-        }
-        i += 1;
+fun sign(x) {
+    if x > 0 {
+        return "positive";
     }
 
-    nil
+    if x < 0 {
+        return "negative";
+    }
+
+    "zero"
 }
 ```
 
-## Anonymous Functions
+## First-Class Functions
 
-Functions without a name are anonymous:
-
-```kaori
-let add = fun(a, b) { a + b };
-
-print(add(1, 2)); // 3
-```
-
-## First Class Functions
-
-Functions are values — they can be passed as arguments and returned from other functions:
+Functions are values and can be passed as arguments or returned from other functions:
 
 ```kaori
 fun apply(f, x) {
@@ -63,6 +52,43 @@ fun double(x) {
 }
 
 print(apply(double, 5)); // 10
+```
+
+## Lambdas
+
+For anonymous functions, use the lambda syntax `|params| body`:
+
+```kaori
+let add = |a, b| a + b;
+
+print(add(1, 2)); // 3
+```
+
+The body can also be a block:
+
+```kaori
+let add = |a, b| {
+    a + b
+};
+```
+
+Lambdas are expressions, so they can appear anywhere a value is expected — as arguments, inside maps, or in assignments:
+
+```kaori
+let ops = #{
+    add: |a, b| a + b,
+    sub: |a, b| a - b,
+};
+
+print(ops.add(3, 2)); // 5
+```
+
+```kaori
+fun apply(f, x) {
+    f(x)
+}
+
+print(apply(|x| x * 2, 5)); // 10
 ```
 
 ## Recursion
@@ -83,15 +109,4 @@ print(fib(10)); // 55
 
 ## Closures
 
-Functions capture variables from their enclosing scope by value:
-
-```kaori
-fun make_adder(x) {
-    fun(y) { x + y }
-}
-
-let add5 = make_adder(5);
-print(add5(3)); // 8
-```
-
-See [Closures](./closures.md) for more details.
+Both named functions and lambdas can capture variables from their enclosing scope. See [Closures](./closures.md) for details.

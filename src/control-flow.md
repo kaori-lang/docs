@@ -2,7 +2,7 @@
 
 ## If
 
-`if` is an expression — it produces a value:
+`if` is an expression, so it produces a value. It is also a block-like construct, so it does not need a trailing semicolon:
 
 ```kaori
 let result = if x > 0 { "positive" } else { "non-positive" };
@@ -20,7 +20,7 @@ if x > 0 {
 
 ```kaori
 let sign = if x > 0 {
-    "negative"
+    "positive"
 } else if x < 0 {
     "negative"
 } else {
@@ -30,7 +30,7 @@ let sign = if x > 0 {
 
 ### If as a Statement
 
-When used as a statement, the result is discarded:
+When used as a statement, the result is simply discarded:
 
 ```kaori
 if x > 10 {
@@ -42,7 +42,7 @@ if x > 10 {
 
 ## While
 
-`while` loops execute a block as long as the condition is true:
+`while` loops execute a block as long as the condition is true. Like `if`, no trailing semicolon is needed:
 
 ```kaori
 let i = 0;
@@ -82,18 +82,4 @@ while i < 10 {
 
     print(i); // only prints odd numbers
 }
-```
-
-## Blocks
-
-A block is a sequence of expressions enclosed in `{ }`. The value of a block is its last expression if it has no trailing semicolon, otherwise `nil`:
-
-```kaori
-let result = {
-    let x = 5;
-    let y = 10;
-    x + y      // no semicolon — this is the block's value
-};
-
-print(result); // 15
 ```

@@ -1,22 +1,30 @@
 # Variables
 
-Kaori has two kinds of variable declarations — `let` bindings and `ref` cells.
+Kaori has three kinds of variable declarations: `const`, `let`, and `ref`. They differ in whether the binding can be reassigned and where the value lives.
 
-## Let Bindings
+## Const
 
-Use `let` to declare a variable. The value lives on the stack and can be reassigned:
+`const` declares a constant. It cannot be reassigned and its value cannot be mutated:
+
+```kaori
+const pi = 3.14159;
+const name = "kaori";
+```
+
+## Let
+
+`let` declares a variable that can be freely reassigned:
 
 ```kaori
 let x = 5;
-let name = "kaori";
-
-x = 10;       // reassignment is fine
-name = "new"; // fine too
+x = 10;
+x += 1;
+print(x); // 11
 ```
 
-## Ref Cells
+## Ref
 
-Use `ref` to declare a mutable cell. Unlike `let`, the value is heap allocated, which allows it to be shared and mutated across closures:
+`ref` declares a ref cell whose value lives on the heap. The binding itself cannot be reassigned, but the value it holds can be read and written through the `^` operator:
 
 ```kaori
 ref count = 0;
@@ -27,30 +35,52 @@ ref count = 0;
 print(^count); // 2
 ```
 
-## The Difference
+Attempting to reassign the binding directly is an error:
 
-The key difference between `let` and `ref` is not mutability — both can be mutated. The difference is **where the value lives**:
+```kaori
+ref x = 5;
+x = 10; // error: cannot reassign a ref binding
+```
 
-- `let` — value lives on the stack. Fast, but cannot be shared across closures.
-- `ref` — value lives on the heap. Slightly more overhead, but can be captured and mutated across multiple closures.
+## Why Ref Exists
+
+All closures in Kaori capture variables by value at the time of creation. For a `let` binding, the closure gets a copy of the value, so any later mutations to the original are not visible inside the closure:
 
 ```kaori
 let x = 5;
+let f = || x;
 
-let f = fun() {
-    x = 10; // error: cannot mutate a captured let binding
-};
+x = 10;
+print(f()); // 5 — f captured a copy of x's value
 ```
+
+With a `ref`, the closure captures a copy of the ref cell. Since both copies of the cell refer to the same heap value, any write through `^` is visible to every closure that captured it:
 
 ```kaori
 ref x = 5;
 
-let f = fun() {
-    ^x = 10; // fine — ref cell lives on the heap, closure captures the pointer
-};
+let f = || ^x;
 
-f();
-print(^x); // 10
+^x = 10;
+print(f()); // 10 — both the original and the closure's copy refer to the same heap value
+```
+
+This is the primary reason to reach for `ref` — when you need multiple closures to share and mutate a single value:
+
+```kaori
+fun make_counter() {
+    ref count = 0;
+
+    let increment = || { ^count += 1; };
+    let get = || ^count;
+
+    #{ increment, get }
+}
+
+let counter = make_counter();
+counter.increment();
+counter.increment();
+print(counter.get()); // 2
 ```
 
 ## Scope
@@ -62,15 +92,21 @@ let x = 5;
 
 {
     let y = 10;
-    print(x + y); // 15 — x is accessible here
+    print(x + y); // 15
 }
 
-print(y); // error: y is not declared
+print(y); // error: y is not in scope
 ```
 
 ## Shadowing
 
-A variable can be shadowed by declaring a new variable with the same name in an inner scope:
+A variable can be shadowed by declaring a new one with the same name. This is allowed both in inner scopes and within the same block:
+
+```kaori
+let x = 5;
+let x = 10; // shadows the previous x
+print(x);   // 10
+```
 
 ```kaori
 let x = 5;
@@ -80,5 +116,5 @@ let x = 5;
     print(x);   // 10
 }
 
-print(x); // 5 — outer x is unchanged
+print(x); // 5
 ```

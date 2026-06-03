@@ -1,6 +1,6 @@
 # Values and Types
 
-Kaori is dynamically typed — values carry their type at runtime.
+Kaori is dynamically typed, meaning values carry their type at runtime.
 
 ## Number
 
@@ -14,7 +14,7 @@ let z = -2.5;
 
 ## String
 
-Strings are immutable sequences of characters, delimited by double quotes:
+Strings are immutable sequences of characters enclosed in double quotes:
 
 ```kaori
 let name = "kaori";
@@ -44,7 +44,7 @@ let nothing = nil;
 
 ## Map
 
-Maps are the primary data structure in Kaori — key-value pairs enclosed in `#{ }`:
+Maps are the primary data structure in Kaori, holding key-value pairs enclosed in `#{ }`:
 
 ```kaori
 let cat = #{ name: "whiskers", age: 5 };
@@ -54,17 +54,21 @@ See [Maps](./maps.md) for more.
 
 ## Function
 
-Functions are first-class values:
+Functions are first-class values. Named functions are declared with `fun`, and anonymous functions use the lambda syntax:
 
 ```kaori
-let add = fun(a, b) { a + b };
+fun add(a, b) {
+    a + b
+}
+
+let add = |a, b| a + b;
 ```
 
-See [Functions](./functions.md) for more.
+See [Functions](./functions.md) and [Closures](./closures.md) for more.
 
 ## Ref Cell
 
-A ref cell is a heap-allocated mutable container. Use `ref` to create one and `^` to read or write through it:
+A ref cell holds a heap-allocated value. Use `ref` to create one and `^` to read or write through it:
 
 ```kaori
 ref count = 0;
@@ -72,7 +76,7 @@ ref count = 0;
 print(^count); // 1
 ```
 
-See [Mutable State](./mutable-state.md) for more.
+See [Variables](./variables.md) for more.
 
 ## Type Checking
 

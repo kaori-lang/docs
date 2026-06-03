@@ -3,7 +3,39 @@
 This page is a formal reference for the Kaori grammar.
 
 ```regex-grammar
-program -> expression*
+program -> statement*
+
+statement -> block
+           | if
+           | function
+           | while
+           | break
+           | continue
+           | return
+           | variable
+           | constant
+           | ref
+           | expression
+
+block -> "{" (statement ";")* statement? "}"
+
+if -> "if" expression block ("else" (block | if))?
+
+while -> "while" expression block
+
+function -> "fun" identifier "(" parameters ")" block
+
+break -> "break"
+
+continue -> "continue"
+
+return -> "return" expression
+
+variable -> "let" identifier "=" expression
+
+constant -> "const" identifier "=" expression
+
+ref -> "ref" identifier "=" expression
 
 expression -> assignment
 
@@ -35,15 +67,11 @@ primary -> number
          | "(" expression ")"
          | block
          | if
-         | while
-         | function
-         | variable
-         | ref
-         | return
-         | break
-         | continue
+         | lambda
          | map
          | identifier postfix*
+
+lambda -> "|" parameters "|" (block | expression)
 
 postfix -> call
          | member
@@ -54,40 +82,10 @@ member -> "." identifier
 
 arguments -> (expression ("," expression)*)?
 
-block -> "{" (expression ";")* expression? "}"
-
-if -> "if" expression block ("else" (block | if))?
-
-while -> "while" expression block
-
-function -> "fun" identifier? "(" parameters ")" block
-
 parameters -> (identifier ("," identifier)*)?
-
-variable -> "let" identifier "=" expression
-
-ref -> "ref" identifier "=" expression
-
-return -> "return" expression
-
-break -> "break"
-
-continue -> "continue"
 
 map -> "#{" (map_field ("," map_field)* ","?)? "}"
 
 map_field -> expression ":" expression
            | identifier
 ```
-
-## Notes
-
-**Semicolons** are required after most expressions. Block expressions (`if`, `while`, `fun`, `{}`) do not need a trailing semicolon:
-
-```kaori
-let x = 5;          // semicolon required
-if x > 0 { x }      // no semicolon needed
-fun foo() { x }     // no semicolon needed
-```
-
-**Everything is an expression** — `if`, blocks, and function definitions all produce values. `while`, `return`, `break`, `continue`, `let`, and `ref` do not produce values and cannot be used in value position.

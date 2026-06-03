@@ -1,35 +1,56 @@
 # Closures
 
-A closure is a function that captures variables from its enclosing scope.
+A closure is a function or lambda that captures variables from its enclosing scope.
 
 ## Capture by Value
 
-Kaori captures `let` variables **by value** — the closure gets a copy of the variable's value at the time of creation:
+All closures in Kaori capture variables by value at the time of creation. This applies to both named functions and lambdas:
 
 ```kaori
 let x = 5;
 
-let f = fun() { x };
+let f = || x;
 
-x = 10;       // mutate x after closure creation
-print(f());   // 5 — closure captured the original value
+x = 10;        // reassign x after the closure was created
+print(f());    // 5, f captured the original value
 ```
+
+```kaori
+let x = 5;
+
+fun f() {
+    x
+}
+
+x = 10;
+print(f()); // 5, f captured the original value
+```
+
+For `const` and `let`, the closure receives a copy of the value itself.
 
 ## Capturing Ref Cells
 
-To share mutable state between closures, capture a `ref` cell. The cell pointer is copied by value, but all closures that capture it point to the same heap-allocated cell:
+For `ref` bindings, what gets captured by value is the ref cell. Since all copies of the cell refer to the same heap value, any write through `^` is visible to every closure that captured it:
+
+```kaori
+ref x = 5;
+
+let f = || ^x;
+
+^x = 10;
+print(f()); // 10, all copies of the ref cell refer to the same heap value
+```
+
+This is the main reason `ref` exists — to let multiple closures share and mutate a single value.
+
+## Shared State Between Closures
 
 ```kaori
 fun make_counter() {
     ref count = 0;
 
-    let increment = fun() {
-        ^count += 1;
-    };
-
-    let get = fun() {
-        ^count
-    };
+    let increment = || { ^count += 1; };
+    let get = || ^count;
 
     #{ increment, get }
 }
@@ -42,7 +63,7 @@ print(counter.get()); // 2
 
 ## Closures as Callbacks
 
-Closures are commonly passed as arguments:
+Closures are commonly passed as arguments to other functions:
 
 ```kaori
 fun repeat(n, f) {
@@ -54,7 +75,7 @@ fun repeat(n, f) {
     }
 }
 
-repeat(5, fun(i) {
+repeat(5, |i| {
     print(i);
 });
 ```
@@ -65,7 +86,7 @@ Functions can return closures:
 
 ```kaori
 fun make_adder(x) {
-    fun(y) { x + y }
+    |y| x + y
 }
 
 let add5 = make_adder(5);

@@ -17,10 +17,8 @@
 - [Control Flow](./control-flow.md)
 - [Functions](./functions.md)
 - [Maps](./maps.md)
-- [Mutable State](./mutable-state.md)
 - [Expressions](./expressions.md)
 
 # Advanced
 
 - [Closures](./closures.md)
-- [Object Oriented Programming](./oop.md)

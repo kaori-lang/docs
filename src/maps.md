@@ -1,6 +1,6 @@
 # Maps
 
-Maps are the primary data structure in Kaori — collections of key-value pairs.
+Maps are the primary data structure in Kaori, holding collections of key-value pairs.
 
 ## Creating Maps
 
@@ -58,7 +58,7 @@ print(cat.address.city); // Springfield
 
 ## Shorthand Fields
 
-When a field name and variable name are the same, you can use shorthand syntax:
+When a field name matches a variable name in scope, you can omit the value:
 
 ```kaori
 let name = "whiskers";
@@ -67,22 +67,3 @@ let age = 5;
 let cat = #{ name, age };
 // equivalent to: #{ name: name, age: age }
 ```
-
-## Maps as Modules
-
-Maps are used to group related functions together, similar to modules or objects in other languages:
-
-```kaori
-fun Cat(name, age) {
-    #{ name, age }
-}
-
-fun speak(self) {
-    "meow, I am " + self.name
-}
-
-let cat = Cat("whiskers", 5);
-
-```
-
-See [Object Oriented Programming](./oop.md) for more.

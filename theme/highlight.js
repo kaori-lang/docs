@@ -29,7 +29,10 @@ const kaori = {
 		declarations: {
 			patterns: [
 				{
-					// let x = ...
+					name: "keyword.declaration.const.kaori",
+					match: "\\bconst\\b",
+				},
+				{
 					name: "keyword.declaration.kaori",
 					match: "\\b(let|ref|fun)\\b",
 				},
@@ -103,9 +106,9 @@ const kaori = {
 		operators: {
 			patterns: [
 				{
-					// compound assignment — must come before arithmetic and plain =
-					name: "keyword.operator.assignment.compound.kaori",
-					match: "(\\+=|-=|\\*=|/=|%=)",
+					// lambda pipes: |params|
+					name: "punctuation.definition.lambda.kaori",
+					match: "\\|",
 				},
 				{
 					// deref: ^x
@@ -113,29 +116,29 @@ const kaori = {
 					match: "\\^",
 				},
 				{
-					// ref creation: &x
-					name: "keyword.operator.ref.kaori",
-					match: "&",
-				},
-				{
 					// map literal: #{
 					name: "punctuation.definition.map.kaori",
 					match: "#(?=\\{)",
 				},
 				{
-					// comparison — before arithmetic so <= >= don't split
+					// arithmetic
+					name: "keyword.operator.arithmetic.kaori",
+					match: "[+\\-*/%]",
+				},
+				{
+					// comparison
 					name: "keyword.operator.comparison.kaori",
 					match: "(==|!=|<=|>=|<|>)",
 				},
 				{
-					// plain assignment — after compound and comparison
-					name: "keyword.operator.assignment.kaori",
-					match: "(?<![=!<>+\\-*/%])=(?!=)",
+					// compound assignment
+					name: "keyword.operator.assignment.compound.kaori",
+					match: "(\\+=|-=|\\*=|/=|%=)",
 				},
 				{
-					// arithmetic — after compound so += doesn't split
-					name: "keyword.operator.arithmetic.kaori",
-					match: "[+\\-*/%]",
+					// plain assignment
+					name: "keyword.operator.assignment.kaori",
+					match: "(?<![=!<>+\\-*/%])=(?!=)",
 				},
 				{
 					// logical keywords
