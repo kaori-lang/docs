@@ -4,7 +4,7 @@ Kaori has three kinds of variable declarations: `const`, `let`, and `ref`. They 
 
 ## Const
 
-`const` declares a constant. It cannot be reassigned and its value cannot be mutated:
+`const` declares a constant binding that cannot be reassigned:
 
 ```kaori
 const pi = 3.14159;
